@@ -1,33 +1,35 @@
-var templateLocator = require('../lib/template-locator');
-var expect = require('chai').expect;
+/* eslint-env node, mocha */
 
-var expectedTemplates = [
+const templateLocator = require('../lib/template-locator')
+const expect = require('chai').expect
+
+const expectedTemplates = [
   {
     input: {type: 'post', id: 0, slug: 'test-post'},
-    expected: ['index', 'singular', 'single', 'single-post']
+    expected: ['single-post.pug', 'single.pug', 'singular.pug', 'index.pug']
   },
   {
     input: {type: 'page', id: 10, slug: 'this-is-page-slug'},
-    expected: ['index', 'singular', 'page', 'page-10', 'page-this-is-page-slug']
+    expected: ['page-this-is-page-slug.pug', 'page-10.pug', 'page.pug', 'singular.pug', 'index.pug']
   },
   {
     input: {type: 'search'},
-    expected: ['index', 'search']
+    expected: ['search.pug', 'index.pug']
   },
   {
     input: {type: '404'},
-    expected: ['index', '404']
+    expected: ['404.pug', 'index.pug']
   },
   {
-    input: {type: 'post_type_archive', post_type_archive_type: 'custom-post-type'},
-    expected: ['index', 'archive', 'archive-custom-post-type']
+    input: {type: 'post_type_archive', postType: 'custom-post-type'},
+    expected: ['archive-custom-post-type.pug', 'archive.pug', 'index.pug']
   }
-];
+]
 
-describe('TemplateLocator', function(){
-  describe('Locates templates for various page types', function(){
-    expectedTemplates.forEach(function(element, index){
-      it('Should match expected results for test input type: ' + element.input.type, function(){
+describe('TemplateLocator', () => {
+  describe('Locates templates for various page types', () => {
+    expectedTemplates.forEach((element, index) => {
+      it('Should match expected results for test input type: ' + element.input.type, () => {
         var result = templateLocator(element.input)
 
         expect(result).to.deep.equal(element.expected)
