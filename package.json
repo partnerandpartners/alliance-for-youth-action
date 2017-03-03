@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "NODE_ENV=development gulp dev",
-    "build": "NODE_ENV=production gulp build"
+    "build": "NODE_ENV=production gulp build",
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "axios": "^0.15.2",
@@ -18,6 +19,8 @@
     "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
-    "gulp-server-livereload": "^1.9.2"
+    "chai": "^3.5.0",
+    "gulp-server-livereload": "^1.9.2",
+    "mocha": "^3.2.0"
   }
 }
