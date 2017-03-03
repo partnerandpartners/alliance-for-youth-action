@@ -2,11 +2,13 @@
   "scripts": {
     "dev": "NODE_ENV=development gulp dev",
     "build": "NODE_ENV=production gulp build",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha",
+    "lint": "node ./node_modules/eslint/bin/eslint.js lib/ generate.js test/"
   },
   "dependencies": {
     "axios": "^0.15.2",
     "config": "^1.25.1",
+    "eslint-config-standard": "^7.0.0",
     "fs-promise": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -20,6 +22,10 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.16.1",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "gulp-server-livereload": "^1.9.2",
     "mocha": "^3.2.0"
   }
