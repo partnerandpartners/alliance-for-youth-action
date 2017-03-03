@@ -24,6 +24,16 @@ function generate_front_page(siteData, templatesCompiled) {
     // Render the blog page
   }
 }
+
+function generate_sitemap(siteData, templatesCompiled) {
+  var postTemplate = templatesCompiled['sitemap.pug']
+  var postRendered = postTemplate({site: siteData})
+  var outputPath = path.join(config.sitePath, 'sitemap', 'index.html')
+
+  fsp.outputFile(outputPath, postRendered)
+}
+
+
 //
 // function generate_archive_pages(siteData, templatesCompiled) {
 //   Object.keys(siteData.taxonomies).forEach((taxonomy) => {
@@ -58,11 +68,11 @@ function generate_post_type_archive_pages(siteData, templatesCompiled) {
 }
 
 function generate_singular_pages(siteData, templatesCompiled) {
-  var pages = siteData.posts.filter((post) => {
-    return post.type === 'page'
-  })
+  // var pages = siteData.posts.filter((post) => {
+  //   return post.type === 'page'
+  // })
 
-  pages.forEach((page) => {
+  siteData.posts.forEach((page) => {
     if (page.id !== siteData.site.page_for_posts) {
       writeTemplate({post: page}, templatesCompiled, 'index.pug', siteData);
     }
@@ -186,6 +196,7 @@ function generate() {
 
       generate_front_page(siteData, templatesCompiled);
       // generate_archive_pages(siteData, templatesCompiled);
+      generate_sitemap(siteData, templatesCompiled);
       generate_singular_pages(siteData, templatesCompiled);
       generate_404_page(siteData, templatesCompiled);
       // generate_search_page(siteData);
