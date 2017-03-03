@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 Sitemap
+
+  h2 Pages
+  ul
+    each post in site.posts
+      if post.type === 'page'
+        li
+          a(href=post.permalink) #{post.title}
+
+  h2 Posts
+  ul
+    each post in site.posts
+      if post.type === 'post'
+        li
+          a(href=post.permalink) #{post.title}
+
+
+  h2 Campaigns
+  ul
+    each post in site.posts
+      if post.type === 'campaigns'
+        li
+          a(href=post.permalink) #{post.title}
