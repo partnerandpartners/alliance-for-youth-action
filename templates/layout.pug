@@ -7,15 +7,16 @@ html(lang="en-us")
   body
     header#header
       .container
-        a(href="/")= site.site.name
+        .header-content
+          a(href="/")= site.site.name
 
-        if site.menus && site.menus.main
-          nav
-            ul
-              each menuItem in site.menus.main
-                li #[a(href=menuItem.url)= menuItem.title]
+          if site.menus && site.menus.main
+            nav
+              ul
+                each menuItem in site.menus.main
+                  li #[a(href=menuItem.url)= menuItem.title]
 
-    section#container
+    section#content
       .container
         block content
 
@@ -26,5 +27,8 @@ html(lang="en-us")
             ul
               each menuItem in site.menus.footer
                 li #[a(href=menuItem.url)= menuItem.title]
+      .container
+        p
+          a(href="/sitemap/") Sitemap
 
     script(src="/js/script.js")
