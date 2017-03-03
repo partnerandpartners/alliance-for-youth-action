@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  if post
+    h1= post.title
+    div!= post.content
 
-  h1= post.title
-  div!= post.content
+  if page
+    h1= page.title
+    div!= page.content
