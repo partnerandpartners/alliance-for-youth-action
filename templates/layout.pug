@@ -1,0 +1,30 @@
+doctype html
+html(lang="en-us")
+  head
+    meta(charset="utf-8")
+    title
+    link(href="/css/style.css" rel="stylesheet" type="text/css")
+  body
+    header#header
+      .container
+        a(href="/")= site.site.name
+
+        if site.menus && site.menus.main
+          nav
+            ul
+              each menuItem in site.menus.main
+                li #[a(href=menuItem.url)= menuItem.title]
+
+    section#container
+      .container
+        block content
+
+    footer#footer
+      .container
+        if site.menus && site.menus.footer
+          nav
+            ul
+              each menuItem in site.menus.footer
+                li #[a(href=menuItem.url)= menuItem.title]
+
+    script(src="/js/script.js")
