@@ -1,10 +1,65 @@
 extends layout
 
 block content
-  h1 Styleguide
+  .display-1.xs-m-b-3 Styleguide
 
-  h2 Typography
+  .row
+    .col.xs-m-b-3
+      .display-2 Typography
 
-  h2 Buttons
+  .row
+    .col.xs-p-l-3
+      .display-2 Display 1
+      pre #[code .display-1]
+      .display-2 Display 2
+      pre #[code .display-2]
+      .display-3 Display 3
+      pre #[code .display-3]
+      .display-4 Display 4
+      pre #[code .display-4]
 
-  h2 Form Components
+      h1 Heading h1
+      pre #[code h1, .h1]
+      h2 Heading h2
+      pre #[code h2, .h2]
+      h3 Heading h3
+      pre #[code h3, .h3]
+      h4 Heading h4
+      pre #[code h4, .h4]
+      h5 Heading h5
+      pre #[code h5, .h5]
+      h6 Heading h6
+      pre #[code h6, .h6]
+
+  .row
+    .col.xs-m-b-3
+      .display-2 Buttons
+
+  button Button Element
+  input(type="submit" value="Input type submit")
+
+  .row
+    .col.xs-m-b-3
+      .display-2 Form Components
+
+  input(type="text" placeholder="Text Input")
+  input(type="text" placeholder="Input With No Type")
+
+  .row
+    .col.m-xs-y-3
+      .display-2 Grid System
+
+  .text-center
+    .row
+      .col
+        pre .col
+
+    .row
+      .col-xs-12.col-md-6
+        pre .col-xs-12 .col-md-6
+
+      .col-xs-6.col-md-3
+        pre .col-xs-6 .col-md-3
+
+      .col-xs-6.col-md-3
+        pre .col-xs-6 .col-md-3

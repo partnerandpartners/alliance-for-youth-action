@@ -1,0 +1,93 @@
+@mixin column($i, $num-columns) {
+  flex: 1;
+  flex-basis: percentage($i / $num-columns);
+  max-width: percentage($i / $num-columns);
+  padding-left: $gutter-width/2;
+  padding-right: $gutter-width/2;
+}
+
+@mixin column-offset($i, $num-columns) {
+  margin-left: percentage($i / $num-columns);
+}
+
+@mixin generateColumnClasses($prefix) {
+  @each $num-columns in $grid-column-sizes {
+    @for $i from 1 through $num-columns {
+      @if $prefix == 'xs' {
+        .col-#{$prefix}-#{$i},
+        .col-#{$i} {
+          @include column($i, $num-columns)
+        }
+      } @else {
+        .col-#{$prefix}-#{$i} {
+          @include column($i, $num-columns)
+        }
+      }
+    }
+
+    @for $i from 0 to $num-columns {
+      .col-#{$prefix}-offset-#{$i} {
+        @include column-offset($i, $num-columns);
+      }
+    }
+  }
+}
+
+@mixin generateResponsiveColumnClasses() {
+  // Generate default, xs keys
+  @if map-has-key($breakpoints, xs) {
+    @include generateColumnClasses('xs' );
+  }
+
+  $expected_array_keys: sm, md, lg, xl;
+  @each $key in $expected_array_keys {
+    @if map-has-key($breakpoints, $key) {
+      @media (min-width: map-get($breakpoints, $key)) {
+        @include generateColumnClasses($key);
+      }
+    }
+  }
+}
+
+
+@mixin responsive_padding_margins() {
+  @each $breakpoint_prefix, $breakpoint_min_width in $breakpoints {
+    @if $breakpoint_prefix == 'xs' {
+      @include generate-padding-margin-classes($breakpoint_prefix)
+    } @else {
+      @media screen and (min-width: $breakpoint_min_width) {
+        @include generate-padding-margin-classes($breakpoint_prefix)
+      }
+    }
+  }
+}
+
+@mixin generate-padding-margin-classes($breakpoint_prefix) {
+  @each $spacing in $spacings {
+    @each $prefix, $property in $margins_and_paddings {
+      .#{$prefix}-#{$breakpoint_prefix}-a-#{$spacing} {
+        #{$property}: $spacing * $spacer !important;
+      }
+      .#{$prefix}-#{$breakpoint_prefix}-t-#{$spacing} {
+        #{$property}-top: $spacing * $spacer !important;
+      }
+      .#{$prefix}-#{$breakpoint_prefix}-r-#{$spacing} {
+        #{$property}-right: $spacing * $spacer !important;
+      }
+      .#{$prefix}-#{$breakpoint_prefix}-b-#{$spacing} {
+        #{$property}-bottom: $spacing * $spacer !important;
+      }
+      .#{$prefix}-#{$breakpoint_prefix}-l-#{$spacing} {
+        #{$property}-left: $spacing * $spacer !important;
+      }
+      .#{$prefix}-#{$breakpoint_prefix}-x-#{$spacing} {
+        #{$property}-left: $spacing * $spacer !important;
+        #{$property}-right: $spacing * $spacer !important;
+      }
+      .#{$prefix}-#{$breakpoint_prefix}-y-#{$spacing} {
+        #{$property}-top: $spacing * $spacer !important;
+        #{$property}-bottom: $spacing * $spacer !important;
+      }
+    }
+  }
+}

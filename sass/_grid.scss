@@ -1,0 +1,26 @@
+@include generateResponsiveColumnClasses();
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $container-max-width;
+  padding: 0 $gutter-width/2;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1 * $gutter-width/2;
+  margin-right: -1 * $gutter-width/2;
+}
+
+.row {
+  align-content: space-between;
+}
+
+.column,
+.col {
+  flex: auto;
+  padding-left: $gutter-width/2;
+  padding-right: $gutter-width/2;
+}

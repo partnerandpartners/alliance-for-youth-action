@@ -1,6 +1,4 @@
-$padding: 1.5rem;
-$font-size: 20px;
-$accent: #e46;
+@import "variables";
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -16,11 +14,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #000;
-  background: #fff;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: $font-family-base;
+  color: $color;
+  background: $background;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -88,4 +86,32 @@ h1 {
   padding-bottom: $padding;
   margin-bottom: $padding;
   border-bottom: 1px solid #ddd;
+}
+
+@import "mixins";
+@import "base";
+@import "grid";
+@import "buttons";
+@import "typography";
+
+@include responsive_padding_margins();
+
+pre {
+  background: #f2f2f2;
+  padding: $spacer/2;
+}
+
+.align-center,
+.text-center {
+  text-align: center;
+}
+
+.align-left,
+.text-left {
+  text-align: left;
+}
+
+.align-right,
+.text-right {
+  text-align: right;
 }
