@@ -30,9 +30,6 @@ function generateFrontPage (siteData, templatesCompiled) {
 
 function getCompiledTemplate (post, templatesCompiled) {
   var templatesList = templateLocator(post)
-  if (post.slug === 'sitemap') {
-    console.log(templatesList)
-  }
   var availableTemplates = Object.keys(templatesCompiled)
   var templatesThatCouldWork = _.intersection(templatesList, availableTemplates)
 
@@ -45,10 +42,23 @@ function getCompiledTemplate (post, templatesCompiled) {
 
 function generatePostTypeArchivePages (siteData, templatesCompiled) {
   siteData.postTypeArchives.forEach((postTypeArchive) => {
-    console.log(postTypeArchive.path)
-    var possibleTemplates = templateLocator(postTypeArchive)
-    console.log(possibleTemplates)
-    // var template = getTemplate()
+    let template = getCompiledTemplate(postTypeArchive, templatesCompiled)
+
+    if (template) {
+      let posts = siteData.posts.filter((post) => {
+        return post.type === postTypeArchive.postType
+      })
+
+      var html = template({
+        site: siteData,
+        posts,
+        postTypeArchive
+      })
+
+      let pagePath = path.join(config.sitePath, postTypeArchive.path, 'index.html')
+
+      outputWebpage(html, pagePath)
+    }
   })
 }
 
