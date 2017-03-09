@@ -23,6 +23,21 @@ const expectedTemplates = [
   {
     input: {type: 'post_type_archive', postType: 'custom-post-type'},
     expected: ['archive-custom-post-type.pug', 'archive.pug', 'index.pug']
+  },
+  {
+    input: {
+      type: 'taxonomy_term_archive',
+      taxonomy: 'this-is-the-taxonomy-slug',
+      term: {
+        slug: 'this-is-the-term-slug'
+      }
+    },
+    expected: [
+      'taxonomy-this-is-the-taxonomy-slug-this-is-the-term-slug.pug',
+      'taxonomy-this-is-the-taxonomy-slug.pug',
+      'taxonomy.pug',
+      'index.pug'
+    ]
   }
 ]
 
