@@ -1,4 +1,17 @@
 extends layout
 
 block content
-  h1 Search
+  .row
+    .col
+      h1 Search
+
+      input(type="search" id="search-input" placeholder="Search...")
+
+  .row
+    .col
+      h3 Search Results
+      pre
+        code#search-results
+
+  script(type="text/javascript").
+    var searchData = !{JSON.stringify(site.posts)}
