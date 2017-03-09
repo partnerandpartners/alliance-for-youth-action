@@ -7,3 +7,10 @@ block content
     each post in site.posts
       li
         a(href=post.permalink) #{post.title}
+
+
+  h2 Taxonomy Terms
+  ul
+    each term in site.terms
+      li
+        a(href=term.permalink) #{term.name}
