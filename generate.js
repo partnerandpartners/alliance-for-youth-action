@@ -98,6 +98,33 @@ function generate404Page (siteData, templatesCompiled) {
   outputWebpage(fourOhFourPageHtml, fourOhFourPath)
 }
 
+function generateTaxonomyTermPages (siteData, templatesCompiled) {
+  siteData.terms.forEach(term => {
+    let posts = siteData.posts.filter(post => {
+      return post.taxonomyTermIds.indexOf(term.id) !== -1
+    })
+
+    let locals = {
+      term,
+      isTaxonomyTermArchive: true,
+      posts,
+      site: siteData
+    }
+
+    let templatePage = {
+      taxonomy: term.taxonomy,
+      term,
+      type: 'taxonomy_term_archive'
+    }
+
+    let compiledTemplate = getCompiledTemplate(templatePage, templatesCompiled)
+    let html = compiledTemplate(locals)
+    let pagePath = path.join(config.sitePath, term.permalink, 'index.html')
+
+    outputWebpage(html, pagePath)
+  })
+}
+
 function writeTemplate (data, templatesCompiled, template, siteData) {
   var postTemplate = templatesCompiled[template]
   var postRendered = postTemplate({post: data.post, site: siteData})
@@ -136,6 +163,7 @@ function generate () {
       generateFrontPage(siteData, templatesCompiled)
       generateSingularPages(siteData, templatesCompiled)
       generatePostTypeArchivePages(siteData, templatesCompiled)
+      generateTaxonomyTermPages(siteData, templatesCompiled)
 
       // These are special pages
       generate404Page(siteData, templatesCompiled)
