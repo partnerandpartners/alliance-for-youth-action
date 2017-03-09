@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= page.title
+
+  if page.staffMembers
+    .row
+      each staffMember in page.staffMembers
+        .staff-member.col-xs-12.col-md-6
+          .name= staffMember.name
+          .job-titles!= staffMember.jobTitles
+          .bio!= staffMember.bio
+
+  .row
+    .col
+      h3 The Board of Directors of the Alliance for Youth Action
+      .meta titles listed for identification purposes only
+  if page.boardDirectorsYouthAction
+    .row
+      .col
+        each boardMember in page.boardDirectorsYouthAction
+          p #{boardMember.person}
+
+  .row
+    .col
+      h3 The Board of Directors of the Alliance for Youth Organizing
+      .meta titles listed for identification purposes only
+  if page.boardDirectorsYouthOrganizing
+    .row
+      .col
+        each boardMember in page.boardDirectorsYouthOrganizing
+          p #{boardMember.person}
+
+  //- pre
+  //-   code #{JSON.stringify(page, null, 2)}
