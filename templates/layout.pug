@@ -11,10 +11,10 @@ html(lang="en-us")
           a(href="/")= site.site.name
 
           if site.menus && site.menus.main
-            nav
+            nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
               ul
                 each menuItem in site.menus.main
-                  li #[a(href=menuItem.url)= menuItem.title]
+                  li #[a(href=menuItem.url itemprop="url" role="menuitem") #[span(itemprop="name")= menuItem.title]]
 
     section#content
       .container
@@ -28,4 +28,6 @@ html(lang="en-us")
               each menuItem in site.menus.footer
                 li #[a(href=menuItem.url)= menuItem.title]
 
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js")
     script(src="/js/script.js")
