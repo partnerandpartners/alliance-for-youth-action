@@ -1,13 +1,15 @@
 extends layout
 
 block content
-  if term
-    h1!= term.name
-    if term.description.trim().length
-      div!= term.description
-  if posts
-    each post in posts
-      article.post
-        h2
-          a(href=post.permalink)!= post.title
-        div!= post.content
+  .container
+    .row
+      .col-xs-12
+        if term
+          h1!= term.name
+          if term.description.trim().length
+            div!= term.description
+        if posts
+
+    .row
+      each post in posts
+        include ./partials/post-listing
