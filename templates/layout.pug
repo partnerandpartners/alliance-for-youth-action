@@ -1,33 +1,52 @@
+include ./_mixins
 doctype html
 html(lang="en-us")
   head
     meta(charset="utf-8")
-    title
+    title= site.site.name
+    link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
     link(href="/css/style.css" rel="stylesheet" type="text/css")
   body
     header#header
       .container
-        .header-content
-          a(href="/")= site.site.name
+        .row
+          .col-xs-12
+            .header-content
+              a(href="/")= site.site.name
 
-          if site.menus && site.menus.main
-            nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
-              ul
-                each menuItem in site.menus.main
-                  li #[a(href=menuItem.url itemprop="url" role="menuitem") #[span(itemprop="name")= menuItem.title]]
+              if site.menus && site.menus.main
+                nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                  +navMenu(site.menus.main)
+
+      block header
 
     section#content
-      .container
-        block content
+      block content
 
     footer#footer
       .container
-        if site.menus && site.menus.footer
-          nav
-            ul
-              each menuItem in site.menus.footer
-                li #[a(href=menuItem.url)= menuItem.title]
+        .row
+          .col-xs-12.col-md-2
+            h3 About
+            if site.menus && site.menus.about
+              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                +navMenu(site.menus.about)
+          .col-xs-12.col-md-2
+            if site.menus && site.menus.campaigns
+              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                +navMenu(site.menus.campaigns)
+          .col-xs-12.col-md-2
+          .col-xs-12.col-md-3
+          .col-xs-12.col-md-3
+
+      .container.m-xs-t-2
+        .row
+          .col-xs-12
+            if site.menus && site.menus.footer
+              nav.footer-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                +navMenu(site.menus.footer)
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js")
+    script(type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
     script(src="/js/script.js")
