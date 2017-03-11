@@ -1,65 +1,71 @@
 extends layout
 
 block content
-  .display-1.xs-m-b-3 Styleguide
-
-  .row
-    .col.xs-m-b-3
-      .display-2 Typography
-
-  .row
-    .col.xs-p-l-3
-      .display-2 Display 1
-      pre #[code .display-1]
-      .display-2 Display 2
-      pre #[code .display-2]
-      .display-3 Display 3
-      pre #[code .display-3]
-      .display-4 Display 4
-      pre #[code .display-4]
-
-      h1 Heading h1
-      pre #[code h1, .h1]
-      h2 Heading h2
-      pre #[code h2, .h2]
-      h3 Heading h3
-      pre #[code h3, .h3]
-      h4 Heading h4
-      pre #[code h4, .h4]
-      h5 Heading h5
-      pre #[code h5, .h5]
-      h6 Heading h6
-      pre #[code h6, .h6]
-
-  .row
-    .col.xs-m-b-3
-      .display-2 Buttons
-
-  button Button Element
-  input(type="submit" value="Input type submit")
-
-  .row
-    .col.xs-m-b-3
-      .display-2 Form Components
-
-  input(type="text" placeholder="Text Input")
-  input(type="text" placeholder="Input With No Type")
-
-  .row
-    .col.m-xs-y-3
-      .display-2 Grid System
-
-  .text-center
+  .container
     .row
-      .col
-        pre .col
+      .col-xs-12.p-xs-y-3
+        .display-1.xs-m-b-3 Styleguide
 
     .row
-      .col-xs-12.col-md-6
-        pre .col-xs-12 .col-md-6
+      .col-xs-12.xs-p-l-3
+        p.display-1 Display 1
+        //- pre #[code .display-1]
+        p.display-2 Display 2
+        //- pre #[code .display-2]
+        p.display-3 Display 3
+        //- pre #[code .display-3]
+        p.display-4 Display 4
+        //- pre #[code .display-4]
 
-      .col-xs-6.col-md-3
-        pre .col-xs-6 .col-md-3
+        h1 Heading h1
+        //- pre #[code h1, .h1]
+        h2 Heading h2
+        //- pre #[code h2, .h2]
+        h3 Heading h3
+        //- pre #[code h3, .h3]
+        h4 Heading h4
+        //- pre #[code h4, .h4]
+        h5 Heading h5
+        //- pre #[code h5, .h5]
+        h6 Heading h6
+        //- pre #[code h6, .h6]
 
-      .col-xs-6.col-md-3
-        pre .col-xs-6 .col-md-3
+        .lead This is some lead text. It has the .lead class and it's just a really fine way to make some text.
+
+        p This is just a normal paragraph. Look at how lame it is lol
+
+    .row
+      .col-xs-12
+        .display-2 Buttons
+
+    .row
+      .col-xs-12
+        p
+          button Button Element
+        p
+          input(type="submit" value="Input type submit")
+
+    .row
+      .col-xs-12.xs-m-b-3
+        .display-2 Form Components
+
+        p
+          input(type="text" placeholder="Text Input")
+        p
+          input(type="text" placeholder="Input With No Type")
+
+    //- .row
+    //-   .col-xs-12.m-xs-y-3
+    //-     .display-2 Grid System
+    //-
+    //- .text-center
+    //-
+    //-   .row
+    //-     .col-xs-12.col-md-6
+    //-       pre .col-xs-12 .col-md-6
+    //-
+    //-     .col-xs-6.col-md-3
+    //-       pre .col-xs-6 .col-md-3
+    //-
+    //-     .col-xs-6.col-md-3
+    //-       pre .col-xs-6 .col-md-3
