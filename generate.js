@@ -1,3 +1,4 @@
+const axios = require('axios')
 const config = require('config')
 const pug = require('pug')
 const fsp = require('fs-promise')
@@ -15,15 +16,19 @@ function outputWebpage (html, path) {
 }
 
 function generateFrontPage (siteData, templatesCompiled) {
-  if (siteData.site.show_on_front === 'page') {
-    var frontPage = _.find(siteData.posts, function (o) {
-      return o.id === siteData.site.page_on_front
-    })
-
-    if (frontPage) {
-      writeTemplate({post: frontPage}, templatesCompiled, 'index.pug', siteData)
-    }
-  } else if (siteData.site.show_on_front === 'posts') {
+  if (siteData.site.showOnFront !== 'page') {
+    // var frontPage = _.find(siteData.posts, function (o) {
+    //   return o.id === siteData.site.pageOnFront
+    // })
+    //
+    // if (frontPage) {
+    //   var compiledTemplate = getCompiledTemplate(frontPage, templatesCompiled)
+    //   var pageHtml = compiledTemplate({site: siteData, post: frontPage})
+    //   var pagePath = path.join(config.sitePath, frontPage.permalink, 'index.html')
+    //
+    //   outputWebpage(pageHtml, pagePath)
+    // }
+  } else if (siteData.site.showOnFront === 'posts') {
     // Render the blog page
   }
 }
@@ -65,8 +70,23 @@ function generatePostTypeArchivePages (siteData, templatesCompiled) {
 function generateSingularPages (siteData, templatesCompiled) {
   siteData.posts.forEach((page) => {
     if (page.id !== siteData.site.page_for_posts) {
-      var compiledTemplate = getCompiledTemplate(page, templatesCompiled)
-      var pageHtml = compiledTemplate({site: siteData, page: page})
+      var templateInfo = {}
+
+      if (page.type === 'post' || page.type === 'page') {
+        templateInfo = {
+          type: page.type,
+          slug: page.slug,
+          id: page.id
+        }
+      } else {
+        templateInfo = {
+          type: 'custom_post_type',
+          postType: page.type
+        }
+      }
+
+      var compiledTemplate = getCompiledTemplate(templateInfo, templatesCompiled)
+      var pageHtml = compiledTemplate({site: siteData, post: page})
       var pagePath = path.join(config.sitePath, page.permalink, 'index.html')
 
       outputWebpage(pageHtml, pagePath)
@@ -125,50 +145,65 @@ function generateTaxonomyTermPages (siteData, templatesCompiled) {
   })
 }
 
-function writeTemplate (data, templatesCompiled, template, siteData) {
-  var postTemplate = templatesCompiled[template]
-  var postRendered = postTemplate({post: data.post, site: siteData})
-  var outputPath = path.join(config.sitePath, data.post.permalink, 'index.html')
-
-  outputWebpage(postRendered, outputPath)
-}
-
 function generate () {
-  // Fetch the JSON for the site
-  var dataPromise = fsp.readJSON('site.json')
+  // var siteDownloaded = fsp.readJson('site.json')
+  //   .then((result) => {
+  //     return new Promise((resolve, reject) => {
+  //       resolve()
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     if (err) {
+  //       console.log('could not load site from cached file. downloading it.')
+  //     }
 
-  // Scan the directory folder for all the pug templates
-  var templatesPromise = fsp.readdir(config.templatesPath)
+      var siteDownloaded = axios(config.endpoint)
+        .then(
+          (response) => {
+            return fsp.outputJson('site.json', response.data)
+          }, (err) => {
+            throw err
+          }
+        )
+    // })
 
-  // Make sure the _site output directory exists before we start
-  // building the site. This will empty it if it already exists.
-  var ensureSiteDirPromise = fsp.ensureDir(config.sitePath)
+  siteDownloaded.then(() => {
+    // Fetch the JSON for the site
+    var dataPromise = fsp.readJSON('site.json')
 
-  // Once we've got the site's JSON, loaded all the template filenames, & created or
-  // emptied the destination directory, we will compile all the pug templates
-  // just so that we can generate all the pages from them
-  return Promise.all([dataPromise, templatesPromise, ensureSiteDirPromise])
-    .then(values => {
-      var siteData = values[0]// values[0].data;
-      var templates = values[1]
-      var templatesCompiled = {}
+    // Scan the directory folder for all the pug templates
+    var templatesPromise = fsp.readdir(config.templatesPath)
 
-      // Compile all the available pug templates (synchronously)
-      templates.forEach(function (templateFile) {
-        if (path.extname(templateFile) === '.pug') {
-          templatesCompiled[templateFile] = pug.compileFile(path.join(config.templatesPath, templateFile))
-        }
+    // Make sure the _site output directory exists before we start
+    // building the site. This will empty it if it already exists.
+    var ensureSiteDirPromise = fsp.ensureDir(config.sitePath)
+
+    // Once we've got the site's JSON, loaded all the template filenames, & created or
+    // emptied the destination directory, we will compile all the pug templates
+    // just so that we can generate all the pages from them
+    return Promise.all([dataPromise, templatesPromise, ensureSiteDirPromise])
+      .then(values => {
+        var siteData = values[0]// values[0].data;
+        var templates = values[1]
+        var templatesCompiled = {}
+
+        // Compile all the available pug templates (synchronously)
+        templates.forEach(function (templateFile) {
+          if (path.extname(templateFile) === '.pug') {
+            templatesCompiled[templateFile] = pug.compileFile(path.join(config.templatesPath, templateFile))
+          }
+        })
+
+        generateFrontPage(siteData, templatesCompiled)
+        generateSingularPages(siteData, templatesCompiled)
+        generatePostTypeArchivePages(siteData, templatesCompiled)
+        generateTaxonomyTermPages(siteData, templatesCompiled)
+
+        // These are special pages
+        generate404Page(siteData, templatesCompiled)
+        generateSearchPage(siteData, templatesCompiled)
       })
-
-      generateFrontPage(siteData, templatesCompiled)
-      generateSingularPages(siteData, templatesCompiled)
-      generatePostTypeArchivePages(siteData, templatesCompiled)
-      generateTaxonomyTermPages(siteData, templatesCompiled)
-
-      // These are special pages
-      generate404Page(siteData, templatesCompiled)
-      generateSearchPage(siteData, templatesCompiled)
-    })
+  })
 }
 
 (function () {
