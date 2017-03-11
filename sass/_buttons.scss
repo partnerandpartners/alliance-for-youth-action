@@ -1,0 +1,19 @@
+// button,
+// input[type="button"],
+// input[type="submit"],
+.button {
+  font-weight: bold;
+  padding: .5em 1.5em;
+  background: #000;
+  color: #fff;
+  border: none;
+  display: inline-block;
+  outline: none;
+  font: inherit;
+  &.outline {
+    border: 3px solid #000;
+  }
+  &.big {
+    font-size: 1.5rem;
+  }
+}
