@@ -1,16 +1,27 @@
 extends layout
 
 block content
-  h1 Sitemap
+  .container
+    .row
+      .col-xs-12
+        h1 Sitemap
 
-  ul
-    each post in site.posts
-      li
-        a(href=post.permalink) #{post.title}
+        each postType in site.postTypes
+          h3= postType.label
+          ul
+            each post in site.posts
+              if post.type === postType.name
+                li
+                  a(href=post.permalink)= post.title
 
+        ul
+          each post in site.posts
+            li
+              a(href=post.permalink) #{post.title}
 
-  h2 Taxonomy Terms
-  ul
-    each term in site.terms
-      li
-        a(href=term.permalink) #{term.name}
+        each taxonomy  in site.taxonomies
+          h3= taxonomy.label
+          ul
+            each term in site.terms
+              if term.taxonomy === taxonomy.name
+                li #[a(href=term.permalink)= term.name]
