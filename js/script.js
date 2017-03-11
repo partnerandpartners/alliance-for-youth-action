@@ -29,7 +29,22 @@
     console.log(window.searchData)
   }
 
+  function initializeSlick () {
+    $('.header-images').slick({
+      dots: true,
+      prevArrow: '<button type="button" class="slick-prev">&#65308;</button>',
+      nextArrow: '<button type="button" class="slick-next">&#65310;</button>'
+    })
+
+    $('.small-slider').slick({
+      dots: true,
+      arrows: false
+    })
+  }
+
   $(document).ready(function () {
     initializeSearch()
+
+    initializeSlick()
   })
 })(jQuery)
