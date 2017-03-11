@@ -9,6 +9,10 @@ const expectedTemplates = [
     expected: ['single-post.pug', 'single.pug', 'singular.pug', 'index.pug']
   },
   {
+    input: {type: 'custom_post_type', postType: 'custom-post-type-slug'},
+    expected: ['single-custom-post-type-slug.pug', 'single.pug', 'singular.pug', 'index.pug']
+  },
+  {
     input: {type: 'page', id: 10, slug: 'this-is-page-slug'},
     expected: ['page-this-is-page-slug.pug', 'page-10.pug', 'page.pug', 'singular.pug', 'index.pug']
   },
