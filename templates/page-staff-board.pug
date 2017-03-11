@@ -1,35 +1,45 @@
 extends layout
 
 block content
-  h1= page.title
-
-  if page.staffMembers
+  .container
     .row
-      each staffMember in page.staffMembers
-        .staff-member.col-xs-12.col-md-6
-          .name= staffMember.name
-          .job-titles!= staffMember.jobTitles
-          .bio!= staffMember.bio
+      .col-xs-12
+        h1= post.title
 
-  .row
-    .col
-      h3 The Board of Directors of the Alliance for Youth Action
-      .meta titles listed for identification purposes only
-  if page.boardDirectorsYouthAction
+    if post.staffMembers
+      .row
+        each staffMember in post.staffMembers
+          .col-xs-12.col-md-6
+            .staff-member
+              .row.m-xs-a-0
+                .col-xs-3.p-xs-a-0
+                  .placeholder-person
+                .col-xs-9.p-xs-a-0.p-xs-l-1
+                  .name= staffMember.name
+                  .job-titles!= staffMember.jobTitles
+              .row.m-xs-a-0
+                .col-xs-12.p-xs-a-0
+                  .bio!= staffMember.bio
+
     .row
-      .col
-        each boardMember in page.boardDirectorsYouthAction
-          p #{boardMember.person}
+      .col-xs-12
+        h3 The Board of Directors of the Alliance for Youth Action
+        .meta titles listed for identification purposes only
+    if post.boardDirectorsYouthAction
+      .row
+        .col-xs-12
+          each boardMember in post.boardDirectorsYouthAction
+            p #{boardMember.person}
 
-  .row
-    .col
-      h3 The Board of Directors of the Alliance for Youth Organizing
-      .meta titles listed for identification purposes only
-  if page.boardDirectorsYouthOrganizing
     .row
-      .col
-        each boardMember in page.boardDirectorsYouthOrganizing
-          p #{boardMember.person}
+      .col-xs-12
+        h3 The Board of Directors of the Alliance for Youth Organizing
+        .meta titles listed for identification purposes only
+    if post.boardDirectorsYouthOrganizing
+      .row
+        .col-xs-12
+          each boardMember in post.boardDirectorsYouthOrganizing
+            p #{boardMember.person}
 
-  //- pre
-  //-   code #{JSON.stringify(page, null, 2)}
+    //- pre
+    //-   code #{JSON.stringify(page, null, 2)}
