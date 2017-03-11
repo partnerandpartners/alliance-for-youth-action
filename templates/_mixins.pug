@@ -1,0 +1,19 @@
+mixin navMenu(navMenu, theParentId)
+  - var parentId = 0
+  if theParentId
+    - parentId = theParentId
+
+  - var numPostsWithParentId = 0
+
+  each menuItem in navMenu
+    if menuItem.menu_item_parent === parentId
+      - numPostsWithParentId = numPostsWithParentId + 1
+
+  if numPostsWithParentId > 0
+    ul
+      each menuItem in navMenu
+        if menuItem.menu_item_parent === parentId
+          li
+            a(href=menuItem.url itemprop="url" role="menuitem") #[span(itemprop="name")= menuItem.title]
+
+            +navMenu(navMenu, menuItem.id)
