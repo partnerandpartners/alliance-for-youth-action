@@ -1,13 +1,12 @@
 extends layout
 
 block content
-  .row
-    .col
-      .meta= term.taxonomy
-      h1= term.name
-
+  .container.p-xs-y-3
+    .row
+      .col-xs-12
+        .meta= site.taxonomies[term.taxonomy].labels.singular_name
+        h1= term.name
+    .row
       if posts
-        ul
-          each post in posts
-            li
-              a(href=post.permalink)= post.title
+        each post in posts
+          include partials/post-listing
