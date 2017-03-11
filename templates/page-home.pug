@@ -1,0 +1,47 @@
+extends layout
+
+block header
+  .container
+    .row
+      .col-xs-12.col-md-8.p-xs-y-3
+        .display-1= post.homeHeadline
+        .lead!= post.homeDescription
+
+block content
+  if post
+    .container
+      .row
+        .col-xs-12
+          h1= post.title
+          div!= post.content
+
+
+  if site.posts
+    .container
+      .row
+        each post in site.posts
+          if post.type === 'campaign'
+            include ./partials/campaign-listing
+
+  .bg-light.p-xs-y-3
+    .container
+      .row.middle-xs
+        .col-xs-12.col-md-6
+          h3 Bleh
+        .col-xs-12.col-md-6.text-center
+          a.button.big.outline $$ Donate $$
+
+
+  .container.p-xs-y-3
+    .row
+      .col-xs-12
+        h2 Posts Title
+        .lead Text about posts
+    .row
+      if site.posts
+        - var numPostsPrinted = 0
+        each post in site.posts
+          if post.type === 'post' && numPostsPrinted < 3
+            - numPostsPrinted = numPostsPrinted + 1
+
+            include ./partials/post-listing
