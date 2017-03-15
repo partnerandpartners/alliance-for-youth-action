@@ -146,26 +146,14 @@ function generateTaxonomyTermPages (siteData, templatesCompiled) {
 }
 
 function generate () {
-  // var siteDownloaded = fsp.readJson('site.json')
-  //   .then((result) => {
-  //     return new Promise((resolve, reject) => {
-  //       resolve()
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     if (err) {
-  //       console.log('could not load site from cached file. downloading it.')
-  //     }
-
-      var siteDownloaded = axios(config.endpoint)
-        .then(
-          (response) => {
-            return fsp.outputJson('site.json', response.data)
-          }, (err) => {
-            throw err
-          }
-        )
-    // })
+  var siteDownloaded = axios(config.endpoint)
+    .then(
+      (response) => {
+        return fsp.outputJson('site.json', response.data)
+      }, (err) => {
+        throw err
+      }
+    )
 
   siteDownloaded.then(() => {
     // Fetch the JSON for the site
