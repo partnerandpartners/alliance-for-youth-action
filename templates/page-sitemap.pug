@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  .container
+  .container.sitemap
     .row
       .col-xs-12
         h1 Sitemap
@@ -13,11 +13,6 @@ block content
               if post.type === postType.name
                 li
                   a(href=post.permalink)= post.title
-
-        ul
-          each post in site.posts
-            li
-              a(href=post.permalink) #{post.title}
 
         each taxonomy  in site.taxonomies
           h3= taxonomy.label

@@ -29,24 +29,42 @@ html(lang="en-us")
       .container
         .row
           .col-xs-12.col-md-2
-            h3 About
+            h6 About
             if site.menus && site.menus.about
               nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
                 +navMenu(site.menus.about)
           .col-xs-12.col-md-2
+            h6 Campaigns
             if site.menus && site.menus.campaigns
               nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
                 +navMenu(site.menus.campaigns)
           .col-xs-12.col-md-2
+            h6 Local Organizing
+            if site.menus && site.menus.organizing
+              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                +navMenu(site.menus.organizing)
           .col-xs-12.col-md-3
+            h6 Donate
+            if site.menus && site.menus.donate
+              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                +navMenu(site.menus.donate)
           .col-xs-12.col-md-3
 
+
       .container.m-xs-t-2
-        .row
-          .col-xs-12
+        .row.bottom-xs
+          .col-xs-12.col-md-6
             if site.menus && site.menus.footer
               nav.footer-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
                 +navMenu(site.menus.footer)
+          .col-xs-12.col-md-6
+            h3= site.options.footerContactFormTitle
+            p= site.options.footerContactFormDescription
+            form
+              input(type="email")
+              button(type="submit") Sign Up
+
+            .small= site.options.footerCopyrightText
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js")
