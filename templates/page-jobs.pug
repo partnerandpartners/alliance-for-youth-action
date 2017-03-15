@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    .row.m-xs-b-3
+      .col-xs-12.col-md-7
+        h1= post.title
+        .lead= post.subtitle
+        div!= post.content
+    .row
+      .col-xs-12.col-md-7
+
+        - var ogPost = post
+        each post in site.posts
+          if post.type === 'job'
+            article.row
+              .col-xs-12.col-md-6
+                .placeholder
+              .col-xs-12.col-md-6
+                h3.m-xs-t-0= post.title
+                div!= post.excerpt
+                a(href=post.permalink) Read More
+
+        - post = ogPost
