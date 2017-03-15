@@ -38,7 +38,7 @@ gulp.task('webserver', function () {
         }
       },
       directoryListing: false,
-      open: true,
+      open: false,
       fallback: '404.html'
     }))
 })
@@ -49,6 +49,13 @@ gulp.task('copyJS', function () {
   ])
     .pipe(concat('script.js'))
     .pipe(gulp.dest('./_site/js'))
+})
+
+gulp.task('copyFonts', () => {
+  return gulp.src([
+    './fonts/**/**'
+  ])
+    .pipe(gulp.dest('./_site/fonts'))
 })
 
 // gulp.task('copyImg', function () {
@@ -63,7 +70,7 @@ gulp.task('watch', function () {
   gulp.watch('generate.js', ['reloadGenerator', 'build'])
 })
 
-gulp.task('build', ['sass','generate', 'copyJS'])// 'copyJS', 'generate', 'copyImg'])
+gulp.task('build', ['sass', 'generate', 'copyJS', 'copyFonts'])// 'copyJS', 'generate', 'copyImg'])
 
 gulp.task('develop', ['build', 'watch', 'webserver'])
 gulp.task('dev', ['develop'])
