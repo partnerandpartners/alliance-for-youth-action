@@ -12,7 +12,9 @@ html(lang="en-us")
         .row
           .col-xs-12
             .header-content
-              a(href="/")= site.site.name
+              #logo
+                a(href="/") Alliance for Youth Action
+                //- site.site.name
 
               if site.menus && site.menus.main
                 nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
