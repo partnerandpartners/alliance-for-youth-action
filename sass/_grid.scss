@@ -2,17 +2,8 @@
   width: 100%;
   margin: 0 auto;
   max-width: 1400px;
-}
-
-.container-fluid,
-.container {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container-fluid {
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
 }
 
 .row {
