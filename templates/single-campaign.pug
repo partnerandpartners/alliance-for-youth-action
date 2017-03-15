@@ -74,16 +74,15 @@ block content
       .col-xs-12.col-md-7
         h3= post.campaignNewsTitle
         .lead!= post.campaignNewsDescription
-
     .row
-      if site.posts
+      if post.newsPosts
         - var numPostsPrinted = 0
-        each post in site.posts
-          if post.type === 'post' && numPostsPrinted < 3
+        - var ogPost = post
+        each post in ogPost.newsPosts
+          if numPostsPrinted < 3
             - numPostsPrinted = numPostsPrinted + 1
-
             include ./partials/post-listing
-
+        - post = ogPost
 
     .row
       .col-xs-12.col-md-7
@@ -91,13 +90,14 @@ block content
         .lead!= post.researchDescription
 
     .row
-      if site.posts
+      if post.researchPosts
         - var numPostsPrinted = 0
-        each post in site.posts
-          if post.type === 'post' && numPostsPrinted < 3
+        - var ogPost = post
+        each post in ogPost.researchPosts
+          if numPostsPrinted < 3
             - numPostsPrinted = numPostsPrinted + 1
-
             include ./partials/post-listing
+        - post = ogPost
 
     .row.m-xs-b-3
       .col-xs-12.col-md-6

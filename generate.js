@@ -10,6 +10,50 @@ const templateLocator = require('./lib/template-locator')
 config.templatesPath = path.resolve(__dirname, config.templatesFolder)
 config.sitePath = path.resolve(__dirname, config.siteFolder)
 
+function normalizeSiteData (siteData) {
+  siteData.posts.forEach((post) => {
+    var terms = siteData.terms.filter(term => {
+      return post.taxonomyTermIds.indexOf(term.id) !== -1
+    })
+
+    post.terms = terms
+  })
+
+  // Associate news & research posts with campaign posts
+  siteData.posts.forEach(possibleCampaign => {
+    if (possibleCampaign.type === 'campaign') {
+      possibleCampaign.newsPosts = []
+      possibleCampaign.researchPosts = []
+
+      siteData.posts.forEach(post => {
+        if (post.type === 'post') {
+          // News posts
+          var isNewsPost = post.terms.filter(term => {
+            return term.name === 'News' && term.taxonomy === 'category'
+          })
+          if (isNewsPost.length) {
+            if (post.hasOwnProperty('associatedCampaign') && post.associatedCampaign.indexOf(possibleCampaign.id) !== -1) {
+              possibleCampaign.newsPosts.push(post)
+            }
+          }
+
+          // Reasearch posts
+          var isResearchPost = post.terms.filter(term => {
+            return term.name === 'Research' && term.taxonomy === 'category'
+          })
+          if (isResearchPost.length) {
+            if (post.hasOwnProperty('associatedCampaign') && post.associatedCampaign.indexOf(possibleCampaign.id) !== -1) {
+              possibleCampaign.researchPosts.push(post)
+            }
+          }
+        }
+      })
+    }
+  })
+
+  return siteData
+}
+
 function outputWebpage (html, path) {
   var minifiedHtml = minify(html, {collapseWhitespace: true})
   fsp.outputFile(path, minifiedHtml)
@@ -174,6 +218,9 @@ function generate () {
         var siteData = values[0]// values[0].data;
         var templates = values[1]
         var templatesCompiled = {}
+
+        // Normalize the data
+        siteData = normalizeSiteData(siteData)
 
         // Compile all the available pug templates (synchronously)
         templates.forEach(function (templateFile) {
