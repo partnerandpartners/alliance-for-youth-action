@@ -1,20 +1,22 @@
 extends layout
 
 block header
-  .container
+  .container.m-xs-y-3
     .row.middle-xs
-      .col-xs-12.col-md-6.p-xs-y-3
+      .col-xs-12.col-md-4
         .lead!= post.homeLeftDescription
-      .col-xs-12.col-md-6.p-xs-y-3
-        .display-2= post.headerTransitionHeadline
-        .display-1= post.headerTransitionHeadlineEmphasis
+      .col-xs-12.col-md-8
+        .placeholder
+    .row.m-xs-t-1
+      .col-xs-12
+        .lead #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
 
 block content
 
   //- pre
-  //-   code #{JSON.stringify(post, null, 2)}
+    //- code #{JSON.stringify(post, null, 2)}
 
-  .container
+  .container.m-xs-t-3
     .row
       .col-xs-12
         h2= post.featuredCampaignsHeader
