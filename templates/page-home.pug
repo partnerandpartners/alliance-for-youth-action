@@ -14,7 +14,7 @@ block header
 block content
 
   //- pre
-    //- code #{JSON.stringify(post, null, 2)}
+  //-   code #{JSON.stringify(post, null, 2)}
 
   .container.m-xs-t-3
     .row
@@ -62,8 +62,8 @@ block content
     .container.p-xs-y-3
       .row.m-xs-b-1
         .col-xs-12.col-md-7
-          h2 Hot Updates
-          .lead Sharing is caring, and the Alliance for Youth Organizing cares about you. That’s why we’re sharing all our big news with you.
+          h2= post.featuredUpdatesHeader
+          .lead!= post.featuredUpdatesLeadin
       .row
         - var ogPost = post
         each postId in post.featuredUpdates
