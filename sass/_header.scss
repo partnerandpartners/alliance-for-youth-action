@@ -5,9 +5,9 @@
     border-bottom: 3px solid #000;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
     width: 100%;
-    padding: 3rem 0;
+    padding: 1rem 0;
   }
   nav {
     white-space: nowrap
@@ -19,42 +19,101 @@
     line-height: 2;
     display: flex;
     & > li {
-      display: inline-block;
-      position: relative;
-      margin-right: $spacer;
+      display: block;
+      flex: 1;
+      padding-right: $spacer;
       &:last-of-type {
         margin-right: 0;
       }
 
-      &.active,
-      &.child-active {
-        ul {
-          position: static;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        a {
+          font-weight: normal;
         }
       }
 
-      ul {
-        position: absolute;
-        top: 100%;
-        margin: 0;
-        list-style-type: none;
-        padding: 0;
-        visibility: hidden;
-        opacity: 0;
-        background: #e2e2e2;
-        line-height: 2;
-        padding: 0 $spacer/2;
-        li {
-          display: block;
+      &:hover,
+      &.active,
+      &.child-active {
+        ul {
+          opacity: 1;
         }
-        a {
-          display: block;
-        }
-      }
-      &:hover > ul {
-        opacity: 1;
-        visibility: visible;
       }
     }
   }
+}
+
+
+@media screen and (max-width: 768px) {
+  #header {
+
+    .header-content {
+      display: block;
+    }
+    nav {
+      white-space: nowrap;
+      padding-top: 2rem;
+    }
+    nav > ul {
+      display: block;
+      & > li {
+        display: block;
+        position: relative;
+        margin-right: $spacer;
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        ul {
+          opacity: 1;
+        }
+
+        a {}
+
+
+
+        // ul {
+        //   position: absolute;
+        //   top: 1.5rem;
+        //   margin: 0;
+        //   list-style-type: none;
+        //   padding: 0;
+        //   visibility: hidden;
+        //   opacity: 0;
+        //   background: #e2e2e2;
+        //   line-height: 2;
+        //   padding: 0 $spacer/2;
+        //   li {
+        //     display: block;
+        //   }
+        //   a {
+        //     display: block;
+        //   }
+        // }
+        // &:hover > ul {
+        //   opacity: 1;
+        //   visibility: visible;
+        // }
+
+        &:hover,
+        &.active,
+        &.child-active {
+          ul {
+            opacity: 1;
+          }
+          //   position: static;
+          //   top: auto;
+          //   visibility: visible;
+          //   opacity: 1;
+          //   background: transparent;
+          // }
+        }
+      }
+    }
+  }
+
 }
