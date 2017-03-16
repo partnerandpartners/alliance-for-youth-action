@@ -2,46 +2,75 @@ extends layout
 
 block header
   .container
-    .row
-      .col-xs-12.col-md-8.p-xs-y-3
-        .display-1= post.homeHeadline
-        .lead!= post.homeDescription
+    .row.middle-xs
+      .col-xs-12.col-md-6.p-xs-y-3
+        .lead!= post.homeLeftDescription
+      .col-xs-12.col-md-6.p-xs-y-3
+        .display-2= post.headerTransitionHeadline
+        .display-1= post.headerTransitionHeadlineEmphasis
 
 block content
-  if post
-    .container
-      .row
-        .col-xs-12
-          h1= post.title
-          div!= post.content
 
+  //- pre
+  //-   code #{JSON.stringify(post, null, 2)}
 
-  if site.posts
-    .container
-      .row
-        each post in site.posts
-          if post.type === 'campaign'
-            include ./partials/campaign-listing
+  .container
+    .row
+      .col-xs-12
+        h2= post.featuredCampaignsHeader
+    .row
+      if post.featuredCampaigns
+        each postId in post.featuredCampaigns
+          if site.posts
+            - var ogPost = post
+            each campPost in site.posts
+              if campPost.id == postId
+                - post = campPost
+                include ./partials/campaign-listing
+
+            - post = ogPost
+  
+  .container.m-xs-y-3
+    .row
+      .col-xs-12
+        h2= post.affiliateHomeHeadline
+        .lead!= post.affiliateHomeLeadin
+
+    .row
+      if post.affiliatesHome && site.posts
+        each postId in post.affiliatesHome
+          each affiliate in site.posts
+            if affiliate.id === postId
+              .col-xs-12.col-md-2
+                .placeholder-affiliate
+
 
   .bg-light.p-xs-y-3
     .container
       .row.middle-xs
         .col-xs-12.col-md-6
-          h3 Bleh
+          h3= post.donateSectionHeadline
+          if post.donateSectionLeadin
+            div!= post.donateSectionLeadin
         .col-xs-12.col-md-6.text-center
-          a.button.big.outline $$ Donate $$
+          a.button.big.outline= post.donateButtonText
 
 
-  .container.p-xs-y-3
-    .row
-      .col-xs-12
-        h2 Posts Title
-        .lead Text about posts
-    .row
-      if site.posts
-        - var numPostsPrinted = 0
-        each post in site.posts
-          if post.type === 'post' && numPostsPrinted < 3
-            - numPostsPrinted = numPostsPrinted + 1
+  if post.featuredUpdates
+    .container.p-xs-y-3
+      .row.m-xs-b-1
+        .col-xs-12.col-md-7
+          h2 Hot Updates
+          .lead Sharing is caring, and the Alliance for Youth Organizing cares about you. That’s why we’re sharing all our big news with you.
+      .row
+        - var ogPost = post
+        each postId in post.featuredUpdates
+          each post in site.posts
+            if postId === post.id
+              include ./partials/post-listing
+          
+        
+        - post = ogPost
+      
 
-            include ./partials/post-listing
+    
