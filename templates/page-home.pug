@@ -6,7 +6,7 @@ block header
       .col-xs-12.col-md-4
         .lead!= post.homeLeftDescription
       .col-xs-12.col-md-8
-        .placeholder
+        img(src=post.header_image.url)
     .row.m-xs-t-1
       .col-xs-12
         .lead #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
@@ -31,7 +31,7 @@ block content
                 include ./partials/campaign-listing
 
             - post = ogPost
-  
+
   .container.m-xs-y-3
     .row
       .col-xs-12
@@ -63,16 +63,14 @@ block content
       .row.m-xs-b-1
         .col-xs-12.col-md-7
           h2= post.featuredUpdatesHeader
-          .lead!= post.featuredUpdatesLeadin
+          if post.donateSectionLeadin
+            .lead!=post.featuredUpdatesLeadin
       .row
         - var ogPost = post
         each postId in post.featuredUpdates
           each post in site.posts
             if postId === post.id
               include ./partials/post-listing
-          
-        
-        - post = ogPost
-      
 
-    
+
+        - post = ogPost
