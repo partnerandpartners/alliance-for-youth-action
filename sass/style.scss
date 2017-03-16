@@ -88,6 +88,17 @@ nav.footer-menu {
   }
 }
 
+.placeholder-affiliate {
+  position: relative;
+  background: #e2e2e2;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top:(1.2/1) * 100%;
+  }
+}
+
 .placeholder-person {
   position: relative;
   background: #e2e2e2;
