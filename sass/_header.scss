@@ -1,4 +1,14 @@
 #header {
+  line-height: 1;
+  font-weight: bold;
+  .header-content {
+    border-bottom: 3px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 0;
+  }
   nav {
     white-space: nowrap
   }
@@ -7,12 +17,20 @@
     margin: 0;
     padding: 0;
     line-height: 2;
+    display: flex;
     & > li {
       display: inline-block;
       position: relative;
       margin-right: $spacer;
       &:last-of-type {
         margin-right: 0;
+      }
+
+      &.active,
+      &.child-active {
+        ul {
+          position: static;
+        }
       }
 
       ul {
