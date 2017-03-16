@@ -6,7 +6,7 @@ block header
       .col-xs-12.col-md-4
         .lead!= post.homeLeftDescription
       .col-xs-12.col-md-8
-        .placeholder
+        img(src=post.header_image.url)
     .row.m-xs-t-1
       .col-xs-12
         .lead #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
@@ -14,7 +14,7 @@ block header
 block content
 
   //- pre
-    //- code #{JSON.stringify(post, null, 2)}
+  //-   code #{JSON.stringify(post, null, 2)}
 
   .container.m-xs-t-3
     .row
@@ -31,7 +31,7 @@ block content
                 include ./partials/campaign-listing
 
             - post = ogPost
-  
+
   .container.m-xs-y-3
     .row
       .col-xs-12
@@ -62,17 +62,15 @@ block content
     .container.p-xs-y-3
       .row.m-xs-b-1
         .col-xs-12.col-md-7
-          h2 Hot Updates
-          .lead Sharing is caring, and the Alliance for Youth Organizing cares about you. That’s why we’re sharing all our big news with you.
+          h2= post.featuredUpdatesHeader
+          if post.donateSectionLeadin
+            .lead!=post.featuredUpdatesLeadin
       .row
         - var ogPost = post
         each postId in post.featuredUpdates
           each post in site.posts
             if postId === post.id
               include ./partials/post-listing
-          
-        
-        - post = ogPost
-      
 
-    
+
+        - post = ogPost
