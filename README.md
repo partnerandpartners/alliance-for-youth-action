@@ -1,1 +1,1 @@
-# BusFed Static Site Generator
+# Frontend static site generator and templates for Alliance for Youth Action
