@@ -29,6 +29,27 @@
     console.log(window.searchData)
   }
 
+  function mobileNavMenu () {
+    $(document).on('click', '.main-menu-toggle', function (e) {
+      e.preventDefault()
+      $('body').toggleClass('menu-open')
+    })
+
+    $(window).on('resize', function (e) {
+      var width = $(this).width()
+
+      if (width >= 768) {
+        if ($('body').hasClass('menu-open')) {
+          $('body').removeClass('menu-open')
+        }
+      }
+    })
+
+    // $(document).on('click', '.main-menu-toggle', function (e) {
+    //   console.log(e)
+    // })
+  }
+
   function handleModals () {
     $(document).on('click', '.modal', function (e) {
       $('.modal.visible').removeClass('visible')
@@ -72,5 +93,7 @@
     initializeSlick()
 
     handleModals()
+
+    mobileNavMenu()
   })
 })(jQuery)

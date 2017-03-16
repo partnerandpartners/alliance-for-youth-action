@@ -13,12 +13,14 @@ html(lang="en-us")
         .row
           .col-xs-12
             .header-content
-              #logo
-                a(href="/") Alliance for Youth Action
-                //- site.site.name
+              .mobile-visible
+                #logo
+                  a(href="/") Alliance for Youth Action
+
+                button.main-menu-toggle Menu #[span &#9660;]
 
               if site.menus && site.menus.main
-                nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                nav#main-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
                   +navMenu(site.menus.main)
 
       block header
