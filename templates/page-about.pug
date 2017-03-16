@@ -1,0 +1,46 @@
+extends layout
+
+block header
+  .container
+    .row
+      .col-xs-12
+        .display-1= post.tagline
+        .display-3= post.subtitle
+    .row
+      .col-xs-12.col-md-4
+        div!= post.content
+        
+      .col-xs-12.col-md-8
+        .placeholder
+
+block content
+  .container.m-xs-t-3
+    .row
+      .col-xs-12
+        h3= post.header
+    .row
+      each person in post.people_repeater
+        .col-xs-12.col-md-4
+          if person.image
+            img(src=person.image.url)
+          else
+            .placeholder
+          h5= person.title
+          div!= person.description
+
+  .container
+    .row
+      .col-xs-12
+        h3= post.greatest_title
+        .div!= post.greatest_bullets
+
+  .container
+    .row
+      .col-xs-12
+        h2= post.story_title
+        .lead!= post.story_description
+
+
+
+  pre
+    code #{JSON.stringify(post, null, 2)}
