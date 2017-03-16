@@ -43,6 +43,7 @@
 
     $(document).on('click', '.modal-content', function (e) {
       e.preventDefault()
+      e.stopPropagation()
     })
 
     $(document).on('click', '.close-modal', function (e) {
