@@ -33,14 +33,18 @@ block content
       .col-xs-12
         h3= post.greatest_title
         .div!= post.greatest_bullets
-
+        
   .container
     .row
       .col-xs-12
+        h3= post.btw_title
+        .div!= post.btw_bullets
+
+  .container
+    .row
+      .col-xs-12.col-md-7
         h2= post.story_title
         .lead!= post.story_description
-
-
 
   //- pre
   //-   code #{JSON.stringify(post, null, 2)}
