@@ -60,9 +60,17 @@ html(lang="en-us")
           .col-xs-12.col-md-6
             h3= site.options.footerContactFormTitle
             p= site.options.footerContactFormDescription
-            form
-              input(type="email")
-              button(type="submit") Sign Up
+
+            button.open-mailing-list-modal(type="submit") Sign Up
+            
+            .mailing-list-modal.modal
+              button.close-modal &times;
+              .container
+                .row
+                  .col-xs-12.col-md-6.col-md-offset-3
+                    .modal-content
+                      script(type="text/javascript" src="//d1aqhv4sn5kxtx.cloudfront.net/nvtag.js")
+                      .ngp-form(data-id="1431161077685552896")
 
             .small= site.options.footerCopyrightText
 

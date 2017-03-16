@@ -1,0 +1,44 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.mailing-list-modal {
+  padding: $padding;
+}
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,.6);
+  transition: opacity 300ms;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.close-modal {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  color: #000;
+  border: none;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: $padding;
+}

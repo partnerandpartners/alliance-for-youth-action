@@ -29,6 +29,29 @@
     console.log(window.searchData)
   }
 
+  function handleModals () {
+    $(document).on('click', '.modal', function (e) {
+      $('.modal.visible').removeClass('visible')
+      $('body').removeClass('.modal-open')
+    })
+
+    $(document).on('click', '.open-mailing-list-modal', function (e) {
+      e.preventDefault()
+
+      $('.mailing-list-modal').addClass('visible')
+    })
+
+    $(document).on('click', '.modal-content', function (e) {
+      e.preventDefault()
+    })
+
+    $(document).on('click', '.close-modal', function (e) {
+      e.preventDefault()
+      $('.modal.visible').removeClass('visible')
+      $('body').removeClass('modal-open')
+    })
+  }
+
   function initializeSlick () {
     $('.header-images').slick({
       dots: true,
@@ -46,5 +69,7 @@
     initializeSearch()
 
     initializeSlick()
+
+    handleModals()
   })
 })(jQuery)
