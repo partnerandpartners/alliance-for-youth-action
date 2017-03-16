@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .container
+    //- .row
+    //-   .col-xs-12
+    //-     //- h1= post.title
+    //-     //- .lead= post.description
+
+    each term in site.terms
+      - var termHasPosts = false
+      each post in site.posts
+        if post.taxonomyTermIds.indexOf(term.id) !== -1
+          - termHasPosts = true
+
+      if termHasPosts
+        .row
+          .col-xs-12
+            h1= term.name
+        
+        if term.taxonomy === 'category'
+          - var ogPost = post
+          .row
+            each post in site.posts
+              if post.taxonomyTermIds.indexOf(term.id) !== -1
+                include partials/post-listing
+            - post = ogPost
+          
