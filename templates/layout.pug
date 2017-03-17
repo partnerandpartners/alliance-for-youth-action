@@ -15,7 +15,7 @@ html(lang="en-us")
             .header-content
               .mobile-visible
                 #logo
-                  a(href="/") Alliance for Youth Action
+                  a(href="/") Alliance for #[br] Youth Action
 
                 button.main-menu-toggle Menu #[span &#9660;]
 
@@ -23,7 +23,7 @@ html(lang="en-us")
                 nav#main-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
                   +navMenu(site.menus.main)
 
-      block header
+    block header
 
     section#content
       block content
@@ -65,7 +65,7 @@ html(lang="en-us")
             p= site.options.footerContactFormDescription
 
             button.open-mailing-list-modal(type="submit") Sign Up
-            
+
             .mailing-list-modal.modal
               button.close-modal &times;
               .container

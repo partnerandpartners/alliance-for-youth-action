@@ -1,11 +1,11 @@
 $padding: 1.5rem;
 
 // Base font settings
-$font-size: 20px;
-$line-height: 1.5; // This should be unit-less (no px, rem, em, etc.)
+$font-size: 18px;
+$line-height: 1.4; // This should be unit-less (no px, rem, em, etc.)
 $font-weight: normal;
 
-$font-size-small: 15px;
+$font-size-small: 14px;
 
 $font-family-base: 'Libre Franklin', sans-serif;
 
@@ -14,12 +14,12 @@ $headings-font-family: $font-family-base;
 $headings-font-weight: 400;
 $headings-line-height: 1.1;
 
-$h1-font-size: 3rem;
-$h2-font-size: 2.5rem;
+$h1-font-size: 6rem;
+$h2-font-size: 3rem;
 $h3-font-size: 2rem;
-$h4-font-size: 1.6rem;
-$h5-font-size: 1.5rem;
-$h6-font-size: 1.2rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: 1rem;
 
 // Display 1,2,3,4 variables
 
@@ -44,14 +44,15 @@ $display-4-font-family: $font-family-base;
 $display-4-font-weight: 900;
 
 // Lead text
-$lead-font-size: 1.2rem;
+$lead-font-size: 1.325rem;
 $lead-line-height: 1.3;
 $lead-font-weight: 300;
 
 // Base colors
 $background: #fff;
-$color: #000;
-$accent: #e46;
+$color: rgb(62,46,81);
+$accent: rgb(62,46,200);
+$teal: rgb(40,230,219);
 
 // Layout & Grid
 $container-max-width: 1200px;

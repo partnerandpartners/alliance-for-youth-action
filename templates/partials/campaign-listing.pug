@@ -7,7 +7,8 @@
       .placeholder
     else
       a(href=post.permalink)
-        img(src=post.thumbnail.url)
+        .filter
+          img.mono(src=post.thumbnail.url)
     h2.title #[a(href=post.permalink)= post.title]
-    h4.subtitle #[a(href=post.permalink)= post.subtitle]
-    .excerpt!= post.excerpt
+    h4.subtitle.m-xs-b-2 #[a(href=post.permalink)= post.subtitle]
+    //- .excerpt!= post.excerpt

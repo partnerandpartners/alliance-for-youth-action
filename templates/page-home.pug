@@ -1,25 +1,23 @@
 extends layout
 
 block header
-  .container.m-xs-y-3
+.bg-teal
+  .container.m-xs-y-1.p-xs-y-3
     .row.middle-xs
       .col-xs-12.col-md-4
-        .lead!= post.homeLeftDescription
+        p!= post.homeLeftDescription
       .col-xs-12.col-md-8
-        img(src=post.header_image.url)
+        .filter
+          img.mono(src=post.header_image.url)
     .row.m-xs-t-1
       .col-xs-12
         .lead #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
 
 block content
-
-  //- pre
-  //-   code #{JSON.stringify(post, null, 2)}
-
   .container.m-xs-t-3
     .row
       .col-xs-12
-        h2= post.featuredCampaignsHeader
+        h3= post.featuredCampaignsHeader
     .row
       if post.featuredCampaigns
         each postId in post.featuredCampaigns
@@ -32,10 +30,10 @@ block content
 
             - post = ogPost
 
-  .container.m-xs-y-3
+  .container.m-xs-y-3.p-xs-y-3.bg-teal
     .row
       .col-xs-12
-        h2= post.affiliateHomeHeadline
+        h3= post.affiliateHomeHeadline
         .lead!= post.affiliateHomeLeadin
 
     .row
@@ -43,8 +41,12 @@ block content
         each postId in post.affiliatesHome
           each affiliate in site.posts
             if affiliate.id === postId
-              .col-xs-12.col-md-2
-                .placeholder-affiliate
+              .col-xs-12.col-md-3.p-xs-x-2
+                if affiliate.affiliateLogoLight
+                  img(src=affiliate.affiliateLogoLight.url)
+                //- p=post.title
+
+
 
 
   .bg-light.p-xs-y-3
@@ -62,7 +64,7 @@ block content
     .container.p-xs-y-3
       .row.m-xs-b-1
         .col-xs-12.col-md-7
-          h2= post.featuredUpdatesHeader
+          h3= post.featuredUpdatesHeader
           if post.donateSectionLeadin
             .lead!=post.featuredUpdatesLeadin
       .row

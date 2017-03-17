@@ -80,6 +80,7 @@ nav.footer-menu {
 .placeholder {
   position: relative;
   background: #e2e2e2;
+  opacity: .25;
   &:before {
     display: block;
     content: "";
@@ -236,6 +237,14 @@ img {
   height: auto;
 }
 
+.filter {
+  background-color: $color;
+  position: relative;
+  .mono {
+    opacity: .75;
+  }
+}
+
 label {
   display: block;
 }
@@ -254,4 +263,8 @@ fieldset {
   margin: 0;
   padding: 0;
   border: none;
+}
+
+.bg-teal {
+  background-color: $teal;
 }
