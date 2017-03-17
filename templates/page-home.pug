@@ -30,24 +30,22 @@ block content
 
             - post = ogPost
 
-  .container.m-xs-y-3.p-xs-y-3.bg-teal
-    .row
-      .col-xs-12
-        h3= post.affiliateHomeHeadline
-        .lead!= post.affiliateHomeLeadin
+  .m-xs-t-3.p-xs-y-3.bg-teal
+    .container
+      .row
+        .col-xs-12
+          h3= post.affiliateHomeHeadline
+          .lead!= post.affiliateHomeLeadin
 
-    .row
-      if post.affiliatesHome && site.posts
-        each postId in post.affiliatesHome
-          each affiliate in site.posts
-            if affiliate.id === postId
-              .col-xs-12.col-md-3.p-xs-x-2
-                if affiliate.affiliateLogoLight
-                  img(src=affiliate.affiliateLogoLight.url)
-                //- p=post.title
-
-
-
+      .row
+        if post.affiliatesHome && site.posts
+          each postId in post.affiliatesHome
+            each affiliate in site.posts
+              if affiliate.id === postId
+                .col-xs-12.col-md-3.p-xs-x-2
+                  if affiliate.affiliateLogoLight
+                    img(src=affiliate.affiliateLogoLight.url)
+                  //- p=post.title
 
   .bg-light.p-xs-y-3
     .container
