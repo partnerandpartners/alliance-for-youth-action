@@ -1,17 +1,17 @@
 extends layout
 
 block header
-.bg-teal
-  .container.m-xs-y-1.p-xs-y-3
-    .row.middle-xs
-      .col-xs-12.col-md-4
-        p!= post.homeLeftDescription
-      .col-xs-12.col-md-8
-        .filter
-          img.mono(src=post.header_image.url)
-    .row.m-xs-t-1
-      .col-xs-12
-        .lead #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
+  .bg-teal
+    .container.m-xs-y-1.p-xs-y-3
+      .row.middle-xs
+        .col-xs-12.col-md-4
+          p!= post.homeLeftDescription
+        .col-xs-12.col-md-8
+          .filter
+            img.mono(src=post.header_image.url)
+      .row.m-xs-t-1
+        .col-xs-12
+          .lead #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
 
 block content
   .container.m-xs-t-3
