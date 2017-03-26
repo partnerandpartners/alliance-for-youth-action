@@ -26,51 +26,42 @@
     white-space: nowrap;
     font-weight: bold;
   }
-  nav > ul {
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    line-height: 2;
+    line-height: 2rem;
+  }
+  nav > ul {
     display: flex;
-    & > li {
+  }
+
+  nav > ul > li {
+    margin-left: $spacer;
+  }
+
+  nav > ul li ul {
+    display: none;
+  }
+
+  nav > ul > li.child-active,
+  nav > ul > li.active {
+    ul {
       display: block;
-      flex: 1;
+    }
+  }
+
+  nav > ul > li.not-active:hover,
+  nav > ul > li.not-active:hover {
+    position: relative;
+    ul {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      display: block;
+      background: #fff;
       padding-right: $spacer;
-      position: relative;
-      span {height: 2rem;}
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        opacity: 0;
-        position: absolute;
-        top: 2rem;
-        left: 0;
-        a {
-          font-weight: normal;
-        }
-      }
-
-      &:hover {
-        ul {
-          opacity: 1;
-          background: #fff;
-        }
-      }
-      &.active,
-      &.child-active {
-        ul {
-          opacity: 1;
-          top: auto;
-          background: #fff;
-          position: static;
-        }
-      }
+      z-index: 1000;
     }
   }
 }
@@ -113,6 +104,27 @@
       padding-top: $padding;
       display: none;
     }
+
+    nav > ul > li {
+      margin-left: 0;
+    }
+
+    nav > ul li ul {
+      display: block;
+    }
+
+    nav > ul > li.not-active:hover,
+    nav > ul > li.not-active:hover {
+      position: static;
+      ul {
+        position: static;
+        top: auto;
+        left: auto;
+        display: block;
+        padding-right: 0;
+      }
+    }
+
     nav > ul {
 
       display: block;

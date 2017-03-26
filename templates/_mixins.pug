@@ -33,7 +33,7 @@ mixin navMenu(navMenu, theParentId)
 
                 +navMenu(navMenu, menuItem.id)
             else
-              li
+              li.not-active
                 a(href=menuItem.url itemprop="url" role="menuitem") #[span(itemprop="name")= menuItem.title]
 
                 +navMenu(navMenu, menuItem.id)
