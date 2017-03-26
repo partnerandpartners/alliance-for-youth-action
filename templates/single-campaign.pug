@@ -46,9 +46,13 @@ block content
         each thing in post.campaignWhatWereDoing
           .col-xs-12.col-md-4
             .small-slider
-              div
-                .placeholder
-              div
+              if thing.images
+                .small-slider
+                  each image in thing.images
+                    div
+                      div.small-slider-image-wrapper
+                        img(src=image.sizes.large)
+              else
                 .placeholder
             h3= thing.name
             div!= thing.description
