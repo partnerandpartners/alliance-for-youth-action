@@ -42,6 +42,12 @@ block content
   .container
     .row
       .col-xs-12
+        h3= post.best_title
+        .div!= post.bullets
+
+  .container
+    .row
+      .col-xs-12
         h3= post.btw_title
         .div!= post.btw_bullets
 
@@ -51,5 +57,5 @@ block content
         h2= post.story_title
         .lead!= post.story_description
 
-  //- pre
-  //-   code #{JSON.stringify(post, null, 2)}
+  pre
+    code #{JSON.stringify(post, null, 2)}
