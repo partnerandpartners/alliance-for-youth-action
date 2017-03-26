@@ -13,7 +13,10 @@ block content
             .staff-member
               .row.m-xs-a-0
                 .col-xs-3.p-xs-a-0
-                  .placeholder-person
+                  if staffMember.photo
+                    img(src=staffMember.photo.url)
+                  else
+                    .placeholder-person
                 .col-xs-9.p-xs-a-0.p-xs-l-1
                   .name= staffMember.name
                   .job-titles!= staffMember.jobTitles
