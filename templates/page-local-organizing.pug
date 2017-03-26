@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .container.m-xs-y-3
+    .row
+      .col-xs-12
+        if post.headerImages
+          .header-images
+            each image in post.headerImages
+              div
+                img(src=image.url)
+
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        if post
+          div!= post.content
+
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        h3= post.intro_title
+        div!= post.intro_description
+
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        h3= post.affiliates_title
+        div!= post.affiliates_description
+    
+    .row
+      .col-xs-12
+
+        - var ogPost = post
+        .row.p-xs-a-0
+          .col-xs-12.col-md-8.col-md-offset-2.p-xs-a-0
+            .row
+              each post in site.posts
+                if post.type === 'affilliate'
+                  include ./partials/affiliate-listing
+            
+        - post = ogPost
+    
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        h3= post.partners_title
+        div!= post.partners_description
+        
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        h3= post.join_title
+        div!= post.join_description
+        div
+          a(href="#").button Get In Touch
