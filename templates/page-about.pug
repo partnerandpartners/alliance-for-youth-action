@@ -11,7 +11,12 @@ block header
         div!= post.content
         
       .col-xs-12.col-md-8
-        .placeholder
+        if !post.thumbnail
+          .placeholder
+        else
+          a(href=post.permalink)
+            .filter
+              img.mono(src=post.thumbnail.url)
 
 block content
   .container.m-xs-t-3
