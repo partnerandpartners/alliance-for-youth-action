@@ -56,11 +56,11 @@
       $('body').removeClass('.modal-open')
     })
 
-    $(document).on('click', '.open-mailing-list-modal', function (e) {
-      e.preventDefault()
-
-      $('.mailing-list-modal').addClass('visible')
-    })
+    // $(document).on('click', '.open-mailing-list-modal', function (e) {
+    //   e.preventDefault()
+    //
+    //   $('.mailing-list-modal').addClass('visible')
+    // })
 
     $(document).on('click', '.modal-content', function (e) {
       e.preventDefault()

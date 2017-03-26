@@ -6,4 +6,77 @@
     margin: 0;
     padding: 0;
   }
+
+  .fieldset-wrapper > div {
+    width: 50%;
+    display: inline-block;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  legend,
+  .fieldset-wrapper > div.form-item-FirstName,
+  .fieldset-wrapper > div.form-item-LastName {
+    display: none;
+  }
+}
+
+.footer-content-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.footer-main-menu-wrapper {
+  min-width: 100%;
+  max-width: 100%;
+  flex: 10;
+  flex-basis: 100%;
+  order: 1;
+  display: flex;
+  flex-flow: row;
+  & > div {
+    display: block;
+    margin-right: $spacer * 2;
+  }
+  @media screen and (max-width: 900px) {
+    order: 2;
+    min-width: 100%;
+    max-width: 100%;
+    flex: 1;
+    display: block;
+  }
+}
+
+.footer-contact-wrapper {
+  min-width: 40%;
+  max-width: 40%;
+  flex: 4;
+  flex-basis: 40%;
+  order: 3;
+  @media screen and (max-width: 900px) {
+    order: 1;
+    min-width: 100%;
+    max-width: 100%;
+    flex: 1;
+  }
+}
+
+.footer-logo-menu-wrapper {
+  min-width: 60%;
+  max-width: 60%;
+  flex: 6;
+  display: flex;
+  align-items: flex-end;
+  order: 2;
+  flex-basis: 60%;
+  @media screen and (max-width: 900px) {
+    order: 3;
+    min-width: 100%;
+    max-width: 100%;
+    flex: 1;
+  }
 }
