@@ -1,173 +1,62 @@
 #header {
-  line-height: 1;
-  .header-content {
-    border-bottom: 4px solid #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    padding: 1rem 0;
-    #logo {
-      font-family: 'Youth Sans', 'Arial Black', Arial, sans-serif;
-      text-transform: uppercase;
-      font-size: 1.4em;
-      line-height: 0.825em;
-      letter-spacing: .025em;
-    }
-  }
-  button.menu-toggle {
-    background: transparent;
-    border: none;
-    font: inherit;
-    padding: 0;
-    margin: 0;
-  }
-  nav {
-    white-space: nowrap;
-    font-weight: bold;
-  }
+  text-transform: uppercase;
+  border-bottom: 4px solid $blue;
+  @extend %triad-upright;
+}
+
+#header #logo {
+  flex: 1;
+  max-width: 300px;
+}
+
+.header-content {
+  display: flex;
+}
+
+#header nav#main-menu {
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    line-height: 2rem;
+
   }
-  nav > ul {
+  & > ul {
     display: flex;
   }
-
-  nav > ul > li {
-    margin-left: $spacer;
+  & > ul > li {
+    flex: 1;
+    padding-right: $padding;
   }
-
-  nav > ul li ul {
-    display: none;
-  }
-
-  nav > ul > li.child-active,
-  nav > ul > li.active {
-    ul {
-      display: block;
+  ul ul {
+    text-transform: none;
+    padding-left: $padding;
+    padding-top: $padding/2;
+    li {
+      margin-bottom: $padding/2;
+      &:last-child {
+        margin-bottom: none;
+      }
     }
   }
-
-  nav > ul > li.not-active:hover,
-  nav > ul > li.not-active:hover {
-    position: relative;
-    ul {
-      position: absolute;
-      top: 2rem;
-      left: 0;
-      display: block;
-      background: #fff;
-      padding-right: $spacer;
-      z-index: 1000;
-    }
+  a {
+    white-space: nowrap;
   }
 }
 
 .main-menu-toggle {
   display: none;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  font: inherit;
-  border: none;
-  outline: none;
+}
+
+#header #logo {
   span {
-    display: inline-block;
-  }
-}
-
-.mobile-visible {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (max-width: 768px) {
-  .main-menu-toggle {
     display: block;
-    body.menu-open & {
-      span {
-        transform: rotateZ(180deg)
-      }
-    }
+    background: $teal;
+    margin-bottom: 4px;
   }
-
-  #header {
-    .header-content {
-      display: block;
-    }
-    nav {
-      white-space: nowrap;
-      padding-top: $padding;
-      display: none;
-    }
-
-    nav > ul > li {
-      margin-left: 0;
-    }
-
-    nav > ul li ul {
-      display: block;
-    }
-
-    nav > ul > li.not-active:hover,
-    nav > ul > li.not-active:hover {
-      position: static;
-      ul {
-        position: static;
-        top: auto;
-        left: auto;
-        display: block;
-        padding-right: 0;
-      }
-    }
-
-    nav > ul {
-
-      display: block;
-      & > li {
-        display: block;
-        flex: 1;
-        padding-right: $spacer;
-        position: relative;
-        span {height: 2rem;}
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-
-        ul {
-          opacity: 1;
-          position: static;
-          top: auto;
-          a {
-            font-weight: normal;
-          }
-        }
-
-        &:hover {
-          ul {
-            opacity: 1;
-            background: #fff;
-          }
-        }
-        &.active,
-        &.child-active {
-          ul {
-            opacity: 1;
-            top: auto;
-            background: #fff;
-            position: static;
-          }
-        }
-      }
-    }
-  }
-
-  body.menu-open #header nav {
+  svg {
+    background: #fff;
+    height: 15px;
+    padding-right: 4px;
     display: block;
   }
 }

@@ -1,12 +1,12 @@
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6 {
   margin: 1rem 0;
+  @extend %triad-upright;
 }
 
 h1, .h1 {
   font-size: $h1-font-size;
   line-height: .825;
-  font-family: 'Youth Sans', sans-serif;
   text-transform: uppercase;
   margin: 1rem 0;
 }
@@ -14,7 +14,6 @@ h1, .h1 {
 h2, .h2 {
   font-size: $h2-font-size;
   line-height: .825;
-  font-family: 'Youth Sans', sans-serif;
   text-transform: uppercase;
   margin: 1rem 0;
 }
@@ -71,4 +70,8 @@ h6, .h6 {
   font-size: $lead-font-size;
   line-height: $lead-line-height;
   font-weight: $lead-font-weight;
+}
+
+.text-bold {
+  font-weight: 800;
 }

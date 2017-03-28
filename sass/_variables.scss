@@ -1,7 +1,7 @@
 $padding: 1.5rem;
 
 // Base font settings
-$font-size: 18px;
+$font-size: 16px;
 $line-height: 1.4; // This should be unit-less (no px, rem, em, etc.)
 $font-weight: normal;
 
@@ -16,9 +16,9 @@ $headings-line-height: 1.1;
 
 $h1-font-size: 6rem;
 $h2-font-size: 3rem;
-$h3-font-size: 2rem;
-$h4-font-size: 1.5rem;
-$h5-font-size: 1.25rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.3rem;
+$h5-font-size: 1.1rem;
 $h6-font-size: 1rem;
 
 // Display 1,2,3,4 variables
@@ -49,10 +49,12 @@ $lead-line-height: 1.3;
 $lead-font-weight: 300;
 
 // Base colors
+$blue: #315CFF;
+$teal: #01D5F3;
+
 $background: #fff;
-$color: rgb(62,46,81);
-$accent: rgb(62,46,200);
-$teal: rgb(40,230,219);
+$color: $blue;
+$accent: $blue;
 
 // Layout & Grid
 $container-max-width: 1200px;
