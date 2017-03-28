@@ -7,10 +7,40 @@
 #header #logo {
   flex: 1;
   max-width: 300px;
+  @media screen and (max-width: 900px) {
+    max-width: 100%;
+  }
 }
 
 .header-content {
   display: flex;
+  @media screen and (max-width: 900px) {
+    display: block;
+    position: relative;
+  }
+}
+
+.main-menu-toggle {
+  display: none;
+  &:focus {
+    outline: none;
+  }
+  @media screen and (max-width: 900px) {
+    position: absolute;
+    border: none;
+    font: inherit;
+    height: 72px;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    width: 72px;
+    font-size: .8rem;
+    top: 0;
+    right: 0;
+    display: block;
+    z-index: 1000;
+    color: $blue;
+  }
 }
 
 #header nav#main-menu {
@@ -18,7 +48,6 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-
   }
   & > ul {
     display: flex;
@@ -41,10 +70,41 @@
   a {
     white-space: nowrap;
   }
-}
 
-.main-menu-toggle {
-  display: none;
+  @media screen and (max-width: 900px) {
+    display: none;
+    body.menu-open & {
+      display: block;
+    }
+    position: static;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background: #fff;
+    & > ul {
+      display: block;
+      padding-top: $padding;
+    }
+    span.arrow {
+      display: none;
+    }
+    & > ul {
+      display: block;
+    }
+    & > ul > li {
+      padding-right: 0;
+    }
+    ul ul {
+      padding: 0;
+      li {
+        margin-bottom: none;
+      }
+    }
+  }
 }
 
 #header #logo {

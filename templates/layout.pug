@@ -26,7 +26,7 @@ html(lang="en-us")
               button.main-menu-toggle Menu #[span &#9660;]
 
               if site.menus && site.menus.main
-                nav#main-menu.p-xs-l-1(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                nav#main-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
                   +navMenu(site.menus.main)
 
     block header
