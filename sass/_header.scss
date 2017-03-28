@@ -43,6 +43,13 @@
   }
 }
 
+#header {
+  // max-height: auto;
+  // transition: all 1300ms;
+  overflow: hidden;
+}
+
+
 #header nav#main-menu {
   padding-left: $padding;
   ul {
@@ -52,6 +59,25 @@
   }
   & > ul {
     display: flex;
+    & > li {
+      ul {
+        transition: max-height 0ms;
+        max-height: 0;
+        overflow: hidden;
+      }
+      &:hover ul {
+        transition: max-height 500ms;
+        overflow: visible;
+        max-height: 400px;
+      }
+    }
+    & > li.active,
+    & > li.child-active {
+      background: red;
+      ul {
+        height: auto;
+      }
+    }
   }
   & > ul > li {
     flex: 1;
