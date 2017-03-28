@@ -44,6 +44,7 @@
 }
 
 #header nav#main-menu {
+  padding-left: $padding;
   ul {
     list-style-type: none;
     margin: 0;
@@ -61,7 +62,7 @@
     padding-left: $padding;
     padding-top: $padding/2;
     li {
-      margin-bottom: $padding/2;
+      margin: $padding/2 0;
       &:last-child {
         margin-bottom: none;
       }
@@ -73,6 +74,7 @@
 
   @media screen and (max-width: 900px) {
     display: none;
+    padding-left: 0;
     body.menu-open & {
       display: block;
     }
@@ -99,7 +101,7 @@
       padding-right: 0;
     }
     ul ul {
-      padding: 0;
+      padding: 0 0 0 $padding;
       li {
         margin-bottom: none;
       }
