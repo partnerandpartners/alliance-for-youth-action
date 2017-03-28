@@ -391,3 +391,12 @@ ul.home-affilliates {
   max-width: 100%;
   height: auto;
 }
+
+.teal-barred-text {
+  @extend %triad-upright;
+  background: $teal;
+  span {
+    background: #fff;
+    padding-right: .3em;
+  }
+}
