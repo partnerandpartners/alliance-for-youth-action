@@ -1,14 +1,16 @@
-.col-xs-12.col-md-6
-  //- pre
-  //-   code #{JSON.stringify(post, null, 2)}
-
+.col-xs-12.col-sm-6.m-xs-b-3
   article.campaign
     if !post.thumbnail
       .placeholder
     else
       a(href=post.permalink)
         .filter
+          .overlay
           img.mono(src=post.thumbnail.url)
-    h2.title #[a(href=post.permalink)= post.title]
-    h4.subtitle.m-xs-b-2 #[a(href=post.permalink)= post.subtitle]
-    //- .excerpt!= post.excerpt
+    
+    .row
+      .col-xs-12.col-md-7
+        h3.title #[a(href=post.permalink)= post.title]
+        .lead.m-xs-b-1 #[a(href=post.permalink)= post.subtitle]
+        a.button.outline(href=post.permalink) More
+        //- .excerpt!= post.excerpt
