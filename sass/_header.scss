@@ -44,8 +44,6 @@
 }
 
 #header {
-  // max-height: auto;
-  // transition: all 1300ms;
   overflow: hidden;
 }
 
@@ -61,19 +59,22 @@
     display: flex;
     & > li {
       ul {
-        transition: max-height 0ms;
+        // transition: max-height 0ms;
+        transition: max-height 500ms;
         max-height: 0;
         overflow: hidden;
       }
+      &.active ul,
+      &.child-active ul,
       &:hover ul {
         transition: max-height 500ms;
+        animation-timing-function: ease-out;
         overflow: visible;
         max-height: 400px;
       }
     }
     & > li.active,
     & > li.child-active {
-      // background: red;
       ul {
         height: auto;
       }
@@ -96,6 +97,23 @@
   }
   a {
     white-space: nowrap;
+    &:hover {
+      color: $teal;
+    }
+  }
+
+  span.arrow {
+    transform: rotateZ(180deg) translateY(-.2em);
+    display: inline-block;
+    padding: .2em;
+    color: $teal;
+    line-height: 1;
+  }
+
+  & > ul {
+    & > li:hover > span.arrow {
+      transform: rotateZ(0deg) translateY(-.2em);
+    }
   }
 
   @media screen and (max-width: 900px) {
@@ -130,6 +148,14 @@
       padding: 0 0 0 $padding;
       li {
         margin-bottom: none;
+      }
+    }
+
+    & > ul {
+      & > li {
+        ul {
+          max-height: 400px;
+        }
       }
     }
   }
