@@ -6,7 +6,7 @@ block content
     .m-xs-y-2
       .row
         .col-xs-12
-          h3.teal-barred-text #[span= post.staff_heading_title]
+          h1.teal-barred-text #[span= post.staff_heading_title]
       .row
         .col-xs-12.col-md-7
           div!= post.staff_heading_description
@@ -28,31 +28,29 @@ block content
     .m-xs-y-2
       .row
         .col-xs-12
-          h3.teal-barred-text #[span= post.board_title]
+          h1.teal-barred-text #[span= post.board_title]
       .row
         .col-xs-12.col-md-7
           div!= post.board_description
 
-
-    .row
-      .col-xs-12
-        h3 The Board of Directors of the Alliance for Youth Action
-        .meta titles listed for identification purposes only
-    if post.boardDirectorsYouthAction
+    .m-xs-b-2
       .row
         .col-xs-12
-          each boardMember in post.boardDirectorsYouthAction
-            p #{boardMember.person}
+          h3 The Board of Directors of the Alliance for Youth Action
+          .meta titles listed for identification purposes only
+      if post.boardDirectorsYouthAction
+        .row
+          .col-xs-12
+            each boardMember in post.boardDirectorsYouthAction
+              p #{boardMember.person}
 
-    .row
-      .col-xs-12
-        h3 The Board of Directors of the Alliance for Youth Organizing
-        .meta titles listed for identification purposes only
-    if post.boardDirectorsYouthOrganizing
+    .m-xs-b-2
       .row
         .col-xs-12
-          each boardMember in post.boardDirectorsYouthOrganizing
-            p #{boardMember.person}
-
-    //- pre
-    //-   code #{JSON.stringify(page, null, 2)}
+          h3 The Board of Directors of the Alliance for Youth Organizing
+          .meta titles listed for identification purposes only
+      if post.boardDirectorsYouthOrganizing
+        .row
+          .col-xs-12
+            each boardMember in post.boardDirectorsYouthOrganizing
+              p #{boardMember.person}
