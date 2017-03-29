@@ -328,7 +328,7 @@ fieldset {
     height: 93px;
     margin-bottom: 15px;
     span {
-      background: $teal;
+      background: $blue;
       line-height: 93px;
       display: inline-block;
       font-size: 93px;
@@ -369,9 +369,9 @@ fieldset {
 .header-transition-headline {
   font-weight: 800;
   font-size: 32px;
-  strong {
-    color: $blue;
-  }
+  // strong {
+  //   color: $blue;
+  // }
 }
 
 ul.home-affilliates {
