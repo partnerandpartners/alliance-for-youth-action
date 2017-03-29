@@ -3,14 +3,11 @@ extends layout
 block header
   .container.m-xs-y-3
     .row
-      .col-xs-12
-        .display-1= post.tagline
-        .display-3= post.subtitle
-    .row
-      .col-xs-12.col-md-4
+      .col-xs-12.col-sm-6
+        h1.m-xs-t-0= post.tagline
+        .lead=post.subtitle
         div!= post.content
-        
-      .col-xs-12.col-md-8
+      .col-xs-12.col-sm-6
         if !post.thumbnail
           .placeholder
         else
@@ -22,10 +19,11 @@ block content
   .container.m-xs-t-3
     .row
       .col-xs-12
-        h3= post.header
-    .row
+        h1.teal-barred-text #[span= post.header]
+        .text-bold!= post.header_description
+    .row.m-xs-t-1
       each person in post.people_repeater
-        .col-xs-12.col-md-4
+        .col-xs-10.col-xs-offset-1.col-sm-4.col-sm-offset-0
           if person.image
             img(src=person.image.url)
           else
@@ -33,29 +31,58 @@ block content
           h5= person.title
           div!= person.description
 
-  .container
+  .container.m-xs-y-3
     .row
       .col-xs-12
-        h3= post.greatest_title
-        .div!= post.greatest_bullets
-        
-  .container
+        h2.teal-barred-text #[span=  post.best_title]
     .row
-      .col-xs-12
-        h3= post.best_title
-        .div!= post.bullets
+        if post.mobilization_wins
+          each win in post.mobilization_wins
+            .col-xs-12.col-sm-6
+              .blue-box.p-xs-a-2!= win.content
 
-  .container
+  .container.m-xs-y-3
     .row
       .col-xs-12
-        h3= post.btw_title
-        .div!= post.btw_bullets
-
-  .container
+        h2.teal-barred-text #[span=  post.voting_innovation_title]
+    
+    if post.voting_innovation_description
+      .row
+        .col-xs-12.col-md-7
+          .lead.text-bold!= post.voting_innovation_description
+          
     .row
-      .col-xs-12.col-md-7
-        h2= post.story_title
-        .lead!= post.story_description
+      if post.voting_innovation
+        each innovation in post.voting_innovation
+          .col-xs-12.col-sm-6.col-md-4.m-xs-y-2
+            .text-bold!= innovation.title
+            div!= innovation.description
+
+  .container.m-xs-b-3
+    .row
+      .col-xs-12
+        .color-scheme-teal.p-xs-a-2
+          h1.m-xs-t-0.color-blue= post.btw_title
+          .lead.text-bold!= post.btw_description
+
+  .container.m-xs-b-0
+    .row
+      .col-xs-12
+        h2.teal-barred-text #[span= post.greatest_title]
+    .row
+      if post.wins
+        each win in post.wins
+          .col-xs-12.col-sm-6.col-md-4.m-xs-y-2
+            .text-bold!= win.title
+            div!= win.description
+      
+
+  .container.m-xs-b-3
+    .row
+      .col-xs-12.col-md-6.col-md-offset-3
+        .bordered-box.m-xs-y-3
+          h2.uppercase= post.story_title
+          .content!= post.story_description
 
   //- pre
   //-   code #{JSON.stringify(post, null, 2)}
