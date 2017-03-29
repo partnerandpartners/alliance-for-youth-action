@@ -31,6 +31,8 @@ h4, .h4 {
 h5, .h5 {
   font-size: $h5-font-size;
   line-height: $h5-font-size;
+  font-family: $font-family-base;
+  font-weight: 800;
 }
 
 h6, .h6 {
