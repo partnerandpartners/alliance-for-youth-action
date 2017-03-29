@@ -7,5 +7,15 @@
   }
   .bio {
     font-size: $font-size-small;
+    p {
+      margin-bottom: 0;
+    }
+    ul,ol {
+      margin-top: 0;
+      padding: 0;
+      list-style-position: outside;
+      margin: 0;
+      margin-left: 1rem;
+    }
   }
 }

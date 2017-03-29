@@ -2,27 +2,37 @@ extends layout
 
 block content
   .container
-    .row
-      .col-xs-12
-        h1= post.title
+
+    .m-xs-y-2
+      .row
+        .col-xs-12
+          h3.teal-barred-text #[span= post.staff_heading_title]
+      .row
+        .col-xs-12.col-md-7
+          div!= post.staff_heading_description
 
     if post.staffMembers
+      each staffMember in post.staffMembers
+        .staff-member.m-xs-b-3.m-xs-t-1
+          .row
+            .col-xs-12.col-md-2
+              if staffMember.photo
+                img(src=staffMember.photo.url)
+              else
+                .placeholder-person
+            .col-xs-12.col-md-7
+              h3.m-xs-t-0.name= staffMember.name
+              .job-titles!= staffMember.jobTitles
+              .bio!= staffMember.bio
+
+    .m-xs-y-2
       .row
-        each staffMember in post.staffMembers
-          .col-xs-12.col-md-6
-            .staff-member
-              .row.m-xs-a-0
-                .col-xs-3.p-xs-a-0
-                  if staffMember.photo
-                    img(src=staffMember.photo.url)
-                  else
-                    .placeholder-person
-                .col-xs-9.p-xs-a-0.p-xs-l-1
-                  .name= staffMember.name
-                  .job-titles!= staffMember.jobTitles
-              .row.m-xs-a-0
-                .col-xs-12.p-xs-a-0
-                  .bio!= staffMember.bio
+        .col-xs-12
+          h3.teal-barred-text #[span= post.board_title]
+      .row
+        .col-xs-12.col-md-7
+          div!= post.board_description
+
 
     .row
       .col-xs-12
