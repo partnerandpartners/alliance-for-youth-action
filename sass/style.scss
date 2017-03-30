@@ -433,6 +433,12 @@ svg {
   height: 100%;
 }
 
+@media screen and (max-width: 900px) {
+  .blue-box-col.col-xs-12 {
+    margin-bottom: $padding;
+  }
+}
+
 .color-blue {
   color: $blue;
 }
