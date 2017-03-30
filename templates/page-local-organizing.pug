@@ -32,9 +32,11 @@ block content
         .row.p-xs-a-0
           .col-xs-12.col-md-8.col-md-offset-2.p-xs-a-0
             .row
-              each post in site.posts
-                if post.type === 'affilliate'
-                  include ./partials/affiliate-listing
+              if post.selected_affiliates
+                each selected_affiliate_id in post.selected_affiliates
+                  each post in site.posts
+                    if post.type === 'affilliate' && post.id === selected_affiliate_id
+                      include ./partials/affiliate-listing
             
         - post = ogPost
     
@@ -42,6 +44,21 @@ block content
       .col-xs-12.col-md-8.col-md-offset-2
         h3= post.partners_title
         div!= post.partners_description
+
+    .row
+      .col-xs-12
+        .row.p-xs-a-0
+          .col-xs-12.col-md-8.col-md-offset-2.p-xs-a-0
+            .row
+              if post.partners
+                each partner in post.partners
+                  .col-xs-6.col-sm-4.col-md-3
+                    .partner.m-xs-b-1
+                      a(href=partner.partner_url)
+                        if partner.partner_logo
+                          img(src=partner.partner_logo)
+                        else
+                          .placeholder= partner.partner_name
         
     .row
       .col-xs-12.col-md-8.col-md-offset-2
