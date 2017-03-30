@@ -494,3 +494,23 @@ svg {
     transform: translateX(-50%) translateY(-50%);
   }
 }
+
+.post-thumbnail {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    padding-top: 60%;
+    content: "";
+    display: block;
+    background: #ddd;
+  }
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
