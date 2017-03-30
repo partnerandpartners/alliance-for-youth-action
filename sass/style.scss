@@ -469,6 +469,7 @@ svg {
 
 .header-image {
   position: relative;
+  overflow: hidden;
   &:before {
     padding-top: 50%;
     content: "";
@@ -481,7 +482,7 @@ svg {
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: inset 0 0 0 1px #fff; // Fix for weird border bleed bug
+    // box-shadow: inset 0 0 0 1px #fff; // Fix for weird border bleed bug
   }
   img {
     position: absolute;
