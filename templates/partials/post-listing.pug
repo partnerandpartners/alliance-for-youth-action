@@ -1,10 +1,11 @@
 article.post.col-xs-12.col-md-4.m-xs-b-3
   a(href=post.permalink)
     if post.thumbnail
-      img(src=post.thumbnail.url)
+      .post-thumbnail
+        img(src=post.thumbnail.url)
     else
       .placeholder
-  h4.title.m-xs-y-0 #[a(href=post.permalink)= post.title]
+  h4.title.m-xs-b-0.m-xs-t-1 #[a(href=post.permalink)= post.title]
   time= post.date
   .excerpt.small!= post.excerpt
   div #[a(href=post.permalink) Read More]
