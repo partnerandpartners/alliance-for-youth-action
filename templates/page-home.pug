@@ -14,10 +14,10 @@ block header
             if post.header_image && post.header_image.hasOwnProperty('url')
               .image(style="background-image: url(" + post.header_image.url + ");")
       .row
-        .col-xs-12
+        .col-xs-12.col-sm-10
           div.lead!= post.homeHeaderDescription
       .row.m-xs-t-1
-        .col-xs-12
+        .col-xs-12.col-sm-10
           .header-transition-headline #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
 
 block content

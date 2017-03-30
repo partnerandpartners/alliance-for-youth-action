@@ -322,20 +322,32 @@ fieldset {
 .home-page-header-content {
   position: relative;
   @media screen and (max-width: 768px) {
-    padding-bottom: 30%;
+    padding-bottom: 36%;
   }
   .headline-line {
     background: #fff;
-    height: 93px;
-    margin-bottom: 15px;
+    height: 5.8rem;
+    margin-bottom: 1rem;
     span {
       background: $blue;
-      line-height: 93px;
+      line-height: 5.9rem;
       display: inline-block;
-      font-size: 93px;
+      font-size: 5.8rem;
       @extend %triad-upright;
-      padding-right: 15px;
+      padding-right: 1rem;
       text-transform: uppercase;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .headline-line {
+      height: 3.8rem;
+      margin-bottom: .6rem;
+      span {
+        line-height: 3.9rem;
+        font-size: 3.8rem;
+        padding-right: .6rem;
+      }
     }
   }
   .image {
@@ -370,9 +382,6 @@ fieldset {
 .header-transition-headline {
   font-weight: 800;
   font-size: 32px;
-  // strong {
-  //   color: $blue;
-  // }
 }
 
 ul.home-affilliates {
