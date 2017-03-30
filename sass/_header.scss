@@ -21,9 +21,10 @@
 
 .header-content {
   display: flex;
-  align-items: center;
+  align-items: top;
   @media screen and (max-width: 900px) {
     justify-content: space-between;
+    align-items: center;
   }
 }
 
