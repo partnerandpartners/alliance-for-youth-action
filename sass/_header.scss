@@ -5,28 +5,47 @@
 }
 
 #header #logo {
-  flex: 1;
-  max-width: 300px;
+  // flex: 1;
+  flex-basis: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  margin-right: 10%;
+  margin-top: $padding;
+  margin-bottom: $padding;
   @media screen and (max-width: 900px) {
     max-width: 100%;
+    margin-top: $padding/2;
+    margin-bottom: $padding/2;
   }
 }
 
 .header-content {
   display: flex;
+  align-items: center;
   @media screen and (max-width: 900px) {
-    display: block;
-    position: relative;
+    justify-content: space-between;
   }
 }
 
 .main-menu-toggle {
   display: none;
+  cursor: pointer;
+  span {
+    transform: rotateZ(180deg) translateY(-.1em);
+    display: inline-block;
+    padding: .2em;
+    color: $teal;
+    line-height: 1;
+    color: $teal;
+    body.menu-open & {
+      transform: rotateZ(0deg) translateY(-.1em);
+    }
+  }
   &:focus {
     outline: none;
   }
   @media screen and (max-width: 900px) {
-    position: absolute;
+    // position: absolute;
     border: none;
     font: inherit;
     height: 72px;
@@ -57,16 +76,27 @@
   }
   & > ul {
     display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    max-width: 100%;
     & > li {
+      // background: red;
+      padding-top: $padding;
+      padding-bottom: $padding;
+      // min-width: 25%;
+      // max-width: 25%;
+      // flex-basis: 25%;
       ul {
         // transition: max-height 0ms;
         transition: max-height 500ms;
+        opacity: 0;
         max-height: 0;
         overflow: hidden;
       }
       &.active ul,
       &.child-active ul,
       &:hover ul {
+        opacity: 1;
         transition: max-height 500ms;
         animation-timing-function: ease-out;
         overflow: visible;
@@ -80,14 +110,12 @@
       }
     }
   }
-  & > ul > li {
-    flex: 1;
-    padding-right: $padding;
-  }
   ul ul {
     text-transform: none;
-    padding-left: $padding;
+    padding-left: $padding/2;
     padding-top: $padding/2;
+    font-size: 14px;
+    padding-right: $padding;
     li {
       margin: $padding/2 0;
       &:last-child {
@@ -103,7 +131,7 @@
   }
 
   span.arrow {
-    transform: rotateZ(180deg) translateY(-.2em);
+    transform: rotateZ(180deg) translateY(-.1em);
     display: inline-block;
     padding: .2em;
     color: $teal;
@@ -123,17 +151,14 @@
       display: block;
     }
     position: static;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    min-width: 100%;
+    flex-basis: 100%;
     height: 100%;
     z-index: 100000;
     background: #fff;
     & > ul {
       display: block;
-      padding-top: $padding;
+      padding: 0 0 $padding 0;
     }
     span.arrow {
       display: none;
@@ -143,11 +168,20 @@
     }
     & > ul > li {
       padding-right: 0;
+      padding: 0;
     }
     ul ul {
       padding: 0 0 0 $padding;
       li {
         margin-bottom: none;
+      }
+    }
+
+    & > ul {
+      & > li {
+        ul {
+          opacity: 1;
+        }
       }
     }
 
@@ -172,5 +206,18 @@
     height: 15px;
     padding-right: 4px;
     display: block;
+  }
+}
+
+.header-content {
+  display: flex;
+  flex-wrap: wrap;
+  nav {
+    min-width: 25%;
+    display: block;
+    flex-grow: 1;
+  }
+  #logo {
+    min-width: 25%;
   }
 }
