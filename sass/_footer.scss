@@ -39,9 +39,26 @@
   }
 }
 
+#footer nav {
+  & > ul > li:first-child {
+    text-transform: uppercase;
+  }
+}
+
+#footer {
+  .copyright {
+    font-size: .75rem;
+    line-height: 1.4rem;
+  }
+}
+
 #footer .footer-menu {
+  font-size: .75rem;
+  line-height: 1.4rem;
+
   & > ul > li:first-child {
     font: inherit;
+    text-transform: none;
   }
 
   & > ul > li {

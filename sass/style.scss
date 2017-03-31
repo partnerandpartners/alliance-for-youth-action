@@ -413,13 +413,12 @@ fieldset {
 }
 
 @media screen and (max-width: 768px) {
-  .headline-line {
-    height: 3.8rem;
-    margin-bottom: .6rem;
+  .teal-header-line {
+    background: #fff;
+    height: auto;
+    padding: 0 0 .5rem 0;
+    border-bottom: 21px solid $teal;
     span {
-      line-height: 3.9rem;
-      font-size: 3.8rem;
-      padding-right: .6rem;
     }
   }
 }
@@ -619,6 +618,12 @@ svg {
   color: $teal;
   font-weight: normal !important;
   text-transform: uppercase;
+  &.white {
+    color: #fff;
+  }
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 #donate-form {

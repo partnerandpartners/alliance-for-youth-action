@@ -13,7 +13,7 @@ block header
                     span= headline_line.headline_line
             if post.header_image && post.header_image.hasOwnProperty('url')
               .image(style="background-image: url(" + post.header_image.url + ");")
-      .row
+      .row.m-xs-t-1
         .col-xs-12.col-sm-10
           div!= post.homeHeaderDescription
             a.more-link(href="/about") &nbsp; How We Do It &#9658;
@@ -41,7 +41,7 @@ block content
 
             - post = ogPost
 
-  .p-xs-y-3.color-scheme-teal
+  .p-xs-y-6.color-scheme-teal
     .container
       .row.reverse
         .col-xs-12.col-md-7
@@ -61,7 +61,7 @@ block content
                         .h4.map-affiliate= affiliate.title
       .row
         .col-xs-12
-          a.more-link(href="/local-organizing") Learn more &#9658;
+          a.more-link.white(href="/local-organizing") Learn more &#9658;
 
   .p-xs-y-3
     .container
@@ -70,11 +70,11 @@ block content
           .p-xs-y-1
             h1.m-xs-t-0= post.donateSectionHeadline
             if post.donateSectionLeadin
-              div.text-bold!= post.donateSectionLeadin
-            
-            a.button.big.outline(href="/donate")= post.donateButtonText
+              div!= post.donateSectionLeadin
+                a.more-link(href="/donate") Donate now! &#9658;
+            //- a.button.big.outline(href="/donate")= post.donateButtonText
 
-        .col-xs-12.col-md-5.col-md-offset-1
+        .col-xs-12.col-md-4.col-md-offset-2
           a(href="/donate")
             include ./partials/donate-graphic
 
