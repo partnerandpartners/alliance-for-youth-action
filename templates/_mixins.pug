@@ -42,7 +42,8 @@ mixin navMenu(navMenu, theParentId)
               - liClass = ' child-active '
 
           li(class=childClass + liClass)
-            a(class=liClass href=menuItem.url itemprop="url" role="menuitem") #[span(itemprop="name")= menuItem.title]
-            if arrow !== false
-              span.arrow &#9652;
+            a(class=liClass href=menuItem.url itemprop="url" role="menuitem")
+              span(itemprop="name")= menuItem.title
+              if arrow !== false
+                span.arrow &#9652;
             +navMenu(navMenu, menuItem.id)
