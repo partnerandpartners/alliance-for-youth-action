@@ -14,7 +14,6 @@ block content
           .header-images
             each image in post.headerImages
               .header-image
-                //- .placeholder(style="background-image: url(" + image.sizes.large + ")")
                 .filter
                   img(src=image.sizes.large)
 
@@ -25,10 +24,12 @@ block content
         div!= post.campaignLandingTextRight
 
     .row.m-xs-y-3
+      .col-xs-12
+        h2.teal-barred-text #[span= post.goalsTitle]
       .col-xs-12.col-md-8.col-md-offset-2
-        h2= post.goalsTitle
+        //- h2.teal-barred-text #[span= post.goalsTitle]
 
-        ol
+        ol.campaign-main-goals
           each goal in post.goals
             li
               h3= goal.title
@@ -38,8 +39,9 @@ block content
                   li= task.task
 
     .row.m-xs-t-3
+      .col-xs-12
+        h2.teal-barred-text #[span= post.campaignWhatWereDoingTitle]
       .col-xs-12.col-md-7
-        h2= post.campaignWhatWereDoingTitle
         p.lead= post.campaignWhatWereDoingDescription
 
     if post.campaignWhatWereDoing
@@ -68,26 +70,29 @@ block content
             div!= accomplishment.description
           .col-xs-12.col-md-1
           .col-xs-12.col-md-7
-            .placeholder
+            if !accomplishment.image
+              .placeholder
+            else
+              img(src=accomplishment.image.sizes.large)
 
         if accomplismentClass === ''
           - accomplismentClass = ' reverse'
         else
           - accomplismentClass = ''
 
-    .row
-      .col-xs-12.col-md-7
-        h3= post.campaignNewsTitle
-        .lead!= post.campaignNewsDescription
-    .row
-      if post.newsPosts
-        - var numPostsPrinted = 0
-        - var ogPost = post
-        each post in ogPost.newsPosts
-          if numPostsPrinted < 3
-            - numPostsPrinted = numPostsPrinted + 1
-            include ./partials/post-listing
-        - post = ogPost
+    //- .row
+    //-   .col-xs-12.col-md-7
+    //-     h3= post.campaignNewsTitle
+    //-     .lead!= post.campaignNewsDescription
+    //- .row
+    //-   if post.newsPosts
+    //-     - var numPostsPrinted = 0
+    //-     - var ogPost = post
+    //-     each post in ogPost.newsPosts
+    //-       if numPostsPrinted < 3
+    //-         - numPostsPrinted = numPostsPrinted + 1
+    //-         include ./partials/post-listing
+    //-     - post = ogPost
 
     .row
       .col-xs-12.col-md-7
@@ -112,6 +117,8 @@ block content
           h4= post.campaignFooterSubtitle
 
         .lead!= post.campaignFooterContent
-    //-
-    //- pre
-    //-   code #{JSON.stringify(post, null, 2)}
+
+
+    .row.m-xs-b-3
+      .col-xs-12.text-center
+        a.button(href="/campaigns/") Back To All Campaigns
