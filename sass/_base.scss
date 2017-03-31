@@ -19,3 +19,10 @@ body {
   line-height: $line-height;
   font-weight: $font-weight;
 }
+
+hr {
+  border: none;
+  height: 4px;
+  margin: 0;
+  background: $teal;
+}
