@@ -438,6 +438,16 @@ svg {
     background: #fff;
     padding-right: .3em;
   }
+  @media screen and (max-width: 768px) {
+    display: block;
+    background: transparent;
+    border-bottom: 15px solid $teal;
+    padding-bottom: 4px;
+    span {
+      display: block;
+      background: transparent;
+    }
+  }
 }
 
 .teal-barred-text {
@@ -611,7 +621,6 @@ svg {
   text-transform: uppercase;
 }
 
-
 #donate-form {
   border-bottom: 2px solid #fff;
   * {
@@ -711,5 +720,72 @@ svg {
 
   .at .btn-at-primary {
     font-weight: bold;
+  }
+}
+
+#contact-sign-up {
+  * {
+    font-family: inherit;
+    font-weight: normal;
+  }
+  .at-inner {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  header.at-title,
+  header.at-markup,
+  .multistep-footer {
+    display: none;
+  }
+
+  .at .at-fieldset,
+  .at-form-submit {
+    padding: 0;
+  }
+
+  .at label,
+  .at fieldset legend {
+    color: #fff;
+  }
+
+  .at-row>[class^="at-"],
+  .at-form-submit .at-submit {
+    margin: 0;
+  }
+
+  .at .btn-at-primary {
+    font-weight: bold;
+    color: $blue;
+    background: #fff;
+  }
+
+  .at-row  {
+    width: 50%;
+    float: left;
+  }
+
+  .at-fields .at-row:first-child {
+    padding-right: $padding;
+  }
+
+  .at input[type="tel"] {
+    display: block;
+    max-width: 100%;
+  }
+
+  .at-fields {
+    *zoom: 1;
+  }
+
+  .at-fields:before,
+  .at-fields:after {
+    content: " ";
+    display: table;
+  }
+
+  .at-fields:after {
+    clear: both;
   }
 }

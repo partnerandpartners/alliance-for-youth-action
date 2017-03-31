@@ -74,8 +74,19 @@ html(lang="en-us")
           .col-xs-12.col-md-5
             strong= site.options.footerContactFormTitle
             div.m-xs-b-1= site.options.footerContactFormDescription
-            script(type="text/javascript" src="//d1aqhv4sn5kxtx.cloudfront.net/nvtag.js")
-            .ngp-form(data-id="1431161077685552896")
+            #contact-sign-up
+              script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+              div(class='ngp-form'
+                  data-template='oberon'
+                  data-id='-4904840648071313664'
+                  data-endpoint='https://api.myngp.com/'
+                  data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
+                  data-fastaction-endpoint='https://fastaction.ngpvan.com/'
+                  data-databag='everybody'
+                  data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
+                  data-inline-errors='true'
+                  data-fastaction-nologin='true'
+                  data-embed='true')
 
         .row.p-xs-t-1
           .col-xs-12      
