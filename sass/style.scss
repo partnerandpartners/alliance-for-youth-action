@@ -600,3 +600,18 @@ svg {
 }
 
 // @import "donate";
+
+.board-member {
+  font-size: 14px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.meta {
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.board-members > .board-member:last-of-type {
+  margin-bottom: 0;
+}
