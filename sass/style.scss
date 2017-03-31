@@ -424,6 +424,26 @@ fieldset {
 }
 
 
+article.campaign {
+  &:hover {
+    a {
+      &:hover {
+        color: $teal;
+      }
+      &.more-link {
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+    .filter {
+      background: $teal;
+    }
+    color: $teal;
+  }
+}
+
+
 
 svg {
   max-width: 100%;
