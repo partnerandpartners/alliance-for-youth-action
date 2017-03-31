@@ -60,14 +60,15 @@ block content
   .p-xs-y-3
     .container
       .row.middle-xs
-        .col-xs-12.col-md-7
-          h3.m-xs-t-0= post.donateSectionHeadline
-          if post.donateSectionLeadin
-            div.text-bold!= post.donateSectionLeadin
-          
-          a.button.big.outline= post.donateButtonText
+        .col-xs-12.col-md-4.col-md-offset-1
+          .p-xs-y-1
+            h1.m-xs-t-0= post.donateSectionHeadline
+            if post.donateSectionLeadin
+              div.text-bold!= post.donateSectionLeadin
+            
+            a.button.big.outline(href="/donate")= post.donateButtonText
 
-        .col-xs-12.col-md-5
+        .col-xs-12.col-md-5.col-md-offset-1
           include ./partials/donate-graphic
 
   //- HIDDEN FOR BETA
