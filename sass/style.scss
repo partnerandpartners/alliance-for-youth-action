@@ -659,8 +659,8 @@ svg {
 #donate-form {
   border-bottom: 2px solid #fff;
   * {
-    font-family: inherit !important;
-    font-weight: normal !important;
+    font-family: inherit;
+    font-weight: normal;
   }
   .at-inner {
     border: none;
@@ -692,11 +692,6 @@ svg {
   .label-amount {
     font-family: 'Triade-Upright' !important;
     font-weight: normal;
-  }
-
-  .at label input:checked + a {
-    color: #ff2;
-    opacity: .1;
   }
 
   .at .at-step {
@@ -745,10 +740,20 @@ svg {
     color: $blue;
   }
 
-  .at .at-step>*:before,,
+  .at .btn-at-primary,
+  .at .btn-at-primary:hover,
+  .at .at-step>*:before,
   .at .at-step.active.valid>*:before,
   .at .at-step.invalid>*:before {
     background: #fff;
     color: $blue;
+  }
+
+  .at .btn-at-link {
+    color: #fff;
+  }
+
+  .at .btn-at-primary {
+    font-weight: bold;
   }
 }
