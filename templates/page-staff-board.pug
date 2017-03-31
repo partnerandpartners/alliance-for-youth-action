@@ -9,12 +9,12 @@ block content
           h1.teal-barred-text #[span= post.staff_heading_title]
       .row
         .col-xs-12.col-md-7
-          div!= post.staff_heading_description
+          .lead!= post.staff_heading_description
 
     if post.staffMembers
       each staffMember in post.staffMembers
-        .staff-member.m-xs-b-3.m-xs-t-1
-          .row
+        .staff-member.m-xs-b-2.m-xs-t-1
+          .row.m-xs-b-2
             .col-xs-12.col-md-2
               if staffMember.photo
                 img(src=staffMember.photo.url)
@@ -24,33 +24,50 @@ block content
               h3.m-xs-t-0.name= staffMember.name
               .job-titles!= staffMember.jobTitles
               .bio!= staffMember.bio
+          
+          .row
+            .col-xs-12
+              hr
 
-    .m-xs-y-2
+    .m-xs-t-1
       .row
         .col-xs-12
           h1.teal-barred-text #[span= post.board_title]
       .row
         .col-xs-12.col-md-7
-          div!= post.board_description
+          .lead!= post.board_description
 
-    .m-xs-b-2
+    .m-xs-b-1
       .row
-        .col-xs-12
-          h3 The Board of Directors of the Alliance for Youth Action
-          .meta titles listed for identification purposes only
+        .col-xs-12.col-sm-7.col-md-5
+          h3.m-xs-b-0 The Board of Directors of the Alliance for Youth Action
+          .meta  Affiliates listed for identification purposes only.
       if post.boardDirectorsYouthAction
         .row
           .col-xs-12
-            each boardMember in post.boardDirectorsYouthAction
-              p #{boardMember.person}
+            .board-members
+              each boardMember in post.the_board_of_directors_of_the_alliance_for_youth_action
+                .board-member
+                  div
+                    strong= boardMember.name
+                  div= boardMember.title
 
-    .m-xs-b-2
+    .m-xs-b-1
       .row
         .col-xs-12
-          h3 The Board of Directors of the Alliance for Youth Organizing
-          .meta titles listed for identification purposes only
+          hr
+
+    .m-xs-b-1
+      .row
+        .col-xs-12.col-sm-7.col-md-5
+          h3.m-xs-t-0.m-xs-b-0 The Board of Directors of the Alliance for Youth Organizing
+          .meta Titles listed for identification purposes only.
       if post.boardDirectorsYouthOrganizing
         .row
           .col-xs-12
-            each boardMember in post.boardDirectorsYouthOrganizing
-              p #{boardMember.person}
+            .board-members
+              each boardMember in post.the_board_of_directors_of_the_alliance_for_youth_organizing
+                .board-member
+                  div
+                    strong= boardMember.name
+                  div= boardMember.title
