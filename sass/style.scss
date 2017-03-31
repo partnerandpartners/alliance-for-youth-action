@@ -396,18 +396,7 @@ fieldset {
   font-size: 32px;
 }
 
-ul.home-affilliates {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  @extend %triad-upright;
-  li {
-    width: 50%;
-    display: block;
-    float: left;
-    height: 2rem;
-  }
-}
+
 
 svg {
   max-width: 100%;
@@ -608,3 +597,68 @@ svg {
 }
 
 // @import "donate";
+
+.board-member {
+  font-size: 14px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.meta {
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.board-members > .board-member:last-of-type {
+  margin-bottom: 0;
+}
+
+.home-affilliates {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 140%;
+  @extend %triad-upright;
+  li {
+    width: 50%;
+    display: block;
+    float: left;
+    height: 2rem;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    li {
+      width: 100%;
+      float: none;
+      display: block;
+    }
+    padding-bottom: $padding;
+  }
+}
+
+#map {
+  margin-left: -20%;//rem;
+  min-width: 100%;
+  svg {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media screen and (max-width: 1024px) {
+    margin-left: 0;
+  }
+}
+
+.more-link {
+  @extend %triad-upright;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 14px;
+  color: $teal;
+  font-weight: normal !important;
+  text-transform: uppercase;
+}
