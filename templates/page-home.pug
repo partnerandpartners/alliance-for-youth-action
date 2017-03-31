@@ -71,7 +71,8 @@ block content
             a.button.big.outline(href="/donate")= post.donateButtonText
 
         .col-xs-12.col-md-5.col-md-offset-1
-          include ./partials/donate-graphic
+          a(href="/donate")
+            include ./partials/donate-graphic
 
   //- HIDDEN FOR BETA
   //- if post.featuredUpdates
