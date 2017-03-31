@@ -5,21 +5,28 @@ block content
     .row
       .col-xs-12
         h1.teal-barred-text #[span= post.title]
-    .row
-      .col-xs-12.col-sm-6
+        h1.teal-barred-text &nbsp;
+    .row.m-xs-b-3
+      .col-xs-12.col-sm-8
         div!= post.content
-    .row
-      .col-xs-12.p-xs-y-2
-        #donate-form
-          script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
-          div(class='ngp-form'
-              data-template='minimal'
-              data-id='-4832783054033385728'
-              data-endpoint='https://api.myngp.com/'
-              data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
-              data-fastaction-endpoint='https://fastaction.ngpvan.com/'
-              data-databag='everybody'
-              data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
-              data-inline-errors='true'
-              data-fastaction-nologin='true'
-              data-embed='true')
+      //- .col-xs-12.col-sm-6
+      //-   .donate-blue-box
+      //-     div Make it #[strike RAIN] REIGN
+
+  .color-scheme-blue
+    .container
+      .row
+        .col-xs-12
+          #donate-form.p-xs-y-3
+            script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+            div(class='ngp-form'
+                data-template='minimal'
+                data-id='-4832783054033385728'
+                data-endpoint='https://api.myngp.com/'
+                data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
+                data-fastaction-endpoint='https://fastaction.ngpvan.com/'
+                data-databag='everybody'
+                data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
+                data-inline-errors='true'
+                data-fastaction-nologin='true'
+                data-embed='true')

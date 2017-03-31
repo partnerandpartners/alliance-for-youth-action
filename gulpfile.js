@@ -9,12 +9,12 @@ const autoprefixer = require('gulp-autoprefixer')
 const config = require('config')
 var generator = require('./generate')
 
-gulp.task('reloadGenerator', function() {
+gulp.task('reloadGenerator', function () {
   delete require.cache[require.resolve('./generate.js')]
-  generator = require('./generate')
+  generator = require('./generate').on('error', function (err) { console.log(err) })
 })
 
-gulp.task('generate', function(){
+gulp.task('generate', function () {
   generator()
 })
 

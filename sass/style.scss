@@ -396,6 +396,34 @@ fieldset {
   font-size: 32px;
 }
 
+.teal-header-line {
+  background: #01D5F3;
+  height: 1.325rem;
+  //margin-bottom: 1.5rem;
+  span {
+    background: #fff;
+    line-height: 2rem;
+    display: inline-block;
+    font-size: 2rem;
+    padding-right: .5rem;
+    margin: -.45rem 0 0 0;
+    @extend %triad-upright;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headline-line {
+    height: 3.8rem;
+    margin-bottom: .6rem;
+    span {
+      line-height: 3.9rem;
+      font-size: 3.8rem;
+      padding-right: .6rem;
+    }
+  }
+}
+
 
 
 svg {
@@ -504,86 +532,6 @@ svg {
   }
 }
 
-#donate-form {
-  background-color: $blue !important;
-  color: #fff !important;
-  .ngp-form {
-    .at-inner {
-      background-color: transparent !important;
-      border: none !important;
-    }
-  }
-  .at * {
-    font-family: $font-family-base;
-    // color: $blue !important;
-    .label-amount {
-      color: #fff !important;
-      font-family: 'Triade-Upright' !important;
-      font-size: 2rem;
-      line-height: 2rem;
-    }
-  }
-
-  .at form .label-amount input[type="radio"] + a {
-    background:$blue !important;
-    // border-radius: 0;
-    // border: none;
-    color: #fff !important;
-    *:before {
-      color: red;
-    }
-    &:checked {}
-  }
-
-  .at form .label-amount input[type="radio"]:checked + a {
-    background:$teal !important;
-    box-shadow: none;
-    // border-radius: 0;
-    // border: none;
-    color: #fff !important;
-    *:before {
-    }
-  }
-
-  .at-title {
-    font-family: 'Triade-Upright' !important;
-    font-weight: normal !important;
-    color: $blue !important;
-  }
-
-  .at-inner {
-    // border: none !important;
-  }
-
-  .at-steps {
-    padding: 0 !important;
-    background: $blue !important;
-    span {
-      font-family: 'Triade-Upright' !important;
-      color: #fff !important;
-      font-weight: normal !important;
-      text-transform: uppercase;
-    }
-    .at-step.active {
-      background: lighten($blue, 15%) !important;
-    }
-  }
-
-  .at .btn-at-primary {
-    background: $blue;
-    border-radius: 0;
-    text-transform: uppercase;
-    font-family: 'Triade-Upright' !important;
-    color: #fff !important;
-  }
-
-  .at .at-step.valid>*:before {
-    background: transparent;
-    // display:
-  }
-}
-
-
 .donate-blue-box {
   background: $blue;
   @extend %triad-upright;
@@ -615,7 +563,7 @@ svg {
 
 .home-affilliates {
   list-style-type: none;
-  margin: 5rem 0 0 0;
+  margin: 4rem 0 0 0;
   padding: 0;
   width: 130%;
   @extend %triad-upright;
@@ -661,4 +609,107 @@ svg {
   color: $teal;
   font-weight: normal !important;
   text-transform: uppercase;
+}
+
+
+#donate-form {
+  border-bottom: 2px solid #fff;
+  * {
+    font-family: inherit;
+    font-weight: normal;
+  }
+  .at-inner {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .at,
+  .at label,
+  .at .at-step.active > *,
+  .at .at-steps a:hover,
+  .at .at-steps b:hover {
+    color: #fff;
+  }
+
+  .at form .label-amount>a {
+    background: $teal;
+    border-color: $teal;
+  }
+
+  .at form .label-amount a {
+    opacity: .4;
+  }
+
+  .at form .label-amount input[type="radio"]:checked+a {
+    opacity: 1;
+  }
+
+  .label-amount {
+    font-family: 'Triade-Upright' !important;
+    font-weight: normal;
+  }
+
+  .at .at-step {
+    border-bottom: none;
+    opacity: .4;
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .at .step-title {
+    font-weight: bold !important;
+  }
+
+  .at .at-steps {
+    background: transparent;
+    border: none;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+  }
+
+  header.at-title {
+    border: none;
+    color: inherit;
+  }
+
+  .at .at-steps a,
+  .at .at-steps b {
+    border-right: none;
+  }
+
+  .at form .label-amount input:required {
+    background: #fff;
+    border-color: #fff;
+  }
+
+  .at form .label-amount input:required+.label-otheramount-prefix {
+    color: $blue;
+  }
+
+  .at form .label-amount input:required {
+    color: $blue;
+  }
+
+  .at .btn-at-primary,
+  .at .btn-at-primary:hover,
+  .at .at-step>*:before,
+  .at .at-step.active.valid>*:before,
+  .at .at-step.invalid>*:before {
+    background: #fff;
+    color: $blue;
+  }
+
+  .at .btn-at-link {
+    color: #fff;
+  }
+
+  .at .btn-at-primary {
+    font-weight: bold;
+  }
 }

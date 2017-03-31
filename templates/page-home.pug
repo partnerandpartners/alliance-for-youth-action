@@ -25,7 +25,8 @@ block content
   .container.m-xs-t-3
     .row
       .col-xs-12
-        h2.teal-barred-text #[span= post.featuredCampaignsHeader]
+        .teal-header-line
+          span= post.featuredCampaignsHeader
     .row
       .col-xs-12.col-sm-10.col-md-9!= post.featuredCampaignsHeaderDescription
     .row
@@ -46,7 +47,7 @@ block content
         .col-xs-12.col-md-7
           include ./partials/map
         .col-xs-12.col-md-5
-          .p-md-r-6
+          .p-md-r-9
             h1.color-blue= post.affiliateHomeHeadline
             div!= post.affiliateHomeLeadin
 
@@ -58,6 +59,9 @@ block content
                     if affiliate.id === postId
                       .col-xs-12.col-sm-6
                         .h4.map-affiliate= affiliate.title
+      .row
+        .col-xs-12
+          a.more-link(href="/local-organizing") Learn more &#9658;
 
   .p-xs-y-3
     .container
