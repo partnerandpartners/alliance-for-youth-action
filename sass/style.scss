@@ -654,3 +654,101 @@ svg {
   font-weight: normal !important;
   text-transform: uppercase;
 }
+
+
+#donate-form {
+  border-bottom: 2px solid #fff;
+  * {
+    font-family: inherit !important;
+    font-weight: normal !important;
+  }
+  .at-inner {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .at,
+  .at label,
+  .at .at-step.active > *,
+  .at .at-steps a:hover,
+  .at .at-steps b:hover {
+    color: #fff;
+  }
+
+  .at form .label-amount>a {
+    background: $teal;
+    border-color: $teal;
+  }
+
+  .at form .label-amount a {
+    opacity: .4;
+  }
+
+  .at form .label-amount input[type="radio"]:checked+a {
+    opacity: 1;
+  }
+
+  .label-amount {
+    font-family: 'Triade-Upright' !important;
+    font-weight: normal;
+  }
+
+  .at label input:checked + a {
+    color: #ff2;
+    opacity: .1;
+  }
+
+  .at .at-step {
+    border-bottom: none;
+    opacity: .4;
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .at .step-title {
+    font-weight: bold !important;
+  }
+
+  .at .at-steps {
+    background: transparent;
+    border: none;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+  }
+
+  header.at-title {
+    border: none;
+    color: inherit;
+  }
+
+  .at .at-steps a,
+  .at .at-steps b {
+    border-right: none;
+  }
+
+  .at form .label-amount input:required {
+    background: #fff;
+    border-color: #fff;
+  }
+
+  .at form .label-amount input:required+.label-otheramount-prefix {
+    color: $blue;
+  }
+
+  .at form .label-amount input:required {
+    color: $blue;
+  }
+
+  .at .at-step>*:before,,
+  .at .at-step.active.valid>*:before,
+  .at .at-step.invalid>*:before {
+    background: #fff;
+    color: $blue;
+  }
+}
