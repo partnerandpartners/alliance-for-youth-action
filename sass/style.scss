@@ -410,6 +410,16 @@ svg {
     background: #fff;
     padding-right: .3em;
   }
+  @media screen and (max-width: 768px) {
+    display: block;
+    background: transparent;
+    border-bottom: 15px solid $teal;
+    padding-bottom: 4px;
+    span {
+      display: block;
+      background: transparent;
+    }
+  }
 }
 
 .teal-barred-text {
