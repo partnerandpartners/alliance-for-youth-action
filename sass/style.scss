@@ -514,3 +514,89 @@ svg {
     transform: translateX(-50%) translateY(-50%);
   }
 }
+//
+// #donate-form {
+//   color: $blue !important;
+//   .at * {
+//     font-family: $font-family-base;
+//     @extend %triad-upright;
+//     // color: $blue !important;
+//   }
+//
+//   .at form .label-amount * {
+//     color: #fff !important;
+//   }
+//
+//   .at form .label-amount input[type="radio"] + a {
+//     background:$blue !important;
+//     border-radius: 0;
+//     border: none;
+//     color: #fff !important;
+//     *:before {
+//       color: red;
+//     }
+//     &:checked {}
+//   }
+//
+//   .at form .label-amount input[type="radio"]:checked + a {
+//     background:$teal !important;
+//     box-shadow: none;
+//     border-radius: 0;
+//     border: none;
+//     color: #fff !important;
+//     *:before {
+//     }
+//   }
+//
+//   .at-title {
+//     font-family: 'Triade-Upright' !important;
+//     font-weight: normal !important;
+//     color: $blue !important;
+//   }
+//
+//   .at-inner {
+//     border: none !important;
+//   }
+//
+//   .at-steps {
+//     padding: 0 !important;
+//     background: $blue !important;
+//     span {
+//       font-family: 'Triade-Upright' !important;
+//       color: #fff !important;
+//       font-weight: normal !important;
+//       text-transform: uppercase;
+//     }
+//     .at-step.active {
+//       background: lighten($blue, 15%) !important;
+//     }
+//   }
+//
+//   .at .btn-at-primary {
+//     background: $blue;
+//     border-radius: 0;
+//     text-transform: uppercase;
+//     font-family: 'Triade-Upright' !important;
+//     color: #fff !important;
+//   }
+//
+//   .at .at-step.valid>*:before {
+//     background: transparent;
+//     // display:
+//   }
+// }
+
+
+.donate-blue-box {
+  background: $blue;
+  @extend %triad-upright;
+  color: #fff;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+
+// @import "donate";
