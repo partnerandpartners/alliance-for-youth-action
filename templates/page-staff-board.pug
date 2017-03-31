@@ -42,7 +42,7 @@ block content
         .col-xs-12.col-sm-7.col-md-5
           h3.m-xs-b-0 The Board of Directors of the Alliance for Youth Action
           .meta  Affiliates listed for identification purposes only.
-      if post.boardDirectorsYouthAction
+      if post.the_board_of_directors_of_the_alliance_for_youth_action
         .row
           .col-xs-12
             .board-members
@@ -62,7 +62,7 @@ block content
         .col-xs-12.col-sm-7.col-md-5
           h3.m-xs-t-0.m-xs-b-0 The Board of Directors of the Alliance for Youth Organizing
           .meta Titles listed for identification purposes only.
-      if post.boardDirectorsYouthOrganizing
+      if post.the_board_of_directors_of_the_alliance_for_youth_organizing
         .row
           .col-xs-12
             .board-members
@@ -71,3 +71,8 @@ block content
                   div
                     strong= boardMember.name
                   div= boardMember.title
+    
+    .row
+      .col-xs-12
+        pre
+          code #{JSON.stringify(post, null, 2)}
