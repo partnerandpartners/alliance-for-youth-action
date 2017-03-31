@@ -24,11 +24,13 @@ block content
     .row.m-xs-t-1
       each person in post.people_repeater
         .col-xs-10.col-xs-offset-1.col-sm-4.col-sm-offset-0
+          .p-md-r-3
+            h1= person.title
           if person.image
             img(src=person.image.url)
           else
             .placeholder
-          h5= person.title
+          
           div!= person.description
 
   .container.m-xs-y-3
