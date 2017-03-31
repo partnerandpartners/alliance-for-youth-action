@@ -15,7 +15,8 @@ block header
               .image(style="background-image: url(" + post.header_image.url + ");")
       .row
         .col-xs-12.col-sm-10
-          div.lead!= post.homeHeaderDescription
+          div!= post.homeHeaderDescription
+            a.more-link(href="/about") &nbsp; How We Do It &#9658;
       .row.m-xs-t-1
         .col-xs-12.col-sm-10
           .header-transition-headline #{post.headerTransitionHeadline} #[strong= post.headerTransitionHeadlineEmphasis]
@@ -26,8 +27,7 @@ block content
       .col-xs-12
         h2.teal-barred-text #[span= post.featuredCampaignsHeader]
     .row
-      .col-xs-12.col-sm-10.col-md-9
-        .lead!= post.featuredCampaignsHeaderDescription
+      .col-xs-12.col-sm-10.col-md-9!= post.featuredCampaignsHeaderDescription
     .row
       if post.featuredCampaigns
         each postId in post.featuredCampaigns
@@ -48,7 +48,7 @@ block content
         .col-xs-12.col-md-5
           .p-md-r-6
             h1.color-blue= post.affiliateHomeHeadline
-            .lead!= post.affiliateHomeLeadin
+            div!= post.affiliateHomeLeadin
 
           if post.affiliatesHome && site.posts
             .home-affilliates
@@ -57,7 +57,7 @@ block content
                   each affiliate in site.posts
                     if affiliate.id === postId
                       .col-xs-12.col-sm-6
-                        .h4.m-xs-y-0= affiliate.title
+                        .h4.map-affiliate= affiliate.title
 
   .p-xs-y-3
     .container

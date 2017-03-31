@@ -1,17 +1,18 @@
-.col-xs-12.col-sm-6.m-xs-b-3
-  article.campaign
-    if !post.thumbnail
-      .placeholder
-    else
-      a(href=post.permalink)
-        .filter
-          .overlay
-          img.mono(src=post.thumbnail.url)
-    
-    .row
-      .col-xs-12
-        .h1.title #[a(href=post.permalink)= post.title]
-      .col-xs-12.col-md-7
-        .lead.m-xs-b-1
-          a(href=post.permalink) #[span= post.subtitle] #[a.more-link(href=post.permalink) More &#9658;]
-        //- .excerpt!= post.excerpt
+.col-xs-12.col-sm-6.m-xs-b-2
+  a(href=post.permalink)
+    article.campaign
+      if !post.thumbnail
+        .placeholder
+      else
+        a(href=post.permalink)
+          .filter
+            .overlay
+            img.mono(src=post.thumbnail.url)
+      
+      .row
+        .col-xs-12.col-sm-10
+          .h1.title-block #[a(href=post.permalink)= post.title]
+        .col-xs-12.col-sm-7
+          .lead.m-xs-b-1
+            a(href=post.permalink) #[span= post.subtitle] #[a.more-link(href=post.permalink) More &#9658;]
+          //- .excerpt!= post.excerpt

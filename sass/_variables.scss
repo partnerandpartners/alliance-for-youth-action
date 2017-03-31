@@ -1,9 +1,9 @@
-$padding: 1.5rem;
+$padding: 1.25rem;
 
 // Base font settings
 $font-size: 16px;
 $line-height: 1.4; // This should be unit-less (no px, rem, em, etc.)
-$font-weight: normal;
+$font-weight: 500;
 
 $font-size-small: 14px;
 
@@ -49,8 +49,8 @@ $display-4-font-weight: 900;
 
 // Lead text
 $lead-font-size: 18px;
-$lead-line-height: 26px;
-$lead-font-weight: 800;
+$lead-line-height: 24px;
+$lead-font-weight: 500;
 $lead-font-family: $font-family-base;
 
 // Base colors
