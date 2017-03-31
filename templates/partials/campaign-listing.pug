@@ -9,8 +9,9 @@
           img.mono(src=post.thumbnail.url)
     
     .row
+      .col-xs-12
+        .h1.title #[a(href=post.permalink)= post.title]
       .col-xs-12.col-md-7
-        h3.title #[a(href=post.permalink)= post.title]
-        .lead.m-xs-b-1 #[a(href=post.permalink)= post.subtitle]
-        a.button.outline(href=post.permalink) More
+        .lead.m-xs-b-1
+          a(href=post.permalink) #[span= post.subtitle] #[a.more-link(href=post.permalink) More &#9658;]
         //- .excerpt!= post.excerpt

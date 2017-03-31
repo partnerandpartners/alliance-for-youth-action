@@ -9,10 +9,12 @@ h1, .h1 {
   font-size: $h1-font-size;
   margin: 1rem 0;
   text-transform: uppercase;
+  line-height: $h1-line-height;
 }
 
 h2, .h2 {
   font-size: $h2-font-size;
+  line-height: $h2-line-height;
   margin: 1rem 0;
   text-transform: uppercase;
 }

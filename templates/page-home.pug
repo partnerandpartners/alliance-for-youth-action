@@ -24,7 +24,7 @@ block content
   .container.m-xs-t-3
     .row
       .col-xs-12
-        h3.teal-barred-text #[span= post.featuredCampaignsHeader]
+        h2.teal-barred-text #[span= post.featuredCampaignsHeader]
     .row
       .col-xs-12.col-sm-10.col-md-9
         .lead!= post.featuredCampaignsHeaderDescription
@@ -40,22 +40,24 @@ block content
 
             - post = ogPost
 
-  .m-xs-t-3.p-xs-y-3.color-scheme-teal
+  .p-xs-y-3.color-scheme-teal
     .container
-      .row
-        .col-xs-12.col-md-5
-          h3= post.affiliateHomeHeadline
-          .lead!= post.affiliateHomeLeadin
-
-          if post.affiliatesHome && site.posts
-            ul.home-affilliates.cf
-              each postId in post.affiliatesHome
-                each affiliate in site.posts
-                  if affiliate.id === postId
-                    li.lead= affiliate.title
-
+      .row.reverse
         .col-xs-12.col-md-7
           include ./partials/map
+        .col-xs-12.col-md-5
+          .p-md-r-6
+            h1.color-blue= post.affiliateHomeHeadline
+            .lead!= post.affiliateHomeLeadin
+
+          if post.affiliatesHome && site.posts
+            .home-affilliates
+              .row
+                each postId in post.affiliatesHome
+                  each affiliate in site.posts
+                    if affiliate.id === postId
+                      .col-xs-12.col-sm-6
+                        .h4.m-xs-y-0= affiliate.title
 
   .p-xs-y-3
     .container
