@@ -592,7 +592,7 @@ svg {
   margin-bottom: 0;
 }
 
-.home-affilliates {
+.home-affiliates {
   list-style-type: none;
   margin: 4rem 0 0 0;
   padding: 0;
@@ -815,4 +815,11 @@ svg {
   .at-fields:after {
     clear: both;
   }
+}
+
+.affiliate {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
