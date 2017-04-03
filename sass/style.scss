@@ -256,6 +256,9 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
+  &.centered {
+    margin: 0 auto;
+  }
 }
 
 .filter {
@@ -442,7 +445,6 @@ article.campaign {
     color: $teal;
   }
 }
-
 
 
 svg {
