@@ -13,13 +13,17 @@ block content
         each post in site.posts
           if post.type === 'report'
             .col-xs-12.col-md-2
-              a(href=post.permalink)
+              if post.add_pdf
+                a(href=post.add_pdf.url)
+                  if post.thumbnail
+                    img(src=post.thumbnail.url)
+                  else
+                    .placeholder
+                  a(href=post.add_pdf.url)= post.title
+              else
                 if post.thumbnail
                   img(src=post.thumbnail.url)
                 else
                   .placeholder
-              
-              if post.add_pdf
-                a(href=post.add_pdf.url)= post.title
-
+                span= post.title
         - ogPost = post
