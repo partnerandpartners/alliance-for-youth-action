@@ -823,3 +823,33 @@ svg {
   align-items: center;
   justify-content: center;
 }
+
+.line-thing {
+  // background: rgba(0,0,0,.3);
+  display: block;
+  position: relative;
+  span {
+    text-transform: uppercase;
+    background: #fff;
+    font-family: 'Triade-Upright';
+    font-weight: normal;
+    line-height: 3rem;
+    font-size: 3rem;
+    display: inline;
+    padding-right: .14em;
+  }
+
+  .line {
+    background: $teal;
+    position: absolute;
+    top: 26%;
+    bottom: 14.8%;
+    // height: 50%;
+    // top: 50%;
+    // margin-top: -.4rem;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+  }
+}
