@@ -26,6 +26,13 @@ a {
   text-decoration: none;
   &:hover {
     color: $accent;
+    border-bottom: solid 4px;
+    text-decoration: none;
+  }
+  img {
+    &:hover {
+      border-bottom: none;
+    }
   }
 }
 
@@ -822,6 +829,11 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  a {
+    &:hover {
+      border-bottom: none;
+    }
+  }
 }
 
 .line-thing {

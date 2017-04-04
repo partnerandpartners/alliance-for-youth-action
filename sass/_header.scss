@@ -81,6 +81,8 @@
         &:hover a {
           border-left: $logo-bar-height*.67 solid $teal;
           color: $teal;
+          border-bottom: none;
+          
         }
       }
     }
