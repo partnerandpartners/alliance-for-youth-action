@@ -78,20 +78,18 @@ block content
           a(href="/donate")
             include ./partials/donate-graphic
 
-  //- HIDDEN FOR BETA
-  //- if post.featuredUpdates
-  //-   .container.p-xs-y-3
-  //-     .row.m-xs-b-1
-  //-       .col-xs-12.col-md-7
-  //-         h3= post.featuredUpdatesHeader
-  //-         if post.donateSectionLeadin
-  //-           .lead!=post.featuredUpdatesLeadin
-  //-     .row
-  //-       - var ogPost = post
-  //-       each postId in post.featuredUpdates
-  //-         each post in site.posts
-  //-           if postId === post.id
-  //-             include ./partials/post-listing
-
-
+  if post.featuredUpdates
+    .container.p-xs-y-3
+      .row.m-xs-b-1
+        .col-xs-12
+          .teal-header-line
+            span= post.featuredUpdatesHeader
+          if post.donateSectionLeadin
+            .lead!=post.featuredUpdatesLeadin
+      .row
+        - var ogPost = post
+        each postId in post.featuredUpdates
+          each post in site.posts
+            if postId === post.id
+              include ./partials/post-listing
         - post = ogPost
