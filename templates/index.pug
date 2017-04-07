@@ -3,7 +3,12 @@ extends layout
 block content
   .container.m-xs-b-6
     .row
-      .col-xs-12
+      .col-xs-12.col-md-8.col-md-offset-2
         if post
-          h1= post.title
+          if post.thumbnail
+            .filter
+              .overlay
+              img.mono(src=post.thumbnail.large.url)
+
+          h1.post-title= post.title
           div!= post.content
