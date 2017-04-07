@@ -43,6 +43,13 @@ gulp.task('webserver', function () {
     }))
 })
 
+gulp.task('copyFavicons', function () {
+  return gulp.src([
+    './favicons/**/**'
+  ])
+    .pipe(gulp.dest('./_site/'))
+})
+
 gulp.task('copyJS', function () {
   return gulp.src([
     path.resolve(__dirname, 'js', 'script.js')
@@ -70,7 +77,7 @@ gulp.task('watch', function () {
   gulp.watch('generate.js', ['reloadGenerator', 'build'])
 })
 
-gulp.task('build', ['sass', 'generate', 'copyJS', 'copyFonts'])// 'copyJS', 'generate', 'copyImg'])
+gulp.task('build', ['sass', 'generate', 'copyJS', 'copyFonts', 'copyFavicons'])// 'copyJS', 'generate', 'copyImg'])
 
 gulp.task('develop', ['build', 'watch', 'webserver'])
 gulp.task('dev', ['develop'])
