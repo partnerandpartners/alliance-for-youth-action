@@ -6,9 +6,7 @@ block content
       .col-xs-12.col-md-8.col-md-offset-2
         if post
           if post.thumbnail
-            .filter
-              .overlay
-              img.mono(src=post.thumbnail.large.url)
+            img(src=post.thumbnail.large.url)
 
           h1.post-title= post.title
           div!= post.content
