@@ -5,7 +5,10 @@ article.post.col-xs-12.col-md-4.m-xs-b-3
         img(src=post.thumbnail.large.url)
     else
       .placeholder
-  h4.title.m-xs-b-0.m-xs-t-1 #[a(href=post.permalink)= post.title]
-  time= post.date
+  h4.post-title.m-xs-b-0.m-xs-t-1 #[a(href=post.permalink)= post.title]
+  time.post-date= post.date
+
   .excerpt.small!= post.excerpt
-  div #[a(href=post.permalink) Read More]
+
+  div
+    a(href=post.permalink) #[a.more-link(href=post.permalink) Read More &#9658;]

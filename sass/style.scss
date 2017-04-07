@@ -857,9 +857,6 @@ svg {
     position: absolute;
     top: 26%;
     bottom: 14.8%;
-    // height: 50%;
-    // top: 50%;
-    // margin-top: -.4rem;
     left: 0;
     right: 0;
     z-index: -1;
@@ -871,8 +868,17 @@ svg {
   font-size: 18px;
 }
 
-h1.post-title {
+.post-title {
   font-family: $font-family-base;
   text-transform: none;
   font-weight: 700;
+}
+
+.post .excerpt.small {
+  margin-bottom: .2rem;
+}
+
+.post-date {
+  margin: .3rem 0 .2rem 0;
+  display: block;
 }
