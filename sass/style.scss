@@ -870,3 +870,9 @@ svg {
 .lead-more {
   font-size: 18px;
 }
+
+h1.post-title {
+  font-family: $font-family-base;
+  text-transform: none;
+  font-weight: 700;
+}
