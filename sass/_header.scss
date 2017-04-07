@@ -82,7 +82,7 @@
           border-left: $logo-bar-height*.67 solid $teal;
           color: $teal;
           border-bottom: none;
-          
+
         }
       }
     }
@@ -156,7 +156,7 @@
     padding: 0;
     margin: 0;
     width: 72px;
-    font-size: .8rem;
+    font-size: 1rem;
     top: 0;
     right: 0;
     display: block;
@@ -211,10 +211,15 @@ ul ul {
     }
   }
   #header nav > ul > li {
-    &:hover {
-      & > a {
-      }
-    }
+    padding-right: 0;
+    // line-height: 30px;
+    // height: 100px;
+    // a {
+    //   background: orange;
+    //   line-height: 30px;
+    //   height: 30px;
+    //
+    // }
   }
   nav#main-menu {
     min-width: 100%;
@@ -248,5 +253,15 @@ ul ul {
         }
       }
     }
+  }
+
+  // .header-content nav ul li {
+  //   height: auto;
+  //   background: pink;
+  // }
+  .header-content nav>ul>li ul li {
+    // background: yellow;
+    height: 40px;
+    line-height: 40px;
   }
 }
