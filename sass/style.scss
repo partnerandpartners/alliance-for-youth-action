@@ -6,7 +6,7 @@
 %triad-upright {
   font-family: 'Triade-Upright';
   font-weight: normal;
-}
+}a
 
 %triad-slanted {
   font-family: 'Triade-Slanted';
@@ -24,9 +24,10 @@ p, ul, ol {
 a {
   color: inherit;
   text-decoration: none;
+  border-bottom: transparent solid 4px;
   &:hover {
     color: $accent;
-    border-bottom: solid 4px;
+    border-bottom: #fff solid 4px;
     text-decoration: none;
   }
   img {

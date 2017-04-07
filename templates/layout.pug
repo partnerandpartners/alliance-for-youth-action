@@ -36,66 +36,67 @@ html(lang="en-us")
 
     footer#footer.color-scheme-blue.p-xs-y-1
       .container
-        .row
-          .col-xs-12.col-md-2
-            if site.menus && site.menus.about
-              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
-                +navMenu(site.menus.about)
-          .col-xs-12.col-md-3
-            if site.menus && site.menus.campaigns
-              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
-                +navMenu(site.menus.campaigns)
-          .col-xs-12.col-md-3
-            if site.menus && site.menus.organizing
-              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
-                +navMenu(site.menus.organizing)
-          .col-xs-12.col-md-2
-            if site.menus && site.menus.donate
-              nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
-                +navMenu(site.menus.donate)
-          .col-xs-12.col-md-2
-            nav.social(itemscope itemtype="http://schema.org/SiteNavigationElement")
-              ul
-                li #[a(href="" target="_blank") FB]
-                li #[a(href="" target="_blank") TW]
-                li #[a(href="" target="_blank") IG]
-                li #[a(href="" target="_blank") YT]
+        .footer-row-wrapper
+          .row.footer-menu-row
+            .col-xs-12.col-md-2
+              if site.menus && site.menus.about
+                nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                  +navMenu(site.menus.about)
+            .col-xs-12.col-md-3
+              if site.menus && site.menus.campaigns
+                nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                  +navMenu(site.menus.campaigns)
+            .col-xs-12.col-md-3
+              if site.menus && site.menus.organizing
+                nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                  +navMenu(site.menus.organizing)
+            .col-xs-12.col-md-2
+              if site.menus && site.menus.donate
+                nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                  +navMenu(site.menus.donate)
+            .col-xs-12.col-md-2
+              nav.social(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                ul
+                  li #[a(href="" target="_blank") FB]
+                  li #[a(href="" target="_blank") TW]
+                  li #[a(href="" target="_blank") IG]
+                  li #[a(href="" target="_blank") YT]
 
-        .row.p-xs-t-3.bottom-xs
-          .col-xs-12.col-md-7
-            .logo
-              a(href="/")
-                
-                include ./partials/alliance
-                include ./partials/for
-                include ./partials/youth
-                include ./partials/action
-                
-          .col-xs-12.col-md-5
-            strong= site.options.footerContactFormTitle
-            div.m-xs-b-1= site.options.footerContactFormDescription
-            #contact-sign-up
-              script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
-              div(class='ngp-form'
-                  data-template='oberon'
-                  data-id='-4904840648071313664'
-                  data-endpoint='https://api.myngp.com/'
-                  data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
-                  data-fastaction-endpoint='https://fastaction.ngpvan.com/'
-                  data-databag='everybody'
-                  data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
-                  data-inline-errors='true'
-                  data-fastaction-nologin='true'
-                  data-embed='true')
+          .footer-logo-row.row.p-xs-t-3.bottom-xs.reverse
+            .col-xs-12.col-md-5
+              strong= site.options.footerContactFormTitle
+              div.m-xs-b-1= site.options.footerContactFormDescription
+              #contact-sign-up
+                script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+                div(class='ngp-form'
+                    data-template='oberon'
+                    data-id='-4904840648071313664'
+                    data-endpoint='https://api.myngp.com/'
+                    data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
+                    data-fastaction-endpoint='https://fastaction.ngpvan.com/'
+                    data-databag='everybody'
+                    data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
+                    data-inline-errors='true'
+                    data-fastaction-nologin='true'
+                    data-embed='true')
+            .col-xs-12.col-md-7
+              .logo
+                a(href="/")
+                  
+                  include ./partials/alliance
+                  include ./partials/for
+                  include ./partials/youth
+                  include ./partials/action
 
-        .row.p-xs-t-1
-          .col-xs-12      
-              .footer-logo-menu-wrapper
-                if site.menus && site.menus.footer
-                  nav.footer-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
-                    +navMenu(site.menus.footer)
-                
-                .copyright= site.options.footerCopyrightText
+
+          .footer-copright-row.row.p-xs-t-1
+            .col-xs-12      
+                .footer-logo-menu-wrapper
+                  if site.menus && site.menus.footer
+                    nav.footer-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                      +navMenu(site.menus.footer)
+                  
+                  .copyright= site.options.footerCopyrightText
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js")
