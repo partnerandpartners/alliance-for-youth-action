@@ -1,8 +1,10 @@
+pre
+  code #{JSON.stringify(post.thumbnail, null, 2)}
 article.post.col-xs-12.col-md-4.m-xs-b-3
   a(href=post.permalink)
     if post.thumbnail
       .post-thumbnail
-        img(src=post.thumbnail.url)
+        img(src=post.thumbnail.large.url)
     else
       .placeholder
   h4.title.m-xs-b-0.m-xs-t-1 #[a(href=post.permalink)= post.title]
