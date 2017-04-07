@@ -1,15 +1,14 @@
 .col-xs-12.col-sm-6.m-xs-b-2
-  //- pre
-  //-   code #{JSON.stringify(post, null, 2)}
   if post.campaignLinkCheck === "none"
     article.campaign-static
+
       if !post.thumbnail
         .placeholder
       else
         .filter
           .overlay
-          img.mono(src=post.thumbnail.url)
-            
+          img.mono(src=post.thumbnail.large.url)
+
       .row
         .col-xs-12.col-sm-10
           .h1.title-block= post.title
@@ -26,7 +25,7 @@
           a(href=post.campaignLink)
             .filter
               .overlay
-              img.mono(src=post.thumbnail.url)
+              img.mono(src=post.thumbnail.large.url)
         
         .row
           .col-xs-12.col-sm-10
@@ -45,7 +44,7 @@
           a(href=post.permalink)
             .filter
               .overlay
-              img.mono(src=post.thumbnail.url)
+              img.mono(src=post.thumbnail.large.url)
         
         .row
           .col-xs-12.col-sm-10
