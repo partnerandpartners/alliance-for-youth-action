@@ -16,13 +16,13 @@ block content
               if post.add_pdf
                 a(href=post.add_pdf.url)
                   if post.thumbnail
-                    img(src=post.thumbnail.url)
+                    img(src=post.thumbnail.medium.url)
                   else
                     .placeholder
                   a(href=post.add_pdf.url)= post.title
               else
                 if post.thumbnail
-                  img(src=post.thumbnail.url)
+                  img(src=post.thumbnail.medium.url)
                 else
                   .placeholder
                 span= post.title
