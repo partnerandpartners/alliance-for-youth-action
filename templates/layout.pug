@@ -16,6 +16,19 @@ html(lang="en-us")
     link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
     link(rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
     link(href="/css/style.css" rel="stylesheet" type="text/css")
+
+    meta(property="og:site_name" content=site.site.name)
+    meta(property="og:locale" content=site.site.language.replace('-','_'))
+
+    if post
+      if post.title
+        meta(property="og:title" content=post.title)
+      if post.description
+        meta(property="og:description" content=post.description)
+      if post.permalink
+        meta(property="og:url" content='https://www.allianceforyouthaction.org' + post.permalink)
+
+    //- block opengraph
   body
     header#header.youth-sans
       .container
