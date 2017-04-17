@@ -15,7 +15,7 @@ block content
     each post in site.posts
       if post.type === 'job'
         article.row
-          .col-xs-12.col-md-6
+          .col-xs-12.col-md-6.m-xs-b-3
             h3.m-xs-t-0= post.title
             div!= post.subtitle
             div!= post.excerpt

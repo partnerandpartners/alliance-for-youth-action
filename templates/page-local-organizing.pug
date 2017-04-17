@@ -11,7 +11,7 @@ block content
         if post
           .lead!= post.content
     .row
-      .col-xs-12
+      .col-xs-12.m-xs-b-2
         if post.headerImages
           .header-images
             each image in post.headerImages
@@ -29,9 +29,9 @@ block content
     .row
       .col-xs-12.col-md-8.col-md-offset-2
         h3= post.affiliates_title
-        div!= post.affiliates_description
+        section!= post.affiliates_description
 
-    .row
+    .row.m-xs-b-3
       .col-xs-12
 
         - var ogPost = post
@@ -51,7 +51,7 @@ block content
         h3= post.partners_title
         div!= post.partners_description
 
-    .row
+    .row.m-xs-b-3
       .col-xs-12
         .row.p-xs-a-0
           .col-xs-12.col-md-8.col-md-offset-2.p-xs-a-0
