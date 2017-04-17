@@ -44,14 +44,14 @@ html(lang="en-us")
 
               #logo
                 a(href="/")
-                  
+
                   include ./partials/alliance
                   include ./partials/for
                   include ./partials/youth
                   include ./partials/action
-                  
-                  
-              button.main-menu-toggle Menu #[span &#9652;]
+
+
+              button.main-menu-toggle MENU #[span &#9652;]
 
               if site.menus && site.menus.main
                 nav#main-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
@@ -110,7 +110,7 @@ html(lang="en-us")
             .col-xs-12.col-md-7
               .logo
                 a(href="/")
-                  
+
                   include ./partials/alliance
                   include ./partials/for
                   include ./partials/youth
@@ -118,12 +118,12 @@ html(lang="en-us")
 
 
           .footer-copright-row.row.p-xs-t-1
-            .col-xs-12      
+            .col-xs-12
                 .footer-logo-menu-wrapper
                   if site.menus && site.menus.footer
                     nav.footer-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
                       +navMenu(site.menus.footer)
-                  
+
                   .copyright= site.options.footerCopyrightText
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")

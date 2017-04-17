@@ -67,7 +67,7 @@ block content
     - var accomplismentClass = ''
     if post.accomplishments
       each accomplishment in post.accomplishments
-        div(class='row m-xs-y-6 middle-xs' + accomplismentClass)
+        div(class='row m-md-y-6 m-xs-y-3 middle-xs' + accomplismentClass)
           .col-xs-12.col-md-4
             h4.accomp-title= accomplishment.title
             div!= accomplishment.description
@@ -114,12 +114,12 @@ block content
 
     .row.m-xs-b-3
       .col-xs-12.col-md-6.col-md-offset-3
-        h3= post.campaignFooterTitle
+        .bordered-box.m-xs-y-3
+          h3= post.campaignFooterTitle
+          if post.campaignFooterSubtitle
+            h4= post.campaignFooterSubtitle
 
-        if post.campaignFooterSubtitle
-          h4= post.campaignFooterSubtitle
-
-        .lead!= post.campaignFooterContent
+          .div!= post.campaignFooterContent
 
 
     .row.m-xs-b-3
