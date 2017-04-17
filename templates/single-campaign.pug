@@ -4,9 +4,10 @@ block content
   .container
     .row
       .col-xs-12
-        h1= post.title
+        .large-teal-header-line
+          span= post.title
         if post.subtitle && post.subtitle
-          h2= post.subtitle
+            .section-lead!= post.subtitle
 
     if post.headerImages
       .row
@@ -25,14 +26,15 @@ block content
 
     .row.m-xs-y-3
       .col-xs-12
-        h2.teal-barred-text #[span= post.goalsTitle]
+        .teal-header-line
+          span= post.goalsTitle
       .col-xs-12.col-md-8.col-md-offset-2
         //- h2.teal-barred-text #[span= post.goalsTitle]
 
         ol.campaign-main-goals
           each goal in post.goals
             li
-              h3= goal.title
+              h3.goal-title= goal.title
 
               ul
                 each task in goal.tasks
@@ -40,7 +42,8 @@ block content
 
     .row.m-xs-t-3
       .col-xs-12
-        h2.teal-barred-text #[span= post.campaignWhatWereDoingTitle]
+        .teal-header-line
+          span= post.campaignWhatWereDoingTitle
       .col-xs-12.col-md-7
         p.lead= post.campaignWhatWereDoingDescription
 
@@ -57,7 +60,7 @@ block content
                         img(src=image.sizes.large)
               else
                 .placeholder
-            h3= thing.name
+            h3.goal-title= thing.name
             div!= thing.description
 
 
@@ -66,7 +69,7 @@ block content
       each accomplishment in post.accomplishments
         div(class='row m-xs-y-6 middle-xs' + accomplismentClass)
           .col-xs-12.col-md-4
-            h4= accomplishment.title
+            h4.accomp-title= accomplishment.title
             div!= accomplishment.description
           .col-xs-12.col-md-1
           .col-xs-12.col-md-7
@@ -110,7 +113,7 @@ block content
         - post = ogPost
 
     .row.m-xs-b-3
-      .col-xs-12.col-md-6
+      .col-xs-12.col-md-6.col-md-offset-3
         h3= post.campaignFooterTitle
 
         if post.campaignFooterSubtitle

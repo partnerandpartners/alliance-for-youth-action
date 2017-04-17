@@ -18,7 +18,7 @@
 @import "modals";
 
 p, ul, ol {
-  margin: $padding 0;
+  margin: 1rem 0 2rem 0;
 }
 
 a {
@@ -289,11 +289,6 @@ img {
   //   background-size: 100px 100px
   // }
   img {
-    mix-blend-mode: screen;
-    -webkit-filter: grayscale(100%) contrast(120%);
-    filter: grayscale(100%) contrast(120%);
-    opacity: 1;
-    width: 100%;
   }
 
 }
@@ -407,10 +402,22 @@ fieldset {
   font-size: 32px;
 }
 
+.section-lead {
+  font-size: $lead-font-size;
+  line-height: $lead-line-height;
+  font-weight: $lead-font-weight;
+  font-family: $lead-font-family;
+  margin-bottom: 2rem;
+}
+
+.campaign-main-goals {
+  margin-top: 3rem;
+}
+
 .teal-header-line {
   background: #01D5F3;
   height: 1.325rem;
-  //margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
   span {
     background: #fff;
     line-height: 2rem;
@@ -418,6 +425,22 @@ fieldset {
     font-size: 2rem;
     padding-right: .5rem;
     margin: -.45rem 0 0 0;
+    @extend %triad-upright;
+    text-transform: uppercase;
+  }
+}
+
+.large-teal-header-line {
+  background: #01D5F3;
+  height: 1.8rem;
+  margin-bottom: 1rem;
+  span {
+    background: #fff;
+    line-height: 2rem;
+    display: inline-block;
+    font-size: 2.5rem;
+    padding-right: .7rem;
+    margin: -.2rem 0 0 0;
     @extend %triad-upright;
     text-transform: uppercase;
   }
@@ -448,7 +471,15 @@ article.campaign {
       }
     }
     .filter {
-      background: $teal;
+      position: relative;
+      background: $blue;
+      img {
+        mix-blend-mode: screen;
+        -webkit-filter: grayscale(100%) contrast(120%);
+        filter: grayscale(100%) contrast(120%);
+        opacity: 1;
+        width: 100%;
+      }
     }
     color: $teal;
   }
@@ -513,14 +544,6 @@ svg {
 
 .header-image .placeholder {
   opacity: 1;
-}
-
-.header-image img {
-  mix-blend-mode: screen;
-  -webkit-filter: grayscale(100%) contrast(120%);
-  filter: grayscale(100%) contrast(120%);
-  opacity: 1;
-  width: 100%;
 }
 
 .header-image {
@@ -648,10 +671,12 @@ svg {
   font-weight: normal !important;
   text-transform: uppercase;
   &.white {
-    color: #fff;
+    color: $blue;
   }
   &:hover {
     text-decoration: none;
+    color: $blue;
+    border-bottom: $blue solid 4px;
   }
 }
 
@@ -836,19 +861,20 @@ svg {
   }
 }
 
-.line-thing {
+.line-header {
   // background: rgba(0,0,0,.3);
   display: block;
   position: relative;
+  margin-bottom: 2rem;
   span {
     text-transform: uppercase;
     background: #fff;
     font-family: 'Triade-Upright';
     font-weight: normal;
     line-height: 3rem;
-    font-size: 3rem;
+    font-size: $h1-font-size;
     display: inline;
-    padding-right: .14em;
+    padding-right: .25em;
   }
 
   .line {
@@ -865,6 +891,9 @@ svg {
 
 .lead-more {
   font-size: 18px;
+  &:hover {
+    border-bottom: 4px solid #fff;
+  }
 }
 
 .post-title {

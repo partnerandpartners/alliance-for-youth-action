@@ -1,7 +1,12 @@
 extends layout
 
 block content
-  .container.m-xs-y-3
+  .container
+    .row
+      .col-xs-12
+        .line-header
+          span= post.title
+            .line
     .row
       .col-xs-12
         if post.headerImages
@@ -24,7 +29,7 @@ block content
       .col-xs-12.col-md-8.col-md-offset-2
         h3= post.affiliates_title
         div!= post.affiliates_description
-    
+
     .row
       .col-xs-12
 
@@ -37,9 +42,9 @@ block content
                   each post in site.posts
                     if post.type === 'affilliate' && post.id === selected_affiliate_id
                       include ./partials/affiliate-listing
-            
+
         - post = ogPost
-    
+
     .row
       .col-xs-12.col-md-8.col-md-offset-2
         h3= post.partners_title
@@ -59,7 +64,7 @@ block content
                           img.centered(src=partner.partner_logo)
                         else
                           .placeholder= partner.partner_name
-        
+
     .row
       .col-xs-12.col-md-8.col-md-offset-2
         h3= post.join_title

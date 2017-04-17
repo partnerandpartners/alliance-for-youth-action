@@ -11,9 +11,9 @@
 
       .row
         .col-xs-12.col-sm-10
-          .h1.title-block= post.title
+          .h2.title-block= post.title
         .col-xs-12.col-sm-7
-          .lead.m-xs-b-1
+          .small-lead.m-xs-b-1
             span= post.subtitle
             //- .excerpt!= post.excerpt
   else if post.campaignLinkCheck === "custom"
@@ -26,12 +26,12 @@
             .filter
               .overlay
               img.mono(src=post.thumbnail.large.url)
-        
+
         .row
           .col-xs-12.col-sm-10
-            .h1.title-block #[a(href=post.campaignLink)= post.title]
+            .h2.title-block #[a(href=post.campaignLink)= post.title]
           .col-xs-12.col-sm-7
-            .lead.m-xs-b-1
+            .small-lead.m-xs-b-1
               a(href=post.campaignLink) #[span= post.subtitle] #[br]
               a.more-link(href=post.campaignLink) #[span=post.campaignMoreLinkText] #[span &#9658;]
             //- .excerpt!= post.excerpt
@@ -45,11 +45,11 @@
             .filter
               .overlay
               img.mono(src=post.thumbnail.large.url)
-        
+
         .row
           .col-xs-12.col-sm-10
-            .h1.title-block #[a(href=post.permalink)= post.title]
+            .h2.title-block #[a(href=post.permalink)= post.title]
           .col-xs-12.col-sm-7
-            .lead.m-xs-b-1
+            .small-lead.m-xs-b-1
               a(href=post.permalink) #[span= post.subtitle] #[br] #[a.more-link(href=post.permalink) More &#9658;]
             //- .excerpt!= post.excerpt

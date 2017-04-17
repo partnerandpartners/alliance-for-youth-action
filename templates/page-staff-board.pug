@@ -3,10 +3,12 @@ extends layout
 block content
   .container
 
-    .m-xs-y-2
+    .m-xs-b-3
       .row
         .col-xs-12
-          h1.teal-barred-text #[span= post.staff_heading_title]
+          .large-teal-header-line
+            span= post.staff_heading_title
+              description!= post.content
       .row
         .col-xs-12.col-md-7
           .lead!= post.staff_heading_description
@@ -24,7 +26,7 @@ block content
               h3.m-xs-t-0.name= staffMember.name
               .job-titles!= staffMember.jobTitles
               .bio!= staffMember.bio
-          
+
           .row
             .col-xs-12
               hr
@@ -32,7 +34,9 @@ block content
     .m-xs-t-1
       .row
         .col-xs-12
-          h1.teal-barred-text #[span= post.board_title]
+          .large-teal-header-line
+            span= post.board_title
+              description!= post.content
       .row
         .col-xs-12.col-md-7
           .lead!= post.board_description
@@ -56,7 +60,7 @@ block content
     //-   .row
     //-     .col-xs-12
     //-       hr
-    //- 
+    //-
     //- .m-xs-b-1
     //-   .row
     //-     .col-xs-12.col-sm-7.col-md-5

@@ -18,7 +18,7 @@ h1, .h1 {
 h2, .h2 {
   font-size: $h2-font-size;
   line-height: $h2-line-height;
-  margin: 1rem 0;
+  margin: 1rem 0 .25rem 0;
   text-transform: uppercase;
 }
 
@@ -82,9 +82,38 @@ h6, .h6 {
   font-size: $lead-font-size;
   line-height: $lead-line-height;
   font-weight: $lead-font-weight;
-  font-family: $lead-font-family
+  font-family: $lead-font-family;
+}
+
+h4.accomp-title {
+  font-weight: 800;
+  line-height: $lead-line-height;
+  font-family: $lead-font-family;
+  text-transform: none;
+}
+
+h3.goal-title {
+  font-weight: 800;
+  line-height: $lead-line-height;
+  font-family: $lead-font-family;
+  text-transform: none;
 }
 
 .text-bold {
   font-weight: 800;
+  font-size: $lead-font-size;
+}
+
+strong {
+  font-weight: 800;
+}
+
+.wins-title {
+  font-weight: 800;
+  font-size: $h6-font-size;
+}
+
+.credit {
+  font-size: $font-size-small;
+  margin-top: .25rem;
 }

@@ -21,7 +21,7 @@ block header
       .row.m-xs-t-1
         .col-xs-12.col-sm-8
           div.lead!= post.homeHeaderDescription
-          
+
           .m-xs-t-1
             a.lead-more.more-link(href="/about") About The Alliance &#9658;
 
@@ -32,7 +32,7 @@ block content
         .teal-header-line
           span= post.featuredCampaignsHeader
     .row
-      .col-xs-12.col-sm-10.col-md-9!= post.featuredCampaignsHeaderDescription
+      .col-xs-12.col-sm-10.col-md-8.lead.m-xs-b-1!= post.featuredCampaignsHeaderDescription
     .row
       if post.featuredCampaigns
         each postId in post.featuredCampaigns
