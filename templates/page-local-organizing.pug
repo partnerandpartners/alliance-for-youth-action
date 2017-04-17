@@ -1,12 +1,15 @@
 extends layout
 
 block content
-  .container
+  .container.m-xs-b-3
     .row
       .col-xs-12
-        .line-header
+        .large-teal-header-line
           span= post.title
-            .line
+    .row
+      .col-xs-12.col-md-8
+        if post
+          .lead!= post.content
     .row
       .col-xs-12
         if post.headerImages
@@ -17,8 +20,6 @@ block content
 
     .row
       .col-xs-12.col-md-8.col-md-offset-2
-        if post
-          div!= post.content
 
     .row
       .col-xs-12.col-md-8.col-md-offset-2

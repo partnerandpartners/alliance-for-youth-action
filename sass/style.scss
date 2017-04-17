@@ -455,6 +455,17 @@ fieldset {
     span {
     }
   }
+  .large-teal-header-line {
+    background: #fff;
+    height: auto;
+    padding: 0 0 .75rem 0;
+    border-bottom: 24px solid $teal;
+    span {
+    }
+  }
+  .large-teal-header-line span {
+    line-height: 2.5rem;
+  }
 }
 
 
