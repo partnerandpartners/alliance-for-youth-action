@@ -29,18 +29,14 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  justify-content: space-around;
   font-size: 1.75rem;
   @extend %triad-upright;
-  li:last-of-type {
-    text-align: right;
-  }
   li:first-of-type {
-    text-align: left;
+    margin-right: $padding * 2;
   }
 
   @media screen and (max-width: 768px) {
-    margin-top: 2rem;
+    // margin-top: 2rem;
   }
 }
 
@@ -91,11 +87,11 @@
     flex-direction: column;
   }
   .footer-menu-row {
-    order: 2;
+    order: 1;
     margin-bottom: $padding * 1.5;
   }
   .footer-logo-row {
-    order: 1;
+    order: 2;
     margin-bottom: $padding * 1.5;
   }
   .footer-copright-row {
