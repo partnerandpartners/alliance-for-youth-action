@@ -108,16 +108,16 @@ block content
     - var accomplismentClass = ''
     if post.accomplishments
       each accomplishment in post.accomplishments
-        div(class='row m-md-b-6 middle-xs' + accomplismentClass)
-          .col-xs-12.col-md-4
-            h4.m-xs-b-0.accomp-title= accomplishment.title
-            div.no-paragraph-top-margins!= accomplishment.description
-          .col-xs-12.col-md-1
+        div(class='row m-xs-b-3 m-md-b-6 middle-xs' + accomplismentClass)
           .col-xs-12.col-md-7
             if !accomplishment.image
               .placeholder
             else
               img(src=accomplishment.image.sizes.large)
+          .col-xs-12.col-md-4
+            h4.m-xs-b-0.accomp-title= accomplishment.title
+            div.no-paragraph-top-margins!= accomplishment.description
+          
 
         if accomplismentClass === ''
           - accomplismentClass = ' reverse'
