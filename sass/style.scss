@@ -456,7 +456,7 @@ fieldset {
     display: inline-block;
     font-size: 44px;
     padding-right: .7rem;
-    margin: -.2rem 0 0 0;
+    margin: -3px 0 0 0;
     @extend %triad-upright;
     text-transform: uppercase;
   }
@@ -954,7 +954,7 @@ svg {
 .teal-right-border {
   margin-right: .4rem;
   .border-overlay {
-    width: 1.8rem;
+    width:2rem;
     background: #fff;
     height: 20%;
     position: absolute;
@@ -1151,3 +1151,10 @@ svg {
 //   background:orange !important;
 //   text-shadow: 1rem 1rem blue;
 // }
+
+.no-paragraph-top-margins {
+  margin-top: .5rem;
+  p {
+    margin-top: 0;
+  }
+}
