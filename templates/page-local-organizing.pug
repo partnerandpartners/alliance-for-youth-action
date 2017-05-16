@@ -1,22 +1,44 @@
 extends layout
 
 block content
-  .container.m-xs-b-3
+  - var splitTitle = post.title.split(" ")
+
+  .container.ignore-horizontal-overflow.m-xs-b-3.p-xs-t-1
     .row
       .col-xs-12
-        .large-teal-header-line
-          span= post.title
-    .row
-      .col-xs-12.col-md-8
+        .hidden-md
+          .large-teal-header-line
+            span= post.title
+
+        if splitTitle[0]
+          .teal-right-border
+            .arrow-down
+            .border-overlay
+
+            .large-teal-header-line.hidden-xs.visible-md
+              span= splitTitle[0]
+
+            .teal-right-border-content
+
+              if splitTitle[1]
+                .teal-right-border
+                  .arrow-down
+                  .large-teal-header-line.hidden-xs.visible-md
+                    span= splitTitle[1]
+                    
+                  .teal-right-border-content
+                    .row
+                      .col-xs-12.m-xs-b-2
+                        if post.headerImages
+                          .header-images
+                            each image in post.headerImages
+                              div
+                                img(src=image.url)
+
+    .row.m-xs-b-2
+      .col-xs-12.col-md-8.col-md-offset-2
         if post
           .lead!= post.content
-    .row
-      .col-xs-12.m-xs-b-2
-        if post.headerImages
-          .header-images
-            each image in post.headerImages
-              div
-                img(src=image.url)
 
     .row
       .col-xs-12.col-md-8.col-md-offset-2
@@ -69,6 +91,13 @@ block content
     .row
       .col-xs-12.col-md-8.col-md-offset-2
         h3= post.join_title
+    .row
+      .col-xs-12.col-md-4.col-md-offset-2
+        //- h3= post.join_title
         div!= post.join_description
         div
           a(href="#").button Get In Touch
+
+      .col-xs-12.col-md-4
+        if post.join_image && post.join_image.hasOwnProperty('url')
+          img(src=post.join_image.url)

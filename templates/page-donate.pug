@@ -1,23 +1,43 @@
 extends layout
 
 block content
-  .container
+  .container.ignore-horizontal-overflow.m-xs-b-3.p-xs-t-1
     .row
       .col-xs-12
-        .large-teal-header-line
-          span= post.title
-    .row.m-xs-b-3
-      .col-xs-12.col-sm-8
-        div!= post.content
-      //- .col-xs-12.col-sm-6
-      //-   .donate-blue-box
-      //-     div Make it #[strike RAIN] REIGN
+        .hidden-md
+          .large-teal-header-line
+            span= post.title
+            span!= post.subtitle.replace('Rain', '<span class="strikethrough">Rain<span class="line"></span></span>')
 
-  .color-scheme-blue
-    .container
-      .row
-        .col-xs-12
-          #donate-form.p-xs-y-3
+        .teal-right-border
+          .arrow-down
+          .border-overlay
+
+          .large-teal-header-line.hidden-xs.visible-md
+            span= post.title
+            
+          .teal-right-border-content
+            
+
+            .teal-right-border
+              .arrow-down
+              .large-teal-header-line.hidden-xs.visible-md
+                span!= post.subtitle.replace('Rain', '<span class="strikethrough">Rain<span class="line"></span></span>')
+                
+              .teal-right-border-content
+                .row.p-xs-t-2.p-md-r-2
+                  .col-xs-12.col-sm-6.m-xs-b-2
+                    div!= post.content
+                  .col-xs-12.col-sm-6
+                    if post.thumbnail
+                      img(src=post.thumbnail.large.url)
+
+
+  .container
+    .row
+      .col-xs-12.col-md-10.col-md-offset-1
+        .color-scheme-blue.m-xs-b-6
+          #donate-form
             script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
             div(class='ngp-form'
                 data-template='minimal'

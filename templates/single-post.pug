@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  .container.m-xs-b-6
+    .row
+      .col-xs-12.col-md-10.col-md-offset-1
+        if post
+          if post.thumbnail
+            img(src=post.thumbnail.large.url)
+    .row
+      .col-xs-12.col-md-10.col-md-offset-1
+        .p-md-x-2
+          .blue-box.p-xs-y-1.p-xs-x-2.post-title-box
+            h1.post-title= post.title
+            
+            div.m-xs-b-1= post.subtitle
+
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        .post-content!= post.content

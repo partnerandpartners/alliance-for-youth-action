@@ -6,7 +6,7 @@
 %triad-upright {
   font-family: 'Triade-Upright';
   font-weight: normal;
-}a
+}
 
 %triad-slanted {
   font-family: 'Triade-Slanted';
@@ -323,7 +323,8 @@ fieldset {
   span {
     margin-bottom: 10px;
     display: block;
-    background: #fff;
+    background: $teal;
+
   }
   svg {
     background: $blue;
@@ -411,11 +412,26 @@ fieldset {
 }
 
 .campaign-main-goals {
-  margin-top: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  &, ul {
+    padding: 0;
+  }
+  & {
+    list-style-type: none;
+  }
+  .goal-number {
+    @extend %triad-upright;
+    font-size: 88px;
+    line-height: 1;
+    text-align: center;
+  }
 }
 
 .teal-header-line {
   background: #01D5F3;
+  margin-top: .8rem;
   height: 1.325rem;
   margin-bottom: .5rem;
   span {
@@ -432,13 +448,13 @@ fieldset {
 
 .large-teal-header-line {
   background: #01D5F3;
-  height: 1.8rem;
+  height: 29px;
   margin-bottom: 1rem;
   span {
     background: #fff;
     line-height: 2rem;
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 44px;
     padding-right: .7rem;
     margin: -.2rem 0 0 0;
     @extend %triad-upright;
@@ -692,7 +708,6 @@ svg {
 }
 
 #donate-form {
-  border-bottom: 2px solid #fff;
   * {
     font-family: inherit;
     font-weight: normal;
@@ -921,3 +936,218 @@ svg {
   margin: .3rem 0 .2rem 0;
   display: block;
 }
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 1.8rem solid transparent;
+  border-right: 1.8rem solid transparent;
+  z-index: 100000;
+  transform: translateX(25%) translateY(1.7rem);
+  border-top: 1.8rem solid $teal;
+  position: absolute;
+  bottom: 0;
+  right: -1.8rem;
+
+}
+
+.teal-right-border {
+  margin-right: .4rem;
+  .border-overlay {
+    width: 1.8rem;
+    background: #fff;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    right: -1.8rem;
+    z-index: 1000;
+  }
+  .arrow-down {
+    bottom: 20%;
+  }
+  position: relative;
+  border-right: 1.8rem solid $teal;
+  .teal-right-border {
+    margin-right: 0;
+    border-color: $teal;
+    .arrow-down {
+      bottom: 0;
+    }
+  }
+  .teal-right-border-content {
+    padding-right: 1rem;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    border-right: none;
+    .teal-right-border-content {
+      padding-right: 0;
+    }
+    .arrow-down,
+    .border-overlay {
+      display: none;
+    }
+  }
+}
+
+.strikethrough {
+  position: relative;
+  display: inline-block;
+  padding-right: 0 !important;
+  .line {
+    padding-right: 0 !important;
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 6px;
+    left: 0;
+    right: 0;
+    transform: rotateZ(-6deg);
+    width: 100%;
+    background: $teal;
+    display: block;
+  }
+}
+
+.hidden-xs {
+  display: none !important;
+}
+.hidden-sm {
+  @media screen and (min-width: map-get($breakpoints, 'sm')) {
+    display: none !important;
+  }
+}
+.hidden-md {
+  @media screen and (min-width: map-get($breakpoints, 'md')) {
+    display: none !important;
+  }
+}
+.hidden-lg {
+  @media screen and (min-width: map-get($breakpoints, 'lg')) {
+    display: none !important;
+  }
+}
+.hidden-xl {
+  @media screen and (min-width: map-get($breakpoints, 'xl')) {
+    display: none !important;
+  }
+}
+
+
+.visible-xs {
+  display: block !important;
+}
+.visible-sm {
+  @media screen and (min-width: map-get($breakpoints, 'sm')) {
+    display: block !important;
+  }
+}
+.visible-md {
+  @media screen and (min-width: map-get($breakpoints, 'md')) {
+    display: block !important;
+  }
+}
+.visible-lg {
+  @media screen and (min-width: map-get($breakpoints, 'lg')) {
+    display: block !important;
+  }
+}
+.visible-xl {
+  @media screen and (min-width: map-get($breakpoints, 'xl')) {
+    display: block !important;
+  }
+}
+
+
+
+#donate-form header.at-title {
+  @extend %triad-upright;
+  font-size:32px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.post-title-box {
+  margin-top: -2rem;
+  .post-title {
+    @extend %triad-upright;
+    font-size: 44px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    @media screen and (max-width: map-get($breakpoints, 'md')) {
+      font-size: 32px;
+    }
+  }
+
+  // h1.post-title {
+  //   //
+  //     font-size: 21px;
+  //     line-height: 29px;
+  //   // }
+  // }
+}
+
+
+
+.post-content {
+  @media screen and (min-width: map-get($breakpoints, 'sm')) {
+    font-size: 21px;
+    line-height: 29px;
+  }
+
+  a {
+    font-weight: bold;
+    border-bottom: 4px solid transparent;
+    &:hover {
+      border-color: $blue;
+    }
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-family: $font-family-base !important;
+    text-transform: none;
+    font-weight: bold;
+
+  }
+  @media screen and (max-width: map-get($breakpoints, 'md')) {
+    h1 {
+      font-size: $h1-font-size * .8;
+    }
+    h2 {
+      font-size: $h2-font-size * .8;
+    }
+    h3 {
+      font-size: $h3-font-size * .8;
+    }
+    h4 {
+      font-size: $h4-font-size * .8;
+    }
+    h5 {
+      font-size: $h5-font-size * .8;
+    }
+    h6 {
+      font-size: $h6-font-size * .8;
+    }
+  }
+}
+
+.goal-task {
+  margin-bottom: 1rem;
+  list-style-type:disc;
+}
+
+.margin-top-like-negative {
+  margin-top: -21rem;
+}
+
+.border-overlay.background-blue {
+  background: $blue !important;
+}
+
+// When in need of party mode, uncomment:
+// * {
+//   color: #e56;
+//   background: Transparent !important;
+//   background:orange !important;
+//   text-shadow: 1rem 1rem blue;
+// }
