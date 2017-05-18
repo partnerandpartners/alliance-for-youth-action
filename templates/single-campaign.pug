@@ -27,59 +27,61 @@ block content
     - var goalsTitleArray = post.goalsTitle.split(" ")
     - var goalsTitleTop = goalsTitleArray.slice(0, Math.floor(goalsTitleArray.length / 2)).join(' ')
     - var goalsTitleBottom = goalsTitleArray.slice(Math.floor(goalsTitleArray.length / 2)).join(' ')
+ 
+    if post.goals && post.goals
+      .row
+        .col-xs-12.col-md-10
+          .teal-right-border
+            .arrow-down
+            .border-overlay.background-blue
 
-    .row
-      .col-xs-12.col-md-10
-        .teal-right-border
-          .arrow-down
-          .border-overlay.background-blue
+            .hidden-md
+              .large-teal-header-line
+                span= post.goalsTitle
 
-          .hidden-md
-            .large-teal-header-line
-              span= post.goalsTitle
+            .large-teal-header-line.hidden-xs.visible-md
+              span= goalsTitleTop
 
-          .large-teal-header-line.hidden-xs.visible-md
-            span= goalsTitleTop
-
-          .teal-right-border-content
+            .teal-right-border-content
 
 
-            .teal-right-border
-              .arrow-down
-              .large-teal-header-line.hidden-xs.visible-md
-                span= goalsTitleBottom
-                
-              .teal-right-border-content
-                .row
-                  .col-xs-12.m-xs-b-2
-                    div.p-xs-t-9 &nbsp;
+              .teal-right-border
+                .arrow-down
+                .large-teal-header-line.hidden-xs.visible-md
+                  span= goalsTitleBottom
+                  
+                .teal-right-border-content
+                  .row
+                    .col-xs-12.m-xs-b-2
+                      div.p-xs-t-9 &nbsp;
 
-    .row.margin-top-like-negative
-      //-.row.m-xs-y-3
-      //- .col-xs-12
-      //-   .teal-header-line
-      //-     span= post.goalsTitle
-      .col-xs-12.col-md-10.col-md-offset-1
-        .m-xs-y-6
-          .blue-box.p-xs-a-2
-            ol.campaign-main-goals
-              - var goalNumber = 1
-              each goal in post.goals
-                li.m-xs-b-3
-                  .goal-number= goalNumber
-                  - goalNumber++
-                  h2= goal.title
+      .row.margin-top-like-negative
+        //-.row.m-xs-y-3
+        //- .col-xs-12
+        //-   .teal-header-line
+        //-     span= post.goalsTitle
+        .col-xs-12.col-md-10.col-md-offset-1
+          .m-xs-y-6
+            .blue-box.p-xs-a-2
+              ol.campaign-main-goals
+                - var goalNumber = 1
+                each goal in post.goals
+                  li.m-xs-b-3
+                    .goal-number= goalNumber
+                    - goalNumber++
+                    h2= goal.title
 
-                  ul
-                    each task in goal.tasks
-                      li.goal-task= task.task
-
-    .row.m-xs-t-3
-      .col-xs-12
-        .large-teal-header-line
-          span= post.campaignWhatWereDoingTitle
-      .col-xs-12.col-md-7
-        p.lead.m-xs-b-2= post.campaignWhatWereDoingDescription
+                    ul
+                      each task in goal.tasks
+                        li.goal-task= task.task
+                        
+    if post.campaignWhatWereDoing
+      .row.m-xs-t-3
+        .col-xs-12
+          .large-teal-header-line
+            span= post.campaignWhatWereDoingTitle
+        .col-xs-12.col-md-7
+          p.lead.m-xs-b-2= post.campaignWhatWereDoingDescription
 
     if post.campaignWhatWereDoing
       .row
@@ -153,7 +155,7 @@ block content
     //-         include ./partials/post-listing
     //-     - post = ogPost
 
-    .row
+    .row.m-xs-t-2
       .col-xs-12
         .large-teal-header-line
           span= post.campaignFooterTitle
