@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://busfed.flywheelsites.com/wp-json/pnp-api/v1/site",
+  "endpoint": "https://content.allianceforyouthaction.org/wp-json/pnp-api/v1/site",
   "templatesFolder": "templates",
   "siteFolder": "_site"
 }
