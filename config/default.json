@@ -1,5 +1,5 @@
 {
-  "endpoint": "content.allianceforyouthaction.org/wp-json/pnp-api/v1/site",
+  "endpoint": "http://content.allianceforyouthaction.org/wp-json/pnp-api/v1/site",
   "templatesFolder": "templates",
   "siteFolder": "_site"
 }
