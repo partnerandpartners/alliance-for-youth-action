@@ -431,7 +431,7 @@ fieldset {
 }
 
 .teal-header-line {
-  background: #01D5F3;
+  background: $teal;
   margin-top: .8rem;
   height: 1.325rem;
   margin-bottom: .5rem;
@@ -448,7 +448,7 @@ fieldset {
 }
 
 .large-teal-header-line {
-  background: #01D5F3;
+  background: $teal;
   height: 29px;
   margin-bottom: 1rem;
   span {
