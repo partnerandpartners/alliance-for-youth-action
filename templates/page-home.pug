@@ -54,15 +54,16 @@ block content
           .p-md-r-9
             h1.color-blue= post.affiliateHomeHeadline
             div!= post.affiliateHomeLeadin
-
-          if post.affiliatesHome && site.posts
+  
+          if post.affiliatesHome.length && site.posts
             .home-affiliates
               .row
                 each postId in post.affiliatesHome
                   each affiliate in site.posts
-                    if affiliate.id === postId
-                      .col-xs-12.col-sm-6
-                        .h4.map-affiliate= affiliate.title
+                    if postId
+                      if affiliate.id === postId
+                        .col-xs-12.col-sm-6
+                          .h4.map-affiliate= affiliate.title
       .row
         .col-xs-12
           a.more-link.white(href="/local-organizing") Learn more &#9658;
