@@ -69,19 +69,21 @@ html(lang="en-us")
             .col-xs-12.col-md-6
               .h4.text-uppercase.m-xs-t-0= site.options.footerContactFormTitle
               div.m-xs-b-1= site.options.footerContactFormDescription
-              #contact-sign-up
-                script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
-                div(class='ngp-form'
-                    data-template='oberon'
-                    data-id='-4904840648071313664'
-                    data-endpoint='https://api.myngp.com/'
-                    data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
-                    data-fastaction-endpoint='https://fastaction.ngpvan.com/'
-                    data-databag='everybody'
-                    data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
-                    data-inline-errors='true'
-                    data-fastaction-nologin='true'
-                    data-embed='true')
+
+              if site.options.hasOwnProperty('everyaction_sign_up_form_id')
+                #contact-sign-up
+                  script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+                  div(class='ngp-form'
+                      data-template='oberon'
+                      data-id=site.options.everyaction_sign_up_form_id
+                      data-endpoint='https://api.myngp.com/'
+                      data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
+                      data-fastaction-endpoint='https://fastaction.ngpvan.com/'
+                      data-databag='everybody'
+                      data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
+                      data-inline-errors='true'
+                      data-fastaction-nologin='true'
+                      data-embed='true')
             .col-xs-12.col-md-6
               .row
                 .col-xs-12.col-md-6
