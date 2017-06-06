@@ -20,6 +20,7 @@
     "html-minifier": "^3.2.2",
     "lodash": "^4.17.2",
     "pug": "^2.0.0-beta6",
+    "replaceall": "^0.1.6",
     "url-join": "^2.0.2"
   },
   "devDependencies": {
