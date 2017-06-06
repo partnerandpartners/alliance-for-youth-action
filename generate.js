@@ -6,11 +6,14 @@ const path = require('path')
 const minify = require('html-minifier').minify
 const _ = require('lodash')
 const templateLocator = require('./lib/template-locator')
+const mediaDownloader = require('./lib/media-downloader')
+const replaceMediaReferences = require('./lib/replace-media-references')
 
 config.templatesPath = path.resolve(__dirname, config.templatesFolder)
 config.sitePath = path.resolve(__dirname, config.siteFolder)
 
 function normalizeSiteData (siteData) {
+  siteData = replaceMediaReferences(siteData)
   siteData.posts.forEach((post) => {
     var terms = siteData.terms.filter(term => {
       return post.taxonomyTermIds.indexOf(term.id) !== -1
@@ -218,6 +221,10 @@ function generate () {
         var siteData = values[0]// values[0].data;
         var templates = values[1]
         var templatesCompiled = {}
+
+        siteData = replaceMediaReferences(siteData)
+
+        mediaDownloader(siteData.media)
 
         // Normalize the data
         siteData = normalizeSiteData(siteData)
