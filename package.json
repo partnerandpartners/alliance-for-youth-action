@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "config": "^1.25.1",
+    "download": "^6.2.2",
     "eslint-config-standard": "^7.0.0",
     "fs-promise": "^1.0.0",
     "gulp": "^3.9.1",
@@ -18,7 +19,8 @@
     "gulp-sourcemaps": "^2.2.0",
     "html-minifier": "^3.2.2",
     "lodash": "^4.17.2",
-    "pug": "^2.0.0-beta6"
+    "pug": "^2.0.0-beta6",
+    "url-join": "^2.0.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
