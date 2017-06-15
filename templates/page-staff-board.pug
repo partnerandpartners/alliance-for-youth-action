@@ -44,13 +44,13 @@ block content
     .m-xs-b-6
       .row
         .col-xs-12.col-sm-7.col-md-5
-          h3.m-xs-b-0 The Board of Directors of the Alliance for Youth Action
+          h3.m-xs-b-0 The Board of Directors of the Alliance for Youth Organizing
           .meta  Affiliates listed for identification purposes only.
-      if post.the_board_of_directors_of_the_alliance_for_youth_action
+      if post.the_board_of_directors_of_the_alliance_for_youth_organizing
         .row
           .col-xs-12
             .board-members
-              each boardMember in post.the_board_of_directors_of_the_alliance_for_youth_action
+              each boardMember in post.the_board_of_directors_of_the_alliance_for_youth_organizing
                 .board-member
                   div
                     strong= boardMember.name
