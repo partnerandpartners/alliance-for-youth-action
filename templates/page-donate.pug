@@ -37,16 +37,17 @@ block content
     .row
       .col-xs-12.col-md-10.col-md-offset-1
         .color-scheme-blue.m-xs-b-6
-          #donate-form
-            script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
-            div(class='ngp-form'
-                data-template='minimal'
-                data-id='-4832783054033385728'
-                data-endpoint='https://api.myngp.com/'
-                data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
-                data-fastaction-endpoint='https://fastaction.ngpvan.com/'
-                data-databag='everybody'
-                data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
-                data-inline-errors='true'
-                data-fastaction-nologin='true'
-                data-embed='true')
+          if site.options.hasOwnProperty('everyaction_donate_form_id')
+            #donate-form
+              script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+              div(class='ngp-form'
+                  data-template='minimal'
+                  data-id=site.options.everyaction_donate_form_id
+                  data-endpoint='https://api.myngp.com/'
+                  data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
+                  data-fastaction-endpoint='https://fastaction.ngpvan.com/'
+                  data-databag='everybody'
+                  data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
+                  data-inline-errors='true'
+                  data-fastaction-nologin='true'
+                  data-embed='true')
