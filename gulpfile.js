@@ -11,7 +11,7 @@ var generator = require('./generate')
 
 gulp.task('reloadGenerator', function () {
   delete require.cache[require.resolve('./generate.js')]
-  generator = require('./generate').on('error', function (err) { console.log(err) })
+  generator = require('./generate')
 })
 
 gulp.task('generate', function () {
