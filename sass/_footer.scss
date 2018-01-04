@@ -1,3 +1,12 @@
+.multistep-layout .HeaderHtml {
+  display: none;
+}
+
+.multistep-layout.split-layout form {
+    width: 100% !important;
+    border-left: none !important;
+}
+
 #footer {
   ul {
     list-style-type: none;
