@@ -39,15 +39,10 @@ block content
         .color-scheme-blue.m-xs-b-6
           if site.options.hasOwnProperty('everyaction_donate_form_id')
             #donate-form
-              script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+              script(type='text/javascript' src='https://d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js' crossorigin='anonymous')
               div(class='ngp-form'
-                  data-template='minimal'
-                  data-id=site.options.everyaction_donate_form_id
-                  data-endpoint='https://api.myngp.com/'
-                  data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
-                  data-fastaction-endpoint='https://fastaction.ngpvan.com/'
-                  data-databag='everybody'
-                  data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
-                  data-inline-errors='true'
-                  data-fastaction-nologin='true'
-                  data-embed='true')
+                  data-form-url="https://actions.everyaction.com/v1/Forms/H3Y71bpmUEmF9LC79y4PRg2"
+                  data-fastaction-endpoint="https://fastaction.ngpvan.com"
+                  data-inline-errors="true"
+                  data-fastaction-nologin="true"
+                  data-databag="everybody")
