@@ -3,8 +3,21 @@
 }
 
 .multistep-layout.split-layout form {
-    width: 100% !important;
-    border-left: none !important;
+  width: 100% !important;
+  border-left: none !important;
+}
+
+.at img {
+  display: none !important;
+}
+
+.contributions {
+  color: white;
+}
+
+.contributions p a {
+  font-weight: bold !important;
+  color: white !important;
 }
 
 #footer {
