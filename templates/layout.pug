@@ -72,18 +72,14 @@ html(lang="en-us")
 
               if site.options.hasOwnProperty('everyaction_sign_up_form_id')
                 #contact-sign-up
-                  script(type='text/javascript' src='//d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js')
+                  script(type='text/javascript' src='https://d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js' crossorigin='anonymous')
                   div(class='ngp-form'
-                      data-template='oberon'
-                      data-id=site.options.everyaction_sign_up_form_id
-                      data-endpoint='https://api.myngp.com/'
-                      data-formdef-endpoint='//formdefs.s3.amazonaws.com/api.myngp.com'
-                      data-fastaction-endpoint='https://fastaction.ngpvan.com/'
-                      data-databag='everybody'
-                      data-resource-path='https://d1aqhv4sn5kxtx.cloudfront.net/'
-                      data-inline-errors='true'
-                      data-fastaction-nologin='true'
-                      data-embed='true')
+                      data-form-url="https://actions.everyaction.com/v1/Forms/xsBjt5wkeUuodvXC4FE3_g2"
+                      data-fastaction-endpoint="https://fastaction.ngpvan.com"
+                      data-inline-errors="true"
+                      data-fastaction-nologin="true"
+                      data-databag="everybody")
+                    
             .col-xs-12.col-md-6
               .row
                 .col-xs-12.col-md-6
