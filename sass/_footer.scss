@@ -1,3 +1,45 @@
+.multistep-layout .HeaderHtml {
+  display: none;
+}
+
+.multistep-layout.split-layout form {
+  width: 100% !important;
+  border-left: none !important;
+}
+
+.at img {
+  display: none !important;
+}
+
+.contributions {
+  color: white;
+}
+
+.contributions p a {
+  font-weight: bold !important;
+  color: white !important;
+}
+
+.multistep-layout .LegalDescription p {
+    color: white !important;
+}
+
+.at label small {
+    color: #94bdff !important;
+}
+
+.content.thankYou {
+    padding: 30px !important;
+}
+
+.thankYou .btn-facebook {
+    margin-right: 15px;
+}
+
+.at .error small.error {
+    color: #fff !important;
+}
+
 #footer {
   ul {
     list-style-type: none;
