@@ -73,8 +73,12 @@
   width: 100%;
   font-size: 1.75rem;
   @extend %triad-upright;
-  li:first-of-type {
+  li {
     margin-right: $padding * 2;
+  }
+
+  li:last-of-type {
+    margin-right: 0;
   }
 
   @media screen and (max-width: 768px) {
