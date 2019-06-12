@@ -30,3 +30,13 @@ hr {
 img.aligncenter {
   margin: 0 auto;
 }
+
+img.alignleft {
+  float: left;
+  margin-right: 20px;
+}
+
+img.alignright {
+  float: right;
+  margin-left: 20px;
+} 
