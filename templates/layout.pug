@@ -18,14 +18,16 @@ html(lang="en-us")
     link(rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
     link(href="/css/style.css" rel="stylesheet" type="text/css")
 
-    // Global site tag (gtag.js) - Google Analytics
-    script async src="https://www.googletagmanager.com/gtag/js?id=UA-142279292-2"
+    script async src="https://www.googletagmanager.com/gtag/js?id=UA-142279292-1"
+
     script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-142279292-2');
-      
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-142279292-1');ga('send','pageview');
+
     meta(property="og:site_name" content=site.site.name)
     meta(property="og:locale" content=site.site.language.replace('-','_'))
 
