@@ -62,7 +62,7 @@ html(lang="en-us")
               button.main-menu-toggle MENU #[span &#9652;]
 
               if site.menus && site.menus.main
-                nav#main-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                nav#main-menu(itemscope itemtype="https://schema.org/SiteNavigationElement")
                   +navMenu(site.menus.main)
 
     block header
@@ -92,23 +92,23 @@ html(lang="en-us")
               .row
                 .col-xs-12.col-md-6
                   if site.menus && site.menus.about
-                    nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                    nav(itemscope itemtype="https://schema.org/SiteNavigationElement")
                       +navMenu(site.menus.about)
 
                   if site.menus && site.menus.campaigns
-                    nav.m-xs-t-2(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                    nav.m-xs-t-2(itemscope itemtype="https://schema.org/SiteNavigationElement")
                       +navMenu(site.menus.campaigns)
 
                 .col-xs-12.col-md-6
                   if site.menus && site.menus.organizing
-                    nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                    nav(itemscope itemtype="https://schema.org/SiteNavigationElement")
                       +navMenu(site.menus.organizing)
 
                   if site.menus && site.menus.donate
-                    nav.m-xs-t-2(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                    nav.m-xs-t-2(itemscope itemtype="https://schema.org/SiteNavigationElement")
                       +navMenu(site.menus.donate)
 
-                  nav.m-xs-t-2.social(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                  nav.m-xs-t-2.social(itemscope itemtype="https://schema.org/SiteNavigationElement")
                     ul
                       li #[a(href="https://www.facebook.com/AllianceforYouthAction/" target="_blank") #[i.ion-social-facebook]]
                       li #[a(href="https://twitter.com/alliance4youth" target="_blank") #[i.ion-social-twitter]]
@@ -132,7 +132,7 @@ html(lang="en-us")
             .col-xs-12
                 .footer-logo-menu-wrapper
                   if site.menus && site.menus.footer
-                    nav.footer-menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
+                    nav.footer-menu(itemscope itemtype="https://schema.org/SiteNavigationElement")
                       +navMenu(site.menus.footer)
 
                   .copyright= site.options.footerCopyrightText
